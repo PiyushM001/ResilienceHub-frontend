@@ -68,7 +68,7 @@ export default function Maketeam() {
   };
 
   return (
-    <div className=" h-[100vh] bg-[#000000] w-full ">
+    <div className=" h-[100vh] bg-[#000000] w-full  ">
       <ToastContainer />
       {loading && (
         <div className="absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]">
@@ -85,8 +85,8 @@ export default function Maketeam() {
      
         <section class=" bg-[#000000] h-[100vh]  flex-col justify-center  items-center">
           <ToastContainer />
-          <div class="flex flex-col items-center justify-center px-2  mx-auto md:h-screen lg:py-0 w-[85%]  ">
-            <div class="w-full bg-[#1b1b1b] border-[#414141] rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0  glass2 mt-[15vh] ">
+          <div class="flex flex-col items-center justify-center px-2   mx-auto md:h-screen lg:py-0 w-[85%]  ">
+            <div class="w-full bg-[#1b1b1b] border-[#414141] rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0  glass2  mt-[12vh] ">
               <div class="p-4 ">
                 <form class=" " action="#">
                   <div>

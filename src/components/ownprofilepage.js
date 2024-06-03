@@ -8,6 +8,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import loadinggif from '../Images/loading.gif';
 
 
 import profilealt from '../Images/profile2.png';
@@ -34,13 +35,32 @@ export default function Ownprofilepage() {
   let navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const a = useContext(pContext);
+  const [loading, setLoading] = useState(false);
 
   const infoid = localStorage.getItem("infoid");
 
   const {  ownid, getinfo, infostate, updateinfo,getfollowerslist,followersarray,followingarray, getfollowinglist,fetchProfilePicture ,Profilepic,bgpic} = a;
+  
+
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      await getinfo();
+      // await fetchProfilePicture(infoid)
+       // Assuming getPlayers is a function to fetch players with pagination support
+    } catch (error) {
+      // Handle error if necessary
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
   useEffect(() => {
-    getinfo();
-    fetchProfilePicture(infoid)
+    fetchData();
+    
+   
   }, []);
 
   const logoutfun = () => {
@@ -185,6 +205,14 @@ export default function Ownprofilepage() {
 
   return (
     <>
+
+{loading && (
+            <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]'>
+              <div className='h-[30vh] bg-[#000000]'></div>
+              <img className='w-[100vw]' src={loadinggif} alt="Loading" />
+              <div className='h-[30vh] bg-[#000000]'></div>
+            </div>
+          )}
       {infostate.map((value) => (
         <div className="bg-gradient-to-r from-[#000000] to-[#000000] w-full h-[100vh] overflow-y-scroll">
           <ToastContainer />
@@ -235,13 +263,14 @@ export default function Ownprofilepage() {
           <div>
 
             <div className="bg-[#000000] relative flex flex-col items-end">
-              <img className="w-[100vw] h-[6rem]" src={bgpic} alt="Upload Background "></img>
+              <div className="pro2"><img className="w-[100vw] h-[6rem]" src={value.bgPictureUrl} alt="Upload Background "></img></div>
               <Link to="/post/bg" style={{color:"#f5f5f5"}} className="bg-[#686868] rounded-[100%] w-[1.5rem] h-[1.5rem] flex justify-center items-center  mt-[-2rem] mr-[1rem]"  ><IoCamera /></Link>
             </div>
 
             <div className="flex h-[4rem] relative items-center">
-              <div className="absolute left-0 bottom-0 flex">
-                <img className="w-[7rem] rounded-[100%] ml-4 border-[2px] border-[#4ddcf5]" src={Profilepic} alt={profilealt}></img>
+              <div className="absolute left-0 bottom-0 flex h-[7rem] ">
+                <div className="pro h-[7rem] w-[7rem] rounded-[100%] ml-4">                <img className="w-[7rem] h-[7rem] rounded-[100%]  border-[2px] border-[#4ddcf5]" src={value.profilePictureUrl} alt={profilealt}></img>
+</div>
                 <Link to="/post/Profile" style={{color:"#f5f5f5"}} className="bg-[#686868] rounded-[100%] w-[1.5rem] h-[1.5rem] flex justify-center items-center mt-[5rem] ml-[-1.3rem]"  ><IoCamera /></Link>
               </div>
               <div className="w-[40%]"></div>
@@ -286,6 +315,19 @@ export default function Ownprofilepage() {
                 {value.RealName}
               </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -470,7 +512,7 @@ export default function Ownprofilepage() {
             >
 
               <div className="flex h-[4rem]">
-                <div className="text-[#00fbff] font-teachers  text-[1.1rem] ml-7 mt-2 w-[20%] flex items-center">
+                <div className="text-[#37c5b0]   font-teachers  text-[1.1rem] ml-7 mt-2 w-[20%] flex items-center">
                   About
                 </div>
 
@@ -544,7 +586,7 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
-                <div className="w-[20%]  font-teachers text-[#00fbff] text-[1.1rem] ml-7 mt-2 flex  items-center">
+                <div className="w-[20%]  font-teachers text-[#37c5b0]   text-[1.1rem] ml-7 mt-2 flex  items-center">
                   Device
                 </div>
                 <div className="w-[80%] flex justify-end mr-4">
@@ -617,7 +659,7 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
-                <div className="w-[40%] font-teachers text-[#00fbff] text-[1rem] ml-7 mt-2 flex items-center">
+                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
                   Player-Id
                 </div>
                 <div className="w-[60%] flex justify-end mr-4">
@@ -632,7 +674,7 @@ export default function Ownprofilepage() {
                     </Button>
                     <Dialog open={openPlayerid} onClose={handleClose}>
                       <DialogTitle className=" font-mochiy-pop text-[2vw]">
-                        {"Add your ID in game "}
+                        {"Add your Game ID  "}
                       </DialogTitle>
                       <DialogContent>
                         <DialogContentText>
@@ -733,8 +775,8 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="w-full flex  h-[4rem]">
-                <div className="text-[#00fbff] font-teachers text-[1rem] ml-7  w-[80%] flex items-center">
-                  Skills
+                <div className="text-[#37c5b0]   font-teachers text-[1rem] ml-7  w-[80%] flex items-center">
+                Speciality
                 </div>
 
                 <div className=" flex items-center mr-4">
@@ -748,11 +790,11 @@ export default function Ownprofilepage() {
                   </Button>
                   <Dialog open={open} onClose={handleClose}>
                     <DialogTitle className=" font-mochiy-pop text-[2vw]">
-                      {"Add your Skill"}
+                      {"What is your Speciality"}
                     </DialogTitle>
                     <DialogContent>
                       <DialogContentText>
-                        Example: Assaulter,Team work,IGL etc...
+                        Example: Assaulter,IGL etc...
                       </DialogContentText>
                       <TextField
                         autoFocus
@@ -819,8 +861,8 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1 mb-[11vh] border-[1px]  border-[#262626] ">
               <div className="w-full flex h-[4rem]">
-                <div className="text-[#00fbff] text-[1rem] ml-7  w-[80%] flex items-center">
-                  Tournaments
+                <div className="text-[#37c5b0]   text-[1rem] ml-7  w-[80%] flex items-center">
+                  Achievements
                 </div>
 
                 <div className=" flex items-center mr-4">
@@ -833,7 +875,7 @@ export default function Ownprofilepage() {
                   </Button>
                   <Dialog open={openTournament} onClose={handleClose}>
                     <DialogTitle >
-                      {"Add Tournaments in which you have participated"}
+                      {"Add your Achievements"}
                     </DialogTitle>
                     <DialogContent>
                       <DialogContentText>

@@ -6,7 +6,12 @@ module.exports = {
 "./src/components/home.js",
 "./src/components/chatpage.js",
 "./src/components/chatcomp.js",
+"./src/components/makeTeam.js",
+"./src/components/post.js",
+"./src/components/postpost.js",
 
+"./src/components/profile_page_common.js",
+"./src/components/profile_post_page.js",
 
     "./src/components/footer.js",
     "./src/components/header.js",

@@ -38,7 +38,6 @@ export default function Ownprofilepage() {
   const _id = ownid;
   useEffect(() => {
     getinfo();
-    fetchProfilePicture(infoid)
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const logoutfun = () => {
@@ -180,7 +179,7 @@ export default function Ownprofilepage() {
 
   return (
     <>
-     {infostate.map((value) => (
+      {infostate.map((value) => (
         <div className="bg-gradient-to-r from-[#000000] to-[#000000] w-full h-[100vh] overflow-y-scroll">
           <ToastContainer />
           <Transition
@@ -229,14 +228,15 @@ export default function Ownprofilepage() {
           </Transition>
           <div>
 
-            <div className="bg-[red] relative flex flex-col items-end">
-              <img className="w-[100vw] h-[6rem]" src={bgpic} alt="img"></img>
+            <div className="bg-[#000000] relative flex flex-col items-end">
+              <div className="pro2"><img className="w-[100vw] h-[6rem]" src={value.bgPictureUrl} alt="Upload Background "></img></div>
               <Link to="/post/bg" style={{color:"#f5f5f5"}} className="bg-[#686868] rounded-[100%] w-[1.5rem] h-[1.5rem] flex justify-center items-center  mt-[-2rem] mr-[1rem]"  ><IoCamera /></Link>
             </div>
 
             <div className="flex h-[4rem] relative items-center">
-              <div className="absolute left-0 bottom-0 flex">
-                <img className="w-[7rem] rounded-[100%] ml-4 border-[2px] border-[#4ddcf5]" src={Profilepic} alt={profilealt}></img>
+              <div className="absolute left-0 bottom-0 flex h-[7rem] ">
+                <div className="pro h-[7rem] w-[7rem] rounded-[100%] ml-4">                <img className="w-[7rem] h-[7rem] rounded-[100%]  border-[2px] border-[#4ddcf5]" src={value.profilePictureUrl} alt={profilealt}></img>
+</div>
                 <Link to="/post/Profile" style={{color:"#f5f5f5"}} className="bg-[#686868] rounded-[100%] w-[1.5rem] h-[1.5rem] flex justify-center items-center mt-[5rem] ml-[-1.3rem]"  ><IoCamera /></Link>
               </div>
               <div className="w-[40%]"></div>
@@ -281,6 +281,10 @@ export default function Ownprofilepage() {
                 {value.RealName}
               </div>
             </div>
+
+
+
+
 
 
 
@@ -410,7 +414,7 @@ export default function Ownprofilepage() {
             >
 
               <div className="flex h-[4rem]">
-                <div className="text-[#00fbff] font-teachers  text-[1.1rem] ml-7 mt-2 w-[20%] flex items-center">
+                <div className="text-[#37c5b0]   font-teachers  text-[1.1rem] ml-7 mt-2 w-[20%] flex items-center">
                   General
                 </div>
 
@@ -481,7 +485,7 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
-                <div className="w-[20%]  font-teachers text-[#00fbff] text-[1.1rem] ml-7 mt-2 flex  items-center">
+                <div className="w-[20%]  font-teachers text-[#37c5b0]   text-[1.1rem] ml-7 mt-2 flex  items-center">
                   Email
                 </div>
                 <div className="w-[80%] flex justify-end mr-4">
@@ -554,7 +558,7 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
-                <div className="w-[40%] font-teachers text-[#00fbff] text-[1rem] ml-7 mt-2 flex items-center">
+                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
                   Phone Number
                 </div>
                 <div className="w-[60%] flex justify-end mr-4">
@@ -622,7 +626,7 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
-                <div className="w-[40%] font-teachers text-[#00fbff] text-[1rem] ml-7 mt-2 flex items-center">
+                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
                   Education
                 </div>
                 <div className="w-[60%] flex justify-end mr-4">
@@ -693,7 +697,7 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1 mb-[11vh] border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
-                <div className="w-[40%] font-teachers text-[#00fbff] text-[1rem] ml-7 mt-2 flex items-center">
+                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
                   Residence
                 </div>
                 <div className="w-[60%] flex justify-end mr-4">

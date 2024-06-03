@@ -11,7 +11,9 @@ const ProfilePictureUpload = ({ userId }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
-  const port = "http://localhost:5000";
+  // const port = "http://localhost:5000";
+  const port = "https://thrive-backend-o6k3.onrender.com"
+
   const infoid = localStorage.getItem("infoid");
 
   const handleFileChange = (event) => {
@@ -41,7 +43,7 @@ const ProfilePictureUpload = ({ userId }) => {
 
       if (response.ok) {
         const data = await response.json();
-        window.location.href = '/new-route';
+        window.location.href = '/profile';
         setLoading(false);
         console.log('File uploaded successfully', data);
       } else {
@@ -62,8 +64,8 @@ const ProfilePictureUpload = ({ userId }) => {
         </div>
       )}
       <div className='bg-[#0c0c0c] h-[100vh] w-full flex flex-col justify-center items-center overflow-y-scroll '>
-        <div className='w-[90%] h-[90vh]'>
-          <form onSubmit={handleSubmit} className=' text-[#b0b0b0]'>
+        <div className='w-[90%] h-[90vh] text-[#d1d1d1]'>
+          <form onSubmit={handleSubmit} className=' '>
             <input type="file" onChange={handleFileChange} />
             {preview && (
               <div className='mt-5 border-[1px] border-[#838383]' style={{ position: 'relative', width: '100%', height: '400px' }}>

@@ -9,8 +9,10 @@ import Footer from './footer';
 const MyRealName = localStorage.getItem("MyRealName");
 const infoid = localStorage.getItem("infoid");
 const time = new Date().toLocaleTimeString(); // Update to get current time
+// const port = "https://thrive-backend-o6k3.onrender.com"
 
-const socket = io('http://localhost:5000'); // Adjust the URL according to your backend server
+const socket = io('https://thrive-backend-o6k3.onrender.com'); 
+// const socket = io(process.env.REACT_APP_port);
 
 export default function Chatpage() {
   const a = useContext(pContext);
@@ -29,7 +31,7 @@ export default function Chatpage() {
   const teamname = "team7";
   const [msg, setmsg] = useState("");
   const [loading, setLoading] = useState(true);
-const [chatarray2,setchatarray2]=useState([])
+const [chatarray2,setchatarray2]=useState(chatarray)
 const [showFooter, setShowFooter] = useState(true);
 const chatRef = useRef(null);
 
@@ -89,7 +91,7 @@ useEffect(()=>{    chatRef.current?.scrollIntoView()
   };
 
   return (
-    <div>
+    <div className='bg-[#000000] h-[100vh] w-full'>
       {loading && (
         <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]'>
           <div className='h-[30vh] bg-[#000000]'></div>

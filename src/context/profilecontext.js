@@ -6,8 +6,10 @@ import { useNavigate } from "react-router-dom";
 // require('dotenv').config();
 // const host = process.env.port
 export const pContext = createContext();
-// const port = "https://thrive-backend-o6k3.onrender.com"
-const port = "http://localhost:5000";
+// const port = process.env.REACT_APP_PORT;
+// const port ="http://localhost:5000"
+const port = "https://thrive-backend-o6k3.onrender.com"
+
 export default function Profilecontext(props) {
   // const localtoken2 = localStorage.getItem("token");
   // const localtoken = localtoken2.match(/"(.*?)"/)[1];
@@ -60,6 +62,9 @@ const [checkteam,setcheckteam]= useState(" ");
   const [NotificationCount, setNotificationCount] = useState(0);
   const [Profilepic, setProfilepic] = useState(0);
   const [bgpic, setbgpic] = useState(0);
+  const [postsarray, setpostsarray] = useState([]);
+  const [mypostsarray, setmypostsarray] = useState([]);
+  const [otherpostsarray, setotherpostsarray] = useState([]);
 
   let navigate = useNavigate();
 
@@ -108,6 +113,54 @@ const [checkteam,setcheckteam]= useState(" ");
     setteamarray(data[0].team);
   };
 
+  
+  const getpost = async (page) => {
+    const response = await fetch(`${port}/getposts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: localtoken,
+      },
+      body: JSON.stringify({page}),
+    }).catch((err) => {
+      toast(err);
+    });
+    const data = await response.json();
+    setpostsarray(data)
+    console.log("datagetpiost",data)
+  };
+
+  const getmypost = async (infoid) => {
+    const response = await fetch(`${port}/getposts/my`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: localtoken,
+      },
+      body: JSON.stringify({infoid}),
+    }).catch((err) => {
+      toast(err);
+    });
+    const data = await response.json();
+    setmypostsarray(data)
+    
+  };
+
+  const getotherpost = async (userid) => {
+    const response = await fetch(`${port}/getposts/other`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: localtoken,
+      },
+      body: JSON.stringify({userid}),
+    }).catch((err) => {
+      toast(err);
+    });
+    const data = await response.json();
+    setotherpostsarray(data)
+    
+  };
   // const getplayerinfo= async (_id)=>{
 
   //   const response = await fetch(`${port}/getplayerinfo", {
@@ -137,6 +190,9 @@ const [checkteam,setcheckteam]= useState(" ");
     settournamentarray(data.tournament2);
   };
 
+
+
+
   const post = async (IngameName, RealName, photo, description) => {
     const response = await fetch(`${port}/post`, {
       method: "POST",
@@ -149,16 +205,12 @@ const [checkteam,setcheckteam]= useState(" ");
       .then(async (response) => {
         const x = await response.json();
 
-        // const st = await response.text();
         if (response.ok) {
           console.log("sdgf", x.photo.data);
           toast.success("submission Successful");
-          //  localStorage.setItem("infoid", x._id);
-          //  navigate("/")
         } else {
           toast.error("sdgds");
         }
-        // toast(res.json())
       })
       .catch((err) => {
         toast(err);
@@ -245,6 +297,11 @@ const [checkteam,setcheckteam]= useState(" ");
         toast(err);
       });
   };
+
+
+
+
+  
 
   const createteam = async (teamname) => {
     const response = await fetch(`${port}/createteam`, {
@@ -335,6 +392,44 @@ const [checkteam,setcheckteam]= useState(" ");
 
 
 
+
+
+
+
+
+
+
+  
+  const like = async (
+   infoid,postid
+  ) => {
+    // API Call
+    const response = await fetch(`${port}/like`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: localtoken,
+      },
+      body: JSON.stringify({
+        infoid,postid
+      }),
+    })
+      .then(async (response) => {
+       
+        const p = await response.text();
+
+        if (response.ok) {
+        
+         toast.success(p);
+        } else {
+          toast.error(p);
+        }
+        // toast(res.json())
+      })
+      .catch((err) => {
+        toast(err);
+      });
+  };
 
 
 
@@ -812,7 +907,14 @@ const [checkteam,setcheckteam]= useState(" ");
     <pContext.Provider
       value={{
         chatfun,
+        mypostsarray,
+        otherpostsarray,
+        like,
         Profilepic,
+        postsarray,
+        getpost,
+        getmypost,
+        getotherpost,
         bgpic,
         NotificationCount,
         fetchProfilePicture,

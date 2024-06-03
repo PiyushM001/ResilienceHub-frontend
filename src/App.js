@@ -12,7 +12,6 @@ import Profilepageposts from './components/profile_page_posts';
 import Profilepagegames from './components/profile_page_games';
 import Players from './components/players_page';
 import Postpage from './components/profile_post_page';
-import Profileform from './components/profile_form';
 import Profilecontext from './context/profilecontext';
 import Login_page from './components/login';
 import Login from './components/login';
@@ -31,6 +30,8 @@ import Maketeam from './components/makeTeam';
 import Chatpage from './components/chatpage';
 import ProfilePictureUpload from './components/profile_post_page';
 import BgPictureUpload from './components/bg_post_page';
+import Post from './components/post';
+import Postpost from './components/postpost';
 function App() {
 
  
@@ -57,8 +58,8 @@ function App() {
         <Route path="/players" element={ <Players/> } />
         <Route path="/post/Profile" element={ <ProfilePictureUpload/> } />
         <Route path="/post/bg" element={ <BgPictureUpload/> } />
+        <Route path="/post" element={ <Postpost/> } />
 
-        <Route path="/ProfileForm" element={ <Profileform/> } />
         <Route path="/login" element={ <Login/> } />
 
         <Route path="/signup" element={ <Signup/> } />

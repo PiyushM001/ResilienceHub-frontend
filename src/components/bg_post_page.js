@@ -11,7 +11,9 @@ const BgPictureUpload = ({ userId }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
-  const port = "http://localhost:5000";
+  // const port = "http://localhost:5000";
+  const port = "https://thrive-backend-o6k3.onrender.com"
+
   const infoid = localStorage.getItem("infoid");
 
   const handleFileChange = (event) => {
@@ -41,7 +43,7 @@ const BgPictureUpload = ({ userId }) => {
 
       if (response.ok) {
         const data = await response.json();
-        window.location.href = '/';
+        window.location.href = '/profile';
         setLoading(false);
         console.log('File uploaded successfully', data);
       } else {
@@ -62,7 +64,7 @@ const BgPictureUpload = ({ userId }) => {
         </div>
       )}
       <div className='bg-[#0c0c0c] h-[100vh] w-full flex flex-col justify-center items-center overflow-y-scroll '>
-        <div className='w-[90%] h-[90vh]'>
+        <div className='w-[90%] h-[90vh] text-[#a7a7a7]'>
           <form onSubmit={handleSubmit} className=' text-[#b0b0b0]'>
             <input type="file" onChange={handleFileChange} />
             {preview && (

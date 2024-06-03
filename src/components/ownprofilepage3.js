@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Followcomp from './followcomp';
 import reject from "../Images/reject.svg"
+import Post from './post';
 
 import Footer from "./footer";
 import profilebg from "../Images/profile_bg.png";
@@ -41,11 +42,11 @@ export default function Ownprofilepage() {
 
   const infoid = localStorage.getItem("infoid");
 
-  const {  ownid, getinfo, infostate, updateinfo,getfollowerslist,followersarray,followingarray, getfollowinglist,fetchProfilePicture ,Profilepic,bgpic} = a;
+  const {  ownid, getinfo, infostate, updateinfo,getfollowerslist,followersarray,followingarray, getfollowinglist,mypostsarray,getmypost} = a;
   const _id = ownid;
   useEffect(() => {
     getinfo();
-    fetchProfilePicture(infoid)
+    getmypost(infoid)
   }, []);
 
   const logoutfun = () => {
@@ -184,7 +185,7 @@ export default function Ownprofilepage() {
 
   return (
     <>
-      {infostate.map((value) => (
+     {infostate.map((value) => (
         <div className="bg-gradient-to-r from-[#000000] to-[#000000] w-full h-[100vh] overflow-y-scroll">
           <ToastContainer />
           <Transition
@@ -233,14 +234,15 @@ export default function Ownprofilepage() {
           </Transition>
           <div>
 
-            <div className="bg-[red] relative flex flex-col items-end">
-              <img className="w-[100vw] h-[6rem]" src={bgpic} alt="img"></img>
+            <div className="bg-[#000000] relative flex flex-col items-end">
+              <div className="pro2"><img className="w-[100vw] h-[6rem]" src={value.bgPictureUrl} alt="Upload Background "></img></div>
               <Link to="/post/bg" style={{color:"#f5f5f5"}} className="bg-[#686868] rounded-[100%] w-[1.5rem] h-[1.5rem] flex justify-center items-center  mt-[-2rem] mr-[1rem]"  ><IoCamera /></Link>
             </div>
 
             <div className="flex h-[4rem] relative items-center">
-              <div className="absolute left-0 bottom-0 flex">
-                <img className="w-[7rem] rounded-[100%] ml-4 border-[2px] border-[#4ddcf5]" src={Profilepic} alt={profilealt}></img>
+              <div className="absolute left-0 bottom-0 flex h-[7rem] ">
+                <div className="pro h-[7rem] w-[7rem] rounded-[100%] ml-4">                <img className="w-[7rem] h-[7rem] rounded-[100%]  border-[2px] border-[#4ddcf5]" src={value.profilePictureUrl} alt={profilealt}></img>
+</div>
                 <Link to="/post/Profile" style={{color:"#f5f5f5"}} className="bg-[#686868] rounded-[100%] w-[1.5rem] h-[1.5rem] flex justify-center items-center mt-[5rem] ml-[-1.3rem]"  ><IoCamera /></Link>
               </div>
               <div className="w-[40%]"></div>
@@ -285,6 +287,33 @@ export default function Ownprofilepage() {
                 {value.RealName}
               </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div className="flex  h-[5rem] justify-evenly items-center ">
               <div className="flex w-[94%] h-[4rem] justify-evenly items-center">
@@ -385,22 +414,28 @@ export default function Ownprofilepage() {
 
           <div className="w-full flex flex-col justify-center items-center bg-[#0a0a0a00]   ">
 
+          <Link to="/post" className="w-[100%] m-2 h-[7vh] flex justify-center items-center font-mochiy-pop text-[#dadada]  bg-[#0b24284a]"> + Add post </Link>
 
 
+          {mypostsarray.length === 0 ? (
+                   <div className="h-[10rem] flex justify-center items-center">
+                   <div className=" flex-col items-center h-[5rem]">
+                   <img className="w-[4rem]" src={nopost}  alt="img" ></img>
+                   <div className="text-[1rem] text-[#7a7a7a]">No posts</div>
+                   </div>
+                   </div>
+                ) : (
+
+                  mypostsarray.map((post, index) => (
+                    <Post key={index} likes={post.likesCount} postid={post._id} postimg={post.PostUrl} profile={post.profilephoto}  description={post.description} name={post.IngameName} realname={post.RealName} data={post} />
+                  ))
 
 
+                )
+                
+                }
 
-
-<div className="h-[10rem] flex justify-center items-center">
-<div className=" flex-col items-center h-[5rem]">
-<img className="w-[4rem]" src={nopost}  alt="img" ></img>
-<div className="text-[1rem] text-[#7a7a7a]">No posts</div>
-</div>
-</div>
-
-
-
-
+<div className="h-[15vh]"></div>
 
 
 
@@ -442,7 +477,6 @@ export default function Ownprofilepage() {
 
 
         */}
-
 
 
 

@@ -4,6 +4,8 @@ import Header from './header';
 import Player from './player';
 import loadinggif from '../Images/loading.gif';
 import { pContext } from "../context/profilecontext";
+import { FaCaretLeft } from "react-icons/fa";
+import { FaCaretRight } from "react-icons/fa";
 
 export default function Players() {
   const a = useContext(pContext);
@@ -59,12 +61,16 @@ export default function Players() {
                 realname={value.RealName}
                 game={value.game}
                 trophy={value.trophy}
+                porfileimg={value.profilePictureUrl}
+                followingCount={value.followingCount}
+                followersCount={value.followersCount}
+                skill={value.skill2}
               />
             ))}
 
 <div className="flex justify-center mt-4 w-[100%]">
-            <button onClick={handlePrevPage} disabled={page === 1 } className="mx-2 px-4 py-2 bg-gray-800 text-white rounded-md">Previous</button>
-            <button onClick={handleNextPage} disabled={users.length<10} className="mx-2 px-4 py-2 bg-gray-800 text-white rounded-md">Next</button>
+            <button onClick={handlePrevPage} disabled={page === 1 } className="px-4 py-2 flex items-center text-[#828282] rounded-md"><FaCaretLeft style={{color:"#4cff6d"}} />Previous</button>
+            <button onClick={handleNextPage} disabled={users.length<10} className=" px-4 py-2 flex items-center text-[#828282] rounded-md">Next <FaCaretRight style={{color:"#4cff6d"}} /></button>
           </div>
           </div>
          

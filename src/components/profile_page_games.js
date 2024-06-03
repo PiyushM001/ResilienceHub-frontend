@@ -2,11 +2,12 @@ import * as React from 'react';
 import reject from "../Images/reject.svg"
 import Followcomp from './followcomp';
 import { useEffect,useState } from "react";
-
+import altimg from '../Images/profile2.png'
 import './components.css'
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
+import loadinggif from '../Images/loading.gif';
 
 import Footer from "./footer";
 import profilebg from "../Images/profile_bg.png";
@@ -14,7 +15,7 @@ import profilep from "../Images/profilep.png";
 import { pContext } from "../context/profilecontext";
 import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import Profile_page_common from './profile_page_common';
 
 
 
@@ -22,12 +23,28 @@ import { ToastContainer } from "react-toastify";
 export default function Profilepagegames() {
   const { _id } = useParams();
   const a = useContext(pContext);
+  const [loading, setLoading] = useState(false);
+
+
+
 
   const {invite,tournamentarray, skillsarray, checkfollow, checkfollowstate,teamnamein, getteaminfo, playerinfo, getplayerinfo, follow,getinfo,followerIngameName,followerRealName,getfollowerslist,followersarray, getfollowinglist,followingarray  } = a;
 
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      await getplayerinfo(_id);
+    } catch (error) {
+      // Handle error if necessary
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+
   useEffect(() => {
     // console.log("chal rha")
-    getplayerinfo(_id);
+    fetchData();
     checkfollow(_id);
     
     getinfo()
@@ -41,11 +58,35 @@ export default function Profilepagegames() {
   // const followerRealName = infostate[0].RealName;
   // const followerIngameName = infostate[0].IngameName;
   const _userid=playerinfo.user;
-  const handlec = () => {
-    follow(_id,RealName,IngameName,followerRealName,followerIngameName);
+
+
+  const [loading2, setLoading2] = useState(false);
+  const [loading3, setLoading3] = useState(false);
+  const handlec =async () => {
+    setLoading2(true);
+    try {
+      await follow(_id,RealName,IngameName,followerRealName,followerIngameName);
+    } catch (error) {
+      // Handle error if necessary
+    } finally {
+      setLoading2(false);
+    }
+
+
+   
   };
-  const handleinvite = () => {
-    invite(_userid,RealName,IngameName,followerRealName,followerIngameName,teamnamein);
+  const handleinvite = async() => {
+    setLoading3(true);
+    try {
+      await invite(_userid,RealName,IngameName,followerRealName,followerIngameName,teamnamein);
+    } catch (error) {
+      // Handle error if necessary
+    } finally {
+      setLoading3(false);
+    }
+
+
+    
   };
   // about,contact,contact2,text,education , skill1, skill2, skill3, playerid, location, tournament1, tournament2,  infoid
   
@@ -53,7 +94,9 @@ export default function Profilepagegames() {
   const followingCount = playerinfo.followingCount;
   const device = playerinfo.device;
   const about = playerinfo.about;
-  
+  const profilePictureUrl=   playerinfo.profilePictureUrl ;
+profilebg=playerinfo.bgPictureUrl;
+ 
 
   const playerid = playerinfo.playerid;
 
@@ -83,73 +126,16 @@ const handleClose = () => {
 
   return (
     <>
+    {loading && (
+            <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]'>
+              <div className='h-[30vh] bg-[#000000]'></div>
+              <img className='w-[100vw]' src={loadinggif} alt="Loading" />
+              <div className='h-[30vh] bg-[#000000]'></div>
+            </div>
+          )}
       <div 
       className=" bg-[#000000] w-full h-[100vh] overflow-y-scroll ">
-        <ToastContainer />
-
-
-        <div>
-          <div>
-            <img className="w-[100vw] h-[6rem]" src={profilebg}  alt="img" ></img>
-          </div>
-
-
-          <div className="flex h-[4rem] relative items-center">
-            <div className="absolute left-0 bottom-0">
-              <img className="w-[35vw]" src={profilep}  alt="img" ></img>
-            </div>
-            <div className="w-[35%]"></div>
-            <div className="flex w-[60%] justify-start ">
-
-            <div className="w-[20%] border-[red] border-[2px] flex justify-center items-center rounded-[5px] ml-1 mr-8 font-mochiy-pop text-[2.5vw] text-[#ffffff] ">live</div>
-
-              <div
-                onClick={handlec}
-                className="flex justify-center items-center text-[#000000] bg-[#B4FF16] border-[#B4FF16] border-[2px] w-[30%] h-[50%] font-medium  rounded-[10px] text-[3vw] p-[3px] mr-[6px]"
-              >
-                {checkfollowstate}
-              </div>
-              
-              <div  onClick={handleinvite}  className="flex justify-center items-center text-[#ffffff] border-[#B4FF16] border-[2px] w-[30%] h-[50%] font-medium rounded-[10px] text-[3vw] p-[3px]">
-              Invite
-              </div>
-            </div>
-
-            <div>
-            </div>
-          </div>
-        </div>
-
-        <div className="">
-          <div>
-            <div className="text-[#ffffff] font-mochiy-pop text-[5vw] font-thin ml-[5vw]">
-              {IngameName}
-            </div>
-            <div className=" font-medium text-[3vw] h-[30%] flex items-center text-[#656565] ml-[5vw]">
-              {RealName}
-            </div>
-          </div>
-
-          <div className="flex h-[5rem] justify-evenly items-center">
-            <div className="flex w-[94%] h-[4rem] justify-evenly items-center">
-              <div  onClick={handleClickToOpenFollowers} className=" border-[1px] border-[#00fbff23] bg-[#00fbff09] w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3 ">
-                <div>Followers</div>
-                <div>{followersCount}</div>
-              </div>
-
-              <div onClick={handleClickToOpenAllies}  className="  border-[1px] border-[#00fbff23] bg-[#00fbff09] w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3 ">
-                <div>Allies</div>
-                <div>{followingCount}</div>
-              </div>
-
-              <div className=" w-[30%] h-[3rem] border-[1px] border-[#00fbff23] bg-[#00fbff09] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3 ">
-                <div>Tournaments</div>
-                <div>0</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <Profile_page_common loading2={loading2} loading3={loading3} profilebg={profilebg} profilePictureUrl={profilePictureUrl} handlec={handlec} checkfollowstate={checkfollowstate} handleinvite={handleinvite} handleClickToOpenFollowers={handleClickToOpenFollowers} handleClickToOpenAllies={handleClickToOpenAllies}  IngameName={IngameName} RealName={RealName} followersCount={followersCount} followingCount={followingCount} />
 
 
 
@@ -198,19 +184,19 @@ const handleClose = () => {
 
           
         <div  className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]    ">
-            <div className="text-[#00fbff] text-[1.1rem] font-teachers ml-7 mt-2">About</div>
+            <div className="text-[#4aeed5] text-[1.1rem] font-teachers ml-7 mt-2">About</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4 mr-3 font-thin text-[4vw] from-inherit ">
             {about}
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]     ">
-            <div className="text-[#00fbff] text-[1.1rem] font-teachers ml-7 mt-2">Player-ID</div>
+            <div className="text-[#37c5b0]  text-[1.1rem] font-teachers ml-7 mt-2">Player-ID</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3 font-light text-[3.5vw] from-inherit ">
               {playerid}
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1   border-[1px]  border-[#262626]     ">
-            <div className="text-[#00fbff] ml-7 mt-2">Device</div>
+            <div className="text-[#37c5b0]  ml-7 mt-2">Device</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
               {device}
             </div>
@@ -237,7 +223,7 @@ const handleClose = () => {
 
 <div className="w-[100%] mt-1   bg-gradient-to-r from-[rgb(0,0,0)] to-[#0fafb813]  border-[1px]  border-[#262626]  pb-5   ">
           <div className="w-full flex mt-3 ">
-            <div className="text-[#00fbff] text-[1rem] ml-7   flex items-center">Skills</div>
+            <div className="text-[#37c5b0]  text-[1rem] ml-7   flex items-center">Speciality</div>
 
             </div>
             {skillsarray.map((val)=>(
@@ -263,7 +249,7 @@ const handleClose = () => {
 
           <div className="w-[100%] mt-1 mb-[11vh]  bg-gradient-to-r from-[rgb(0,0,0)] to-[#0fafb813]  border-[1px]  border-[#262626] pb-5    ">
           <div className="w-full flex mt-3 ">
-            <div className="text-[#00fbff] text-[1rem] ml-7   flex items-center">Tournaments</div>
+            <div className="text-[#37c5b0]  text-[1rem] ml-7   flex items-center">Achievements</div>
 
             </div>
             {tournamentarray.map((val)=>(

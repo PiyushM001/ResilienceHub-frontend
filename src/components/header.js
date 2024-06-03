@@ -34,7 +34,7 @@ export default function Header() {
   const debouncedSearch = useCallback(
     _.debounce((searchQuery) => {
       getplayers(1,searchQuery);
-    }, 1500), // Adjust the debounce delay as needed
+    }, 500), // Adjust the debounce delay as needed
     []
   );
 
@@ -65,10 +65,10 @@ export default function Header() {
       )}
 
       {path === "/players" ? (
-        <div className='flex items-center bg-[#373737] rounded-[5px] border-2 border-[#2c2c2c] w-[55%]'>
+        <div className='flex items-center bg-[#a7b9b75d] rounded-[5px]  border-2 border-[#2c2c2c] w-[55%]'>
           <InputBase
             placeholder="Search players..."
-            className="bg-[#373737] rounded-[5px] text-[#ffffff] pl-3"
+            className="bg-[#373737] rounded-[5px] text-[#ffffff] pl-3 ml-1"
             value={query}
             onChange={handleSearchChange}
             style={{ color: 'white', paddingLeft: '10px' }}
