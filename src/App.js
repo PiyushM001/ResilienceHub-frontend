@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import Home from './components/home';
 import Tournamentpage from './components/tournament-page';
-import Profilepage from './components/profile_page';
+import Profilepage from './components/othersaboutprofile';
 import Profilepageposts from './components/profile_page_posts';
 import Profilepagegames from './components/profile_page_games';
 import Players from './components/players_page';
@@ -33,6 +33,8 @@ import BgPictureUpload from './components/bg_post_page';
 import Post from './components/post';
 import Postpost from './components/postpost';
 import Othersprofile from './components/othersprofile';
+import Otherspostprofile from './components/Otherspostprofile';
+import Othersaboutprofile from './components/othersaboutprofile';
 function App() {
 
  
@@ -53,6 +55,9 @@ function App() {
         <Route path="/profile/posts" element={ <Ownprofilepage3/> } />
         <Route path="/profile" element={ <Ownprofilepage/> } />
         <Route path="/other/:_id" element={ <Othersprofile/> } />
+        <Route path="/other/posts/:_id" element={ <Otherspostprofile/> } />
+        <Route path="/other/about/:_id" element={ <Othersaboutprofile/> } /> 
+
         <Route path="/loginas" element={ <Loginas/> } />
         {/* <Route path="/profile/posts" element={ <Profilepageposts/> } />
         <Route path="/profile/about" element={ <Profilepage/> } /> */}

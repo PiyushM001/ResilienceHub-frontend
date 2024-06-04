@@ -135,8 +135,8 @@ export default function Othersprofile() {
 
 
   return (
-    <div className="w-full h-[100svh] bg-[#f73a3a]  ">
-      dekh to isko ek baaar
+    <div className="w-full h-[100svh] bg-[#000000]  ">
+     
       {loading && (
         <div className="absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]">
           <div className="h-[30vh] bg-[#000000]"></div>
@@ -165,7 +165,7 @@ export default function Othersprofile() {
           <div className="bg-[#09090900] w-[90%] h-[2.8rem] flex justify-evenly">
             <Link
               className="border-r-[2px]  border-[#222222] border-b-[2px] border-b-[#B4FF16] shadow-b-inner shadow-[#B4FF16] w-full flex justify-center items-center"
-              to={`/profile/${_id}`}
+              to={`/other/${_id}`}
             >
               {" "}
               <div className=" w-full flex justify-center text-[#B4FF16] text-[3.5vw]">
@@ -175,14 +175,14 @@ export default function Othersprofile() {
 
             <Link
               className="border-r-[2px]  border-r-[#222222] w-full flex justify-center items-center"
-              to={`/profile/about/${_id}`}
+              to={`/other/about/${_id}`}
             >
               {" "}
               <div className=" text-[#656565] text-[3.5vw] ">About</div>
             </Link>
             <Link
               className=" w-full flex justify-center items-center "
-              to={`/profile/posts/${_id}`}
+              to={`/other/posts/${_id}`}
             >
               {" "}
               <div className="border-[#222222] w-full flex justify-center text-[#656565]  text-[3.5vw]">

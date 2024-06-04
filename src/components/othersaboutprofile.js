@@ -21,7 +21,7 @@ import Profile_page_common from './profile_page_common';
 
 
 
-export default function Profilepagegames() {
+export default function Othersaboutprofile() {
   const { _id } = useParams();
   const a = useContext(pContext);
 
@@ -124,7 +124,7 @@ const handleClose = () => {
           <div className="bg-[#09090900] w-[90%] h-[2.8rem] flex justify-evenly">
             <Link
               className="border-r-[2px]  border-[#222222]  shadow-b-inner shadow-[#B4FF16] w-full flex justify-center items-center"
-              to={`/profile/${_id}`}
+              to={`/other/${_id}`}
             >
               {" "}
               <div className=" w-full flex justify-center text-[#656565]  text-[3.5vw]">
@@ -134,14 +134,14 @@ const handleClose = () => {
 
             <Link
               className="border-r-[2px]  border-r-[#222222] border-b-[2px] border-b-[#B4FF16] w-full flex justify-center items-center"
-              to={`/profile/about/${_id}`}
+              to={`/other/about/${_id}`}
             >
               {" "}
               <div className="  text-[#B4FF16] text-[3.5vw] ">About</div>
             </Link>
             <Link
               className=" w-full flex justify-center items-center "
-              to={`/profile/posts/${_id}`}
+              to={`/other/posts/${_id}`}
             >
               {" "}
               <div className="border-[#222222] w-full flex justify-center text-[#656565]  text-[3.5vw]">
