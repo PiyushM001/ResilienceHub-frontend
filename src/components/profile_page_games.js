@@ -1,5 +1,4 @@
 import React,  { useEffect,useState } from 'react';
-import reject from "../Images/reject.svg"
 import Followcomp from './followcomp';
 import altimg from '../Images/profile2.png'
 import './components.css'
