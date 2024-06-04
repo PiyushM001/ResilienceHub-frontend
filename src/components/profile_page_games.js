@@ -2,9 +2,7 @@ import React,  { useEffect,useState } from 'react';
 import Followcomp from './followcomp';
 import altimg from '../Images/profile2.png'
 import './components.css'
-// import Dialog from "@material-ui/core/Dialog";
-// import DialogTitle from "@material-ui/core/DialogTitle";
-// import DialogContent from "@material-ui/core/DialogContent";
+
 import loadinggif from '../Images/loading.gif';
 
 import Footer from "./footer";
@@ -123,7 +121,7 @@ const handleClose = () => {
 
 
   return (
-    <>
+    <div className='w-full h-[100svh] bg-[#000000]'>
     {loading && (
             <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]'>
               <div className='h-[30vh] bg-[#000000]'></div>
@@ -432,7 +430,7 @@ const handleClose = () => {
       </div>
 
       <Footer />
-    </>
+    </div>
    
   );
 }
