@@ -40,7 +40,7 @@ useEffect(() => {
   };
 
   useEffect(() => {
-    getpostfun();
+   
     fetchInitialData();
 
     const localtoken = localStorage.getItem("token");

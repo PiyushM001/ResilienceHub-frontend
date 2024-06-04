@@ -10,6 +10,7 @@ const MyRealName = localStorage.getItem("MyRealName");
 const infoid = localStorage.getItem("infoid");
 const time = new Date().toLocaleTimeString(); // Update to get current time
 // const port = "https://thrive-backend-o6k3.onrender.com"
+// const socket = io('http://localhost:5000'); 
 
 const socket = io('https://thrive-backend-o6k3.onrender.com'); 
 // const socket = io(process.env.REACT_APP_port);
