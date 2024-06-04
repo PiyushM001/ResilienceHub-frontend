@@ -1,5 +1,4 @@
 import * as React from 'react';
-import reject from "../Images/reject.svg"
 import Followcomp from './followcomp';
 import { useEffect,useState } from "react";
 import nopost from '../Images/nopost.png'
