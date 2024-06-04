@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import './components.css';
 import { Link } from 'react-router-dom';
-import { IconButton, InputBase } from '@material-ui/core';
+// import { IconButton, InputBase } from '@material-ui/core';
 import profile from '../Images/profile2.png';
 import chat from '../Images/chat-icon.svg';
 import profilep from "../Images/profilep.png";
@@ -66,16 +66,16 @@ export default function Header() {
 
       {path === "/players" ? (
         <div className='flex items-center bg-[#a7b9b75d] rounded-[5px]  border-2 border-[#2c2c2c] w-[55%]'>
-          <InputBase
+          <input
             placeholder="Search players..."
             className="bg-[#373737] rounded-[5px] text-[#ffffff] pl-3 ml-1"
             value={query}
             onChange={handleSearchChange}
             style={{ color: 'white', paddingLeft: '10px' }}
           />
-          <IconButton style={{ color: 'white' }}>
+          <button style={{ color: 'white' }}>
             <img className='w-[1rem]' src={searchicon} alt="Search" />
-          </IconButton>
+          </button>
         </div>
       ) : (
         <div className='text-[#ffffff] w-[55%] font-mochiy-pop'>MyAllies</div>

@@ -3,7 +3,7 @@ import { ToastContainer } from "react-toastify";
 import './components.css'
 import loadinggif from '../Images/loading.gif';
 
-import { styled } from '@material-ui/core';
+// import { styled } from '@material-ui/core';
 export default function Profile_page_common(props) {
   const [imageLoaded, setImageLoaded] = useState(false);
 

@@ -4,9 +4,9 @@ import Followcomp from './followcomp';
 import { useEffect,useState } from "react";
 
 import './components.css'
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
+// import Dialog from "@material-ui/core/Dialog";
+// import DialogTitle from "@material-ui/core/DialogTitle";
+// import DialogContent from "@material-ui/core/DialogContent";
 
 import Footer from "./footer";
 import profilebg from "../Images/profile_bg.png";
@@ -256,7 +256,7 @@ const handleClose = () => {
 
 
 
-
+{/* 
           <Dialog open={openFollowers} onClose={handleClose} >
                       <DialogTitle className="  w-[80vw] bg-[#020909] border-[#23757560] text-[#ebebeb] border-t-[1px]  border-l-[1px] border-r-[1px] ">
                         <div className="flex">
@@ -303,8 +303,40 @@ const handleClose = () => {
 
 
                       </DialogContent>
-                    </Dialog>
+                    </Dialog> */}
                 
+
+
+                {openFollowers && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followersarray.map((value)=>(
+                <Followcomp key={value.id} RealName={value.followerRealName} IngameName={value.followerIngameName} />
+                ))}</div>
+                
+              </div>
+            </div>
+                    )}
+
+
+
+                    {openAllies && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followingarray.map((value)=>(
+                <Followcomp key={value.id} RealName={value.RealName} IngameName={value.IngameName} />
+                ))}</div>
+                
+              </div>
+            </div>
+                    )}
+
 
 
 

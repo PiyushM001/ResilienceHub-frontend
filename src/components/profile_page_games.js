@@ -4,9 +4,9 @@ import Followcomp from './followcomp';
 import { useEffect,useState } from "react";
 import altimg from '../Images/profile2.png'
 import './components.css'
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
+// import Dialog from "@material-ui/core/Dialog";
+// import DialogTitle from "@material-ui/core/DialogTitle";
+// import DialogContent from "@material-ui/core/DialogContent";
 import loadinggif from '../Images/loading.gif';
 
 import Footer from "./footer";
@@ -271,55 +271,36 @@ const handleClose = () => {
 
 
 
-          <Dialog open={openFollowers} onClose={handleClose} >
-                      <DialogTitle className="  w-[80vw] bg-[#020909] border-[#23757560] text-[#ebebeb] border-t-[1px]  border-l-[1px] border-r-[1px] ">
-                        <div className="flex">
-                          <div className="w-[90%]">Followers</div>
-                          <img onClick={handleClose} className="w-[10%]" src={reject}  alt="img" ></img>
-                        </div>
-                      </DialogTitle>
 
-
-                      <DialogContent className=" bg-[#020909] border-[#23757560]  border-b-[1px]  border-l-[1px] border-r-[1px] w-[80vw] h-[60vh]  ">
-                 
-                        <div className="w-full ">
-{followersarray.map((value)=>(
+          {openFollowers && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followersarray.map((value)=>(
                 <Followcomp key={value.id} RealName={value.followerRealName} IngameName={value.followerIngameName} />
-                ))}
-</div>
-
-
-                      </DialogContent>
-                    </Dialog>
+                ))}</div>
                 
+              </div>
+            </div>
+                    )}
 
 
 
-
-
-
-                    <Dialog open={openAllies} onClose={handleClose} >
-                      <DialogTitle className="  w-[80vw] bg-[#020909] border-[#23757560] text-[#ebebeb] border-t-[1px]  border-l-[1px] border-r-[1px] ">
-                        <div className="flex">
-                          <div className="w-[90%]">Allies</div>
-                          <img onClick={handleClose} className="w-[10%]" src={reject} alt="img" ></img>
-                        </div>
-                      </DialogTitle>
-
-
-                      <DialogContent className=" bg-[#020909] border-[#23757560]  border-b-[1px]  border-l-[1px] border-r-[1px] w-[80vw] h-[60vh]  ">
-                 
-                        <div className="w-full ">
-{followingarray.map((value)=>(
+                    {openAllies && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followingarray.map((value)=>(
                 <Followcomp key={value.id} RealName={value.RealName} IngameName={value.IngameName} />
-              ))}
-</div>
-
-
-                      </DialogContent>
-                    </Dialog>
+                ))}</div>
                 
-
+              </div>
+            </div>
+                    )}
 
 
 
