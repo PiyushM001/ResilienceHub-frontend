@@ -45,7 +45,7 @@ function App() {
     
         <Route path="/" element={ <Home/> } />
         <Route path="/tournaments" element={ <Tournamentpage/> } />
-        <Route  path="/profile2/:_id" element={ <Profilepagegames/> } />
+        <Route  path="/profile2" element={ <Profilepagegames/> } />
         <Route  path="/profile2/posts/:_id" element={ <Profilepageposts/> } />
         <Route path="/profile2/about/:_id" element={ <Profilepage/> } />
         <Route path="/profile/about" element={ <Ownprofilepage2/> } />
@@ -79,7 +79,7 @@ function App() {
 
       </Router>
       </div>
-      <div className='max-[600px]:hidden'>It is a Web App, can't be displayed in dekstop view , please adjust the screen width less than 500 px to see the website </div>
+      <div className='max-[600px]:hidden text-[#cfcfcf]'>It is a Web App, can't be displayed in dekstop view , please adjust the screen width less than 500 px to see the website </div>
    </div>
   );
 }
