@@ -46,7 +46,7 @@ export default function Players() {
         <Header />
         <div className='flex flex-col flex-wrap items-center overflow-y-scroll w-full h-screen bg-[#000000] text-[#ffffff]'>
           {loading && (
-            <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]'>
+            <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1]'>
               <div className='h-[30vh] bg-[#000000]'></div>
               <img className='w-[100vw]' src={loadinggif} alt="Loading" />
               <div className='h-[30vh] bg-[#000000]'></div>

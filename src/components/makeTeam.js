@@ -71,7 +71,7 @@ export default function Maketeam() {
     <div className=" h-[100vh] bg-[#000000] w-full  ">
       <ToastContainer />
       {loading && (
-        <div className="absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]">
+        <div className="absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1]">
           <div className="h-[30vh] bg-[#000000]"></div>
           <img className="w-[100vw]" src={loadinggif}></img>
           <div className="h-[30vh] bg-[#000000]"></div>

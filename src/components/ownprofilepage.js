@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import './components.css'
-import Dialog from "@material-ui/core/Dialog";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+
 import loadinggif from '../Images/loading.gif';
-
-
+import { FaRegEdit } from "react-icons/fa";
+import { RiMenuAddFill } from "react-icons/ri";
 import profilealt from '../Images/profile2.png';
 import { IoCamera } from "react-icons/io5";
 
@@ -518,47 +512,36 @@ export default function Ownprofilepage() {
 
                 <div className="w-[80%] flex justify-end mr-4">
                   <div className=" flex items-center">
-                    <Button
-                      className="w-[3rem] mr-4"
-                      variant="outlined"
-                      color="primary"
+                    <button
+                      className="w-[1.5rem] text-[#e9e9e9]"
+                     
                       onClick={handleClickToOpenAbout}
                     >
-                      +
-                    </Button>
-                    <Dialog open={openAbout} onClose={handleClose}>
-                      <DialogTitle className=" font-mochiy-pop text-[2vw]">
-                        {" Write About yourself"}
-                      </DialogTitle>
-                      <DialogContent>
-                        <DialogContentText>
-                         Make your profile attractive
-                        </DialogContentText>
-                        <TextField
-                          autoFocus
-                          required
-                          type="text"
-                          name="about"
-                          id="about"
-                          value={about}
-                          onChange={(e) => setabout(e.target.value)}
-                          margin="dense"
-                          label=""
-                          fullWidth
-                          variant="standard"
-                        />
-                      </DialogContent>
-                      <DialogActions className="bg-[#aeff00]">
-                        <Button
-                          className="w-[100%] "
-                          onClick={handleSubmitAbout}
-                          color="red"
-                          autoFocus
-                        >
-                          Save
-                        </Button>
-                      </DialogActions>
-                    </Dialog>
+                     <FaRegEdit/>
+                    </button>
+                    {openAbout && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">Edit About</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={about}
+                  onChange={(e) => setabout(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitAbout}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
+
                   </div>
                 </div>
 
@@ -584,6 +567,14 @@ export default function Ownprofilepage() {
 
 
 
+
+
+
+
+
+
+
+
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
                 <div className="w-[20%]  font-teachers text-[#37c5b0]   text-[1.1rem] ml-7 mt-2 flex  items-center">
@@ -591,47 +582,35 @@ export default function Ownprofilepage() {
                 </div>
                 <div className="w-[80%] flex justify-end mr-4">
                   <div className=" flex items-center">
-                    <Button
-                      className="w-[3rem] mr-4"
-                      variant="outlined"
-                      color="primary"
+                    <button
+                      className="w-[1.5rem] text-[#ececec]"
+                    
                       onClick={handleClickToOpenDevice}
                     >
-                      +
-                    </Button>
-                    <Dialog open={openDevice} onClose={handleClose}>
-                      <DialogTitle className=" font-mochiy-pop text-[2vw]">
-                        {"Add your Device"}
-                      </DialogTitle>
-                      <DialogContent>
-                        <DialogContentText>
-                          Example:Iqoo Neo 6 (90 FPS)
-                        </DialogContentText>
-                        <TextField
-                          autoFocus
-                          required
-                          type="text"
-                          name="device"
-                          id="device"
-                          value={device}
-                          onChange={(e) => setDevice(e.target.value)}
-                          margin="dense"
-                          label=""
-                          fullWidth
-                          variant="standard"
-                        />
-                      </DialogContent>
-                      <DialogActions className="bg-[#aeff00]">
-                        <Button
-                          className="w-[100%] bg-[#91ff00]"
-                          onClick={handleSubmitDevice}
-                          color="red"
-                          autoFocus
-                        >
-                          Save
-                        </Button>
-                      </DialogActions>
-                    </Dialog>
+                      <FaRegEdit/>
+                    </button>
+                    {openDevice && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">Add Your Device</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={device}
+                  onChange={(e) => setDevice(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitDevice}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
                   </div>
                 </div>
               </div>
@@ -664,46 +643,35 @@ export default function Ownprofilepage() {
                 </div>
                 <div className="w-[60%] flex justify-end mr-4">
                   <div className=" flex items-center">
-                    <Button
-                      className="w-[2rem] text-[red]"
-                      variant="outlined"
-                      color="primary"
+                    <button
+                      className="w-[1.5rem] text-[#f8f8f8]"
+                   
                       onClick={handleClickToOpenPlayerid}
                     >
-                      +
-                    </Button>
-                    <Dialog open={openPlayerid} onClose={handleClose}>
-                      <DialogTitle className=" font-mochiy-pop text-[2vw]">
-                        {"Add your Game ID  "}
-                      </DialogTitle>
-                      <DialogContent>
-                        <DialogContentText>
-                        </DialogContentText>
-                        <TextField
-                          autoFocus
-                          required
-                          type="text"
-                          name="playerid"
-                          id="playerid"
-                          value={playerid}
-                          onChange={(e) => setPlayerid(e.target.value)}
-                          margin="dense"
-                          label=""
-                          fullWidth
-                          variant="standard"
-                        />
-                      </DialogContent>
-                      <DialogActions className="bg-[#aeff00]">
-                        <Button
-                          className="w-[100%] bg-[#91ff00]"
-                          onClick={handleSubmitPlayerid}
-                          color="red"
-                          autoFocus
-                        >
-                          Save
-                        </Button>
-                      </DialogActions>
-                    </Dialog>
+                     <FaRegEdit/>
+                    </button>
+                    {openPlayerid && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">Add Your PlayerId</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={playerid}
+                  onChange={(e) => setPlayerid(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitPlayerid}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
                   </div>
                 </div>
               </div>
@@ -713,42 +681,7 @@ export default function Ownprofilepage() {
               </div>
             </div>
 
-            {/* 
-
-
-          <div className=' flex justify-center'>
-          
-          <Button variant="outlined" color="primary"
-              onClick={handleClickToOpen}>
-              + 
-          </Button>
-          <Dialog open={open} onClose={handleSubmitskills} >
-              <DialogTitle className='text-[red] font-mochiy-pop'>{"Add your Skill"}</DialogTitle>
-              <DialogContent>
-                  <DialogContentText>
-                      Example: Assaulter,Team work,IGL etc...
-                  </DialogContentText>
-                  <TextField
-          autoFocus
-          required
-          type="text" name="addedskill" id="addedskill" value={addedskill} onChange={e => setaddedskill(e.target.value)}
-          margin="dense"
-          label=""
-          fullWidth
-          variant="standard"
-        />
-              </DialogContent>
-              <DialogActions className='bg-[#aeff00]'>
-                  <Button className='w-[100%] bg-[#91ff00]' onClick={handleSubmitskills}
-                      color="red" autoFocus>
-                      Save
-                  </Button>
-              </DialogActions>
-          </Dialog>
-      </div>
-
-
-        */}
+        
 
 
 
@@ -780,15 +713,14 @@ export default function Ownprofilepage() {
                 </div>
 
                 <div className=" flex items-center mr-4">
-                  <Button
-                    className="w-[3rem] mr-4"
-                    variant="outlined"
-                    color="primary"
+                  <button
+                    className=" text-[#fbfbfb]"
+                    
                     onClick={handleClickToOpen}
                   >
-                    +
-                  </Button>
-                  <Dialog open={open} onClose={handleClose}>
+                   <RiMenuAddFill/>
+                  </button>
+                  {/* <Dialog open={open} onClose={handleClose}>
                     <DialogTitle className=" font-mochiy-pop text-[2vw]">
                       {"What is your Speciality"}
                     </DialogTitle>
@@ -811,16 +743,38 @@ export default function Ownprofilepage() {
                       />
                     </DialogContent>
                     <DialogActions className="bg-[#aeff00]">
-                      <Button
+                      <button
                         className="w-[100%] bg-[#91ff00]"
                         onClick={handleSubmitskills}
                         color="red"
                         autoFocus
                       >
                         Save
-                      </Button>
+                      </button>
                     </DialogActions>
-                  </Dialog>
+                  </Dialog> */}
+                  {open && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">What is your Speciality</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={addedskill}
+                  onChange={(e) => setaddedskill(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitskills}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
                 </div>
               </div>
               {value.skill2.map((val) => (
@@ -866,14 +820,13 @@ export default function Ownprofilepage() {
                 </div>
 
                 <div className=" flex items-center mr-4">
-                  <Button
-                    variant="outlined"
-                    color="primary"
+                  <button
+                    className=" text-[#f8f8f8]"
                     onClick={handleClickToOpenTournament}
                   >
-                    +
-                  </Button>
-                  <Dialog open={openTournament} onClose={handleClose}>
+                    <RiMenuAddFill/>
+                  </button>
+                  {/* <Dialog open={openTournament} onClose={handleClose}>
                     <DialogTitle >
                       {"Add your Achievements"}
                     </DialogTitle>
@@ -896,16 +849,39 @@ export default function Ownprofilepage() {
                       />
                     </DialogContent>
                     <DialogActions className="bg-[#aeff00]">
-                      <Button
+                      <button
                         className="w-[100%] "
                         onClick={handleSubmitTournament}
                         
                         autoFocus
                       >
                         Save
-                      </Button>
+                      </button>
                     </DialogActions>
-                  </Dialog>
+                  </Dialog> */}
+                    {openTournament && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">Add your Achievements</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={addedtournament}
+                  onChange={(e) => setAddedTournament(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitTournament}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
+                  
                 </div>
               </div>
               {value.tournament2.map((val) => (
@@ -931,7 +907,7 @@ export default function Ownprofilepage() {
 
             
                  
-                    <Dialog open={openFollowers} onClose={handleClose} >
+                    {/* <Dialog open={openFollowers} onClose={handleClose} >
                       <DialogTitle className="  w-[80vw] bg-[#020909] border-[#23757560] text-[#ebebeb] border-t-[1px]  border-l-[1px] border-r-[1px] ">
                         <div className="flex">
                           <div className="w-[90%]">Followers</div>
@@ -950,14 +926,39 @@ export default function Ownprofilepage() {
 
 
                       </DialogContent>
-                    </Dialog>
+                    </Dialog> */}
                 
+                {openFollowers && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followersarray.map((value)=>(
+                <Followcomp key={value.id} RealName={value.followerRealName} IngameName={value.followerIngameName} />
+                ))}</div>
+                
+              </div>
+            </div>
+                    )}
 
 
 
+                    {openAllies && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followingarray.map((value)=>(
+                <Followcomp key={value.id} RealName={value.RealName} IngameName={value.IngameName} />
+                ))}</div>
+                
+              </div>
+            </div>
+                    )}
 
-
-
+{/* 
                     <Dialog open={openAllies} onClose={handleClose} >
                       <DialogTitle className="  w-[80vw] bg-[#020909] border-[#23757560] text-[#ebebeb] border-t-[1px]  border-l-[1px] border-r-[1px] ">
                         <div className="flex">
@@ -978,7 +979,7 @@ export default function Ownprofilepage() {
 
                       </DialogContent>
                     </Dialog>
-                
+                 */}
 
 
 
@@ -1000,3 +1001,497 @@ export default function Ownprofilepage() {
     </>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect, useContext } from "react";
+// import { Transition } from "@headlessui/react";
+// import './components.css'
+// import loadinggif from '../Images/loading.gif';
+// import profilealt from '../Images/profile2.png';
+// import { IoCamera } from "react-icons/io5";
+// import Footer from "./footer";
+// import profilebg from "../Images/profile_bg.png";
+// import profilep from "../Images/profilep.png";
+// import settings from "../Images/Settings.svg";
+// import cross from "../Images/cross.svg";
+// import posticon from "../Images/posticon.svg";
+// import reject from "../Images/reject.svg";
+// import Followcomp from './followcomp';
+// import { pContext } from "../context/profilecontext";
+// import { useNavigate, Link, useParams } from "react-router-dom";
+// import { ToastContainer } from "react-toastify";
+
+// export default function Ownprofilepage() {
+//   let navigate = useNavigate();
+//   const [isOpen, setIsOpen] = useState(false);
+//   const a = useContext(pContext);
+//   const [loading, setLoading] = useState(false);
+
+//   const infoid = localStorage.getItem("infoid");
+//   const { ownid, getinfo, infostate, updateinfo, getfollowerslist, followersarray, followingarray, getfollowinglist, fetchProfilePicture, Profilepic, bgpic } = a;
+
+//   const fetchData = async () => {
+//     setLoading(true);
+//     try {
+//       await getinfo();
+//     } catch (error) {
+//       // Handle error if necessary
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
+
+//   const logoutfun = () => {
+//     navigate("/");
+//     localStorage.setItem("token", "");
+//   };
+
+//   const [addedskill, setaddedskill] = useState(" ");
+//   const [about, setabout] = useState(" ");
+//   const [device, setDevice] = useState(" ");
+//   const [playerid, setPlayerid] = useState(" ");
+//   const [addedtournament, setAddedTournament] = useState(" ");
+
+//   const [open, setOpen] = useState(false);
+//   const [openAbout, setOpenAbout] = useState(false);
+//   const [openDevice, setOpenDevice] = useState(false);
+//   const [openPlayerid, setOpenPlayerid] = useState(false);
+//   const [openTournament, setOpenTournament] = useState(false);
+//   const [openFollowers, setOpenFollowers] = useState(false);
+//   const [openAllies, setOpenAllies] = useState(false);
+
+//   const handleClickToOpenFollowers = () => {
+//     setOpenFollowers(true);
+//     getfollowerslist(infoid);
+//   };
+
+//   const handleClickToOpenAllies = () => {
+//     setOpenAllies(true);
+//     getfollowinglist(infoid);
+//   };
+
+//   const handleClickToOpen = () => {
+//     setOpen(true);
+//   };
+
+//   const handleClickToOpenAbout = () => {
+//     setOpenAbout(true);
+//   };
+
+//   const handleClickToOpenDevice = () => {
+//     setOpenDevice(true);
+//   };
+
+//   const handleClickToOpenPlayerid = () => {
+//     setOpenPlayerid(true);
+//   };
+
+//   const handleClickToOpenTournament = () => {
+//     setOpenTournament(true);
+//   };
+
+//   const handleSubmitskills = () => {
+//     updateinfo(
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       addedskill,
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       infoid
+//     );
+//     setOpen(false);
+//   };
+
+//   const handleSubmitAbout = () => {
+//     updateinfo(
+//       about,
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       infoid
+//     );
+//     setOpenAbout(false);
+//   };
+
+//   const handleSubmitDevice = () => {
+//     updateinfo(
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       device,
+//       infoid
+//     );
+//     setOpenDevice(false);
+//   };
+
+//   const handleSubmitPlayerid = () => {
+//     updateinfo(
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       playerid,
+//       " ",
+//       " ",
+//       " ",
+//       infoid
+//     );
+//     setOpenPlayerid(false);
+//   };
+
+//   const handleSubmitTournament = () => {
+//     updateinfo(
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       " ",
+//       addedtournament,
+//       " ",
+//       infoid
+//     );
+//     setOpenTournament(false);
+//   };
+
+//   const handleClose = () => {
+//     setOpen(false);
+//     setOpenAbout(false);
+//     setOpenPlayerid(false);
+//     setOpenDevice(false);
+//     setOpenTournament(false);
+//     setOpenFollowers(false);
+//     setOpenAllies(false);
+//   };
+
+//   return (
+//     <>
+//       {loading && (
+//         <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]'>
+//           <div className='h-[30vh] bg-[#000000]'></div>
+//           <img className='w-[100vw]' src={loadinggif} alt="Loading" />
+//           <div className='h-[30vh] bg-[#000000]'></div>
+//         </div>
+//       )}
+//       {infostate.map((value) => (
+//         <div className="bg-gradient-to-r from-[#000000] to-[#000000] w-full h-[100vh] overflow-y-scroll">
+//           <ToastContainer />
+//           <Transition
+//             show={isOpen}
+//             enter="transition-opacity duration-300"
+//             enterFrom="opacity-0"
+//             enterTo="opacity-100"
+//             leave="transition-opacity duration-300"
+//             leaveFrom="opacity-100"
+//             leaveTo="opacity-0"
+//           >
+//             <div className="fixed inset-0 bg-black opacity-50"></div>
+//           </Transition>
+
+//           {/* Sliding menu */}
+//           <Transition
+//             show={isOpen}
+//             enter="transform transition duration-300"
+//             enterFrom="translate-x-full"
+//             enterTo="translate-x-0"
+//             leave="transform transition duration-300"
+//             leaveFrom="translate-x-0"
+//             leaveTo="translate-x-full"
+//           >
+//             <div className="fixed inset-y-0 right-0 flex flex-col w-64 shadow-xl bg-[#0c0c0c]  z-[2]">
+//               <div className="w-[100%] flex justify-end ">
+//                 <img
+//                   onClick={() => setIsOpen(!isOpen)}
+//                   className="w-[1.7rem] m-3"
+//                   src={cross}
+//                   alt="img"
+//                 ></img>
+//               </div>
+//               <div className="w-[100%] mt-1 bg-[#0c0c0c] border-b-[1px] border-[#222222] ">
+//                 <div className="h-[5rem] w-[100%] flex justify-center  items-center">
+//                   <button
+//                     onClick={logoutfun}
+//                     className="  text-[#828282] text-[5vw]"
+//                   >
+//                     Logout
+//                   </button>
+//                 </div>
+//               </div>
+//             </div>
+//           </Transition>
+//           <div>
+//             <div className="bg-[#000000] relative flex flex-col items-end">
+//               <div className="pro2"><img className="w-[100vw] h-[6rem]" src={value.bgPictureUrl} alt="Upload Background "></img></div>
+//               <Link to="/post/bg" style={{color:"#f5f5f5"}} className="bg-[#686868] rounded-[100%] w-[1.5rem] h-[1.5rem] flex justify-center items-center  mt-[-2rem] mr-[1rem]"  ><IoCamera /></Link>
+//             </div>
+
+//             <div className="flex h-[4rem] relative items-center">
+//               <div className="absolute left-0 bottom-0 flex h-[7rem] ">
+//                 <div className="pro h-[7rem] w-[7rem] rounded-[100%] ml-4">
+//                   <img className="w-[7rem] h-[7rem] rounded-[100%]  border-[2px] border-[#4ddcf5]" src={value.profilePictureUrl} alt={profilealt}></img>
+//                 </div>
+//                 <Link to="/post/Profile" style={{color:"#f5f5f5"}} className="bg-[#686868] rounded-[100%] w-[1.5rem] h-[1.5rem] flex justify-center items-center mt-[5rem] ml-[-1.3rem]"  ><IoCamera /></Link>
+//               </div>
+//               <div className="w-[40%]"></div>
+//               <div className="flex w-[60%] justify-end ">
+//                 <Link className="  flex justify-center items-center " to="/post">
+//                   <img className="w-[1.2rem]" src={posticon} alt="img"></img>
+//                 </Link>
+//                 <div className=" mr-[1rem] ml-[1rem] flex justify-center items-center ">
+//                   <img onClick={() => setIsOpen(!isOpen)} className="w-[1.2rem]" src={settings} alt="img"></img>
+//                 </div>
+//               </div>
+//             </div>
+
+//             <div className="flex items-end justify-center mt-[0rem]">
+//               <div className="text-[#FFFFFF] text-[4vw]  flex justify-center items-center">{value.fname} {value.lname}</div>
+//             </div>
+
+//             <div className="flex justify-center items-center mt-[0.5rem] ">
+//               <div className="text-[#b4b4b4] text-[3vw] flex justify-center items-center">@{value.gamertag}</div>
+//             </div>
+//           </div>
+
+//           {/* Follow/Following */}
+//           <div className="bg-[#000000] flex justify-between items-center mt-[1.5rem] px-[2rem]">
+//             <div className="text-[#828282] text-[2.5vw]">Follower's</div>
+//             <div className="text-[#828282] text-[2.5vw]">Allies</div>
+//           </div>
+
+//           <div className="bg-[#000000] flex justify-between items-center mt-[0rem] px-[2rem]">
+//             <div className="text-[#4ddcf5] text-[4vw]">{value.followers.length}</div>
+//             <div className="text-[#4ddcf5] text-[4vw]">{value.following.length}</div>
+//           </div>
+
+//           <div className="bg-[#000000] flex justify-between items-center mt-[0rem] px-[2rem]">
+//             <div onClick={handleClickToOpenFollowers} className="text-[#828282] text-[2.5vw] underline decoration-[#828282]">View Followers</div>
+//             <div onClick={handleClickToOpenAllies} className="text-[#828282] text-[2.5vw] underline decoration-[#828282]">View Allies</div>
+//           </div>
+
+//           <div className="px-[1rem]">
+//             {/* About */}
+//             <div className="bg-[#0c0c0c] rounded-[5px]  p-[0.5rem] mt-[2rem]">
+//               <div className="flex justify-between items-center">
+//                 <div className="text-[#FFFFFF] text-[4vw]">About</div>
+//                 <button onClick={handleClickToOpenAbout} className="text-[#4ddcf5] text-[4vw]">Edit</button>
+//               </div>
+//               <div className="text-[#828282] text-[3vw] mt-[0.5rem]">{value.about}</div>
+//             </div>
+
+//             {/* Games */}
+//             <div className="bg-[#0c0c0c] rounded-[5px]  p-[0.5rem] mt-[2rem]">
+//               <div className="flex justify-between items-center">
+//                 <div className="text-[#FFFFFF] text-[4vw]">Games</div>
+//                 <button onClick={handleClickToOpen} className="text-[#4ddcf5] text-[4vw]">Add</button>
+//               </div>
+//               <div className="text-[#828282] text-[3vw] mt-[0.5rem]">{value.skills.join(", ")}</div>
+//             </div>
+
+//             {/* Player ID */}
+//             <div className="bg-[#0c0c0c] rounded-[5px]  p-[0.5rem] mt-[2rem]">
+//               <div className="flex justify-between items-center">
+//                 <div className="text-[#FFFFFF] text-[4vw]">Player ID</div>
+//                 <button onClick={handleClickToOpenPlayerid} className="text-[#4ddcf5] text-[4vw]">Edit</button>
+//               </div>
+//               <div className="text-[#828282] text-[3vw] mt-[0.5rem]">{value.playerid}</div>
+//             </div>
+
+//             {/* Device */}
+//             <div className="bg-[#0c0c0c] rounded-[5px]  p-[0.5rem] mt-[2rem]">
+//               <div className="flex justify-between items-center">
+//                 <div className="text-[#FFFFFF] text-[4vw]">Device</div>
+//                 <button onClick={handleClickToOpenDevice} className="text-[#4ddcf5] text-[4vw]">Edit</button>
+//               </div>
+//               <div className="text-[#828282] text-[3vw] mt-[0.5rem]">{value.device}</div>
+//             </div>
+
+//             {/* Tournament */}
+//             <div className="bg-[#0c0c0c] rounded-[5px]  p-[0.5rem] mt-[2rem]">
+//               <div className="flex justify-between items-center">
+//                 <div className="text-[#FFFFFF] text-[4vw]">Tournament</div>
+//                 <button onClick={handleClickToOpenTournament} className="text-[#4ddcf5] text-[4vw]">Add</button>
+//               </div>
+//               <div className="text-[#828282] text-[3vw] mt-[0.5rem]">{value.tournament}</div>
+//             </div>
+//           </div>
+
+//           {/* Followcomp */}
+//           {openFollowers && (
+//             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+//               <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+//                 <div className="flex justify-end">
+//                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+//                 </div>
+//                 <Followcomp data={followersarray} />
+//               </div>
+//             </div>
+//           )}
+
+//           {openAllies && (
+//             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+//               <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+//                 <div className="flex justify-end">
+//                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+//                 </div>
+//                 <Followcomp data={followingarray} />
+//               </div>
+//             </div>
+//           )}
+
+//           {/* Edit dialogs */}
+//           {open && (
+//             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+//               <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+//                 <div className="flex justify-end">
+//                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+//                 </div>
+//                 <div className="text-[#FFFFFF] text-[4vw]">Add Skills</div>
+//                 <input
+//                   type="text"
+//                   className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+//                   value={addedskill}
+//                   onChange={(e) => setaddedskill(e.target.value)}
+//                 />
+//                 <button
+//                   onClick={handleSubmitskills}
+//                   className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+//                 >
+//                   Submit
+//                 </button>
+//               </div>
+//             </div>
+//           )}
+
+//           {openAbout && (
+//             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+//               <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+//                 <div className="flex justify-end">
+//                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+//                 </div>
+//                 <div className="text-[#FFFFFF] text-[4vw]">Edit About</div>
+//                 <textarea
+//                   className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+//                   value={about}
+//                   onChange={(e) => setabout(e.target.value)}
+//                 />
+//                 <button
+//                   onClick={handleSubmitAbout}
+//                   className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+//                 >
+//                   Submit
+//                 </button>
+//               </div>
+//             </div>
+//           )}
+
+//           {openPlayerid && (
+//             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+//               <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+//                 <div className="flex justify-end">
+//                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+//                 </div>
+//                 <div className="text-[#FFFFFF] text-[4vw]">Edit Player ID</div>
+//                 <input
+//                   type="text"
+//                   className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+//                   value={playerid}
+//                   onChange={(e) => setplayerid(e.target.value)}
+//                 />
+//                 <button
+//                   onClick={handleSubmitPlayerid}
+//                   className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+//                 >
+//                   Submit
+//                 </button>
+//               </div>
+//             </div>
+//           )}
+
+//           {openDevice && (
+//             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+//               <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+//                 <div className="flex justify-end">
+//                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+//                 </div>
+//                 <div className="text-[#FFFFFF] text-[4vw]">Edit Device</div>
+//                 <input
+//                   type="text"
+//                   className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+//                   value={device}
+//                   onChange={(e) => setdevice(e.target.value)}
+//                 />
+//                 <button
+//                   onClick={handleSubmitDevice}
+//                   className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+//                 >
+//                   Submit
+//                 </button>
+//               </div>
+//             </div>
+//           )}
+
+//           {openTournament && (
+//             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+//               <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+//                 <div className="flex justify-end">
+//                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+//                 </div>
+//                 <div className="text-[#FFFFFF] text-[4vw]">Add Tournament</div>
+//                 <input
+//                   type="text"
+//                   className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+//                   value={tournament}
+//                   onChange={(e) => settournament(e.target.value)}
+//                 />
+//                 <button
+//                   onClick={handleSubmitTournament}
+//                   className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+//                 >
+//                   Submit
+//                 </button>
+//               </div>
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Profilecomp;

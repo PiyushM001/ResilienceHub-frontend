@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 
-import Dialog from "@material-ui/core/Dialog";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+
 import reject from "../Images/reject.svg"
 import Followcomp from './followcomp';
-
+import { FaRegEdit } from "react-icons/fa";
 import Footer from "./footer";
 import profilebg from "../Images/profile_bg.png";
 import profilep from "../Images/profilep.png";
@@ -34,7 +28,7 @@ export default function Ownprofilepage() {
 
   const infoid = localStorage.getItem("infoid");
   const { _idd } = useParams();
-  const {  ownid, getinfo,infostate, updateinfo ,followersarray, getfollowinglist,getfollowerslist,fetchProfilePicture,Profilepic,bgpic} = a;
+  const {  ownid, getinfo,infostate, updateinfo ,followersarray,followingarray, getfollowinglist,getfollowerslist,fetchProfilePicture,Profilepic,bgpic} = a;
   const _id = ownid;
   useEffect(() => {
     getinfo();
@@ -407,7 +401,7 @@ export default function Ownprofilepage() {
 
 
 
-            
+{/*             
             <div
               key={value.key}
               className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] "
@@ -468,8 +462,56 @@ export default function Ownprofilepage() {
               <div className="text-[#959595] ml-7 mb-3 mr-4  font-thin text-[4vw] font-teachers from-inherit ">
                 {value.text}
               </div>
+            </div> */}
+
+
+
+ <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
+              <div className="flex h-[4rem]">
+                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
+                  About
+                </div>
+                <div className="w-[60%] flex justify-end mr-4">
+                  <div className=" flex items-center">
+                    <button
+                      className="w-[1.5rem] text-[#f8f8f8]"
+                   
+                      onClick={handleClickToOpenText}
+                    >
+                     <FaRegEdit/>
+                    </button>
+                    {openText && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">Write About Yourself</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitText}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-[#959595] font-teachers m-3 ml-7 font-light text-[3.5vw] from-inherit ">
+                {value.text}
+              </div>
             </div>
 
+        
 
 
 
@@ -483,6 +525,10 @@ export default function Ownprofilepage() {
 
 
 
+
+
+
+{/* 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
                 <div className="w-[20%]  font-teachers text-[#37c5b0]   text-[1.1rem] ml-7 mt-2 flex  items-center">
@@ -539,6 +585,52 @@ export default function Ownprofilepage() {
                 {value.contact1}
               </div>
             </div>
+ */}
+
+<div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
+              <div className="flex h-[4rem]">
+                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
+                  Email
+                </div>
+                <div className="w-[60%] flex justify-end mr-4">
+                  <div className=" flex items-center">
+                    <button
+                      className="w-[1.5rem] text-[#f8f8f8]"
+                   
+                      onClick={handleClickToOpenContact1}
+                    >
+                     <FaRegEdit/>
+                    </button>
+                    {openContact1 && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">Enter your Email</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={contact1}
+                  onChange={(e) => setContact1(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitContact1}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-[#959595] font-teachers m-3 ml-7 font-light text-[3.5vw] from-inherit ">
+                {value.contact1}
+              </div>
+            </div>
 
 
 
@@ -555,7 +647,62 @@ export default function Ownprofilepage() {
 
 
 
+            <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
+              <div className="flex h-[4rem]">
+                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
+                  Phone Number
+                </div>
+                <div className="w-[60%] flex justify-end mr-4">
+                  <div className=" flex items-center">
+                    <button
+                      className="w-[1.5rem] text-[#f8f8f8]"
+                   
+                      onClick={handleClickToOpenContact2}
+                    >
+                     <FaRegEdit/>
+                    </button>
+                    {openContact2 && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">Enter your Phone Number</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={contact2}
+                  onChange={(e) => setContact2(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitContact2}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
+                  </div>
+                </div>
+              </div>
 
+              <div className="text-[#959595] font-teachers m-3 ml-7 font-light text-[3.5vw] from-inherit ">
+                {value.contact2}
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+{/* 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
                 <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
@@ -613,6 +760,7 @@ export default function Ownprofilepage() {
             </div>
 
 
+ */}
 
 
 
@@ -622,8 +770,7 @@ export default function Ownprofilepage() {
 
 
 
-
-
+{/* 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
                 <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
@@ -678,6 +825,52 @@ export default function Ownprofilepage() {
               <div className="text-[#959595] font-teachers m-3 ml-7 font-light text-[3.5vw] from-inherit ">
                 {value.education}
               </div>
+            </div> */}
+
+
+<div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
+              <div className="flex h-[4rem]">
+                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
+                  Education
+                </div>
+                <div className="w-[60%] flex justify-end mr-4">
+                  <div className=" flex items-center">
+                    <button
+                      className="w-[1.5rem] text-[#f8f8f8]"
+                   
+                      onClick={handleClickToOpenEducation}
+                    >
+                     <FaRegEdit/>
+                    </button>
+                    {openEducation && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">Add Your Education</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={education}
+                  onChange={(e) => setEducation(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitEducation}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-[#959595] font-teachers m-3 ml-7 font-light text-[3.5vw] from-inherit ">
+                {value.education}
+              </div>
             </div>
 
 
@@ -693,7 +886,7 @@ export default function Ownprofilepage() {
 
 
 
-
+{/* 
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1 mb-[11vh] border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
@@ -749,11 +942,86 @@ export default function Ownprofilepage() {
               <div className="text-[#959595] font-teachers m-3 ml-7 font-light text-[3.5vw] from-inherit ">
                 {value.location}
               </div>
+            </div> */}
+
+            
+<div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1 mb-[11vh]  border-[1px]  border-[#262626] ">
+              <div className="flex h-[4rem]">
+                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
+                 Residence
+                </div>
+                <div className="w-[60%] flex justify-end mr-4">
+                  <div className=" flex items-center">
+                    <button
+                      className="w-[1.5rem] text-[#f8f8f8]"
+                   
+                      onClick={handleClickToOpenResidence}
+                    >
+                     <FaRegEdit/>
+                    </button>
+                    {openResidence && (
+            <div  className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="text-[#FFFFFF] text-[4vw]">Add Your Address</div>
+                <textarea
+                  className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
+                  value={residence}
+                  onChange={(e) => setResidence(e.target.value)}
+                />
+                <button
+                  onClick={handleSubmitResidence}
+               
+                  className="bg-[#4ddcf5] text-[#000000] mt-[1rem] p-[0.5rem] rounded-[5px] w-full"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-[#959595] font-teachers m-3 ml-7 font-light text-[3.5vw] from-inherit ">
+                {value.location}
+              </div>
             </div>
 
 
 
 
+            {openFollowers && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followersarray.map((value)=>(
+                <Followcomp key={value.id} RealName={value.followerRealName} IngameName={value.followerIngameName} />
+                ))}</div>
+                
+              </div>
+            </div>
+                    )}
+
+
+
+                    {openAllies && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followingarray.map((value)=>(
+                <Followcomp key={value.id} RealName={value.RealName} IngameName={value.IngameName} />
+                ))}</div>
+                
+              </div>
+            </div>
+                    )}
 
 
 
@@ -766,7 +1034,7 @@ export default function Ownprofilepage() {
 
 
   
-            <Dialog open={openFollowers} onClose={handleClose} >
+            {/* <Dialog open={openFollowers} onClose={handleClose} >
                       <DialogTitle className="  w-[80vw] bg-[#020909] border-[#23757560] text-[#ebebeb] border-t-[1px]  border-l-[1px] border-r-[1px] ">
                         <div className="flex">
                           <div className="w-[90%]">Followers</div>
@@ -813,7 +1081,7 @@ export default function Ownprofilepage() {
 
                       </DialogContent>
                     </Dialog>
-                
+                 */}
 
 
 

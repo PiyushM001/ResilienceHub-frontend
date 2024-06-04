@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import nopost from '../Images/nopost.png'
-import Dialog from "@material-ui/core/Dialog";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+
 import Followcomp from './followcomp';
 import reject from "../Images/reject.svg"
 import Post from './post';
@@ -440,6 +434,38 @@ export default function Ownprofilepage() {
 
 
 
+{openFollowers && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followersarray.map((value)=>(
+                <Followcomp key={value.id} RealName={value.followerRealName} IngameName={value.followerIngameName} />
+                ))}</div>
+                
+              </div>
+            </div>
+                    )}
+
+
+
+                    {openAllies && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
+              <div className="bg-[#0c0c0c] rounded-[10px] p-[1rem]">
+                <div className="flex justify-end">
+                  <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
+                </div>
+                <div className="w-[70vw] h-[50vh]">{followingarray.map((value)=>(
+                <Followcomp key={value.id} RealName={value.RealName} IngameName={value.IngameName} />
+                ))}</div>
+                
+              </div>
+            </div>
+                    )}
+
+
+
 
             {/* 
 
@@ -482,7 +508,7 @@ export default function Ownprofilepage() {
 
 
 
-<Dialog open={openFollowers} onClose={handleClose} >
+{/* <Dialog open={openFollowers} onClose={handleClose} >
                       <DialogTitle className="  w-[80vw] bg-[#020909] border-[#23757560] text-[#ebebeb] border-t-[1px]  border-l-[1px] border-r-[1px] ">
                         <div className="flex">
                           <div className="w-[90%]">Followers</div>
@@ -529,7 +555,7 @@ export default function Ownprofilepage() {
 
                       </DialogContent>
                     </Dialog>
-                
+                 */}
 
 
 
