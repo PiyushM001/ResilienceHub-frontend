@@ -571,14 +571,14 @@ const location=playerinfo.location;
               {education}
             </div>
           </div>
-          <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1 mb-[10vh]  border-[1px]  border-[#262626]     ">
+          <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]     ">
             <div className="text-[#37c5b0]  ml-7 mt-2">Address</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
               {location}
             </div>
           </div>
 
-        
+        <div className="w-full h-[12vh]"></div>
 
 
 
