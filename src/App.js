@@ -32,6 +32,7 @@ import ProfilePictureUpload from './components/profile_post_page';
 import BgPictureUpload from './components/bg_post_page';
 import Post from './components/post';
 import Postpost from './components/postpost';
+import Othersprofile from './components/othersprofile';
 function App() {
 
  
@@ -51,7 +52,7 @@ function App() {
         <Route path="/profile/about" element={ <Ownprofilepage2/> } />
         <Route path="/profile/posts" element={ <Ownprofilepage3/> } />
         <Route path="/profile" element={ <Ownprofilepage/> } />
-
+        <Route path="/other" element={ <Othersprofile/> } />
         <Route path="/loginas" element={ <Loginas/> } />
         {/* <Route path="/profile/posts" element={ <Profilepageposts/> } />
         <Route path="/profile/about" element={ <Profilepage/> } /> */}
