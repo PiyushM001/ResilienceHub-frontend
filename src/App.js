@@ -45,7 +45,7 @@ function App() {
     
         <Route path="/" element={ <Home/> } />
         <Route path="/tournaments" element={ <Tournamentpage/> } />
-        <Route  path="/profile2" element={ <Profilepagegames/> } />
+        <Route  path="/profile2/:_id" element={ <Profilepagegames/> } />
         <Route  path="/profile2/posts/:_id" element={ <Profilepageposts/> } />
         <Route path="/profile2/about/:_id" element={ <Profilepage/> } />
         <Route path="/profile/about" element={ <Ownprofilepage2/> } />
