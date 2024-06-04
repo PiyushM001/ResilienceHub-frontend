@@ -1,10 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import loadinggif from '../Images/loading.gif';
 import './components.css'
-
+import { useNavigate } from "react-router-dom";
 
 
 export default function Postpost ({ userId }){
+  const navigate = useNavigate();
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
 const [description,setdescription]=useState("");
@@ -38,7 +40,7 @@ console.log("cha")
 
       if (response.ok) {
         const data = await response.json();
-        window.location.href = '/new-route';
+        navigate("/");
                 setLoading(false)
 
         console.log('File uploaded successfully', data);

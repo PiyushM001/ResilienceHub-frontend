@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React,  { useEffect,useState } from 'react';
+
 import Followcomp from './followcomp';
-import { useEffect,useState } from "react";
 import nopost from '../Images/nopost.png'
 import Post from './post';
 

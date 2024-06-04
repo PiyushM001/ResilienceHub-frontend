@@ -3,8 +3,9 @@ import loadinggif from '../Images/loading.gif';
 import './components.css';
 import Cropper from 'react-easy-crop';
 import { getCroppedImg } from './getcroppedfun'; // Import the function
-
+import { useNavigate } from "react-router-dom";
 const BgPictureUpload = ({ userId }) => {
+  const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState('');
@@ -43,7 +44,7 @@ const BgPictureUpload = ({ userId }) => {
 
       if (response.ok) {
         const data = await response.json();
-        window.location.href = '/profile';
+       navigate("/profile");
         setLoading(false);
         console.log('File uploaded successfully', data);
       } else {

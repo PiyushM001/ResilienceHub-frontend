@@ -1,7 +1,6 @@
-import * as React from 'react';
+import React,  { useEffect,useState } from 'react';
 import reject from "../Images/reject.svg"
 import Followcomp from './followcomp';
-import { useEffect,useState } from "react";
 import altimg from '../Images/profile2.png'
 import './components.css'
 // import Dialog from "@material-ui/core/Dialog";
