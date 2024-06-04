@@ -84,7 +84,7 @@ useEffect(() => {
     }
   };
   return (
-    <div className='bg-[#000000] h-[100vh] '>
+    <div className='bg-[#000000] h-[100%] '>
       {loading && (
             <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[10]'>
               <div className='h-[30vh] bg-[#000000]'></div>

@@ -1,20 +1,23 @@
-import React, {  useContext} from 'react';
+import React, {  useContext,useState} from 'react';
 
 import profile from '../Images/profile2.png'
 // import postimg from '../Images/profile_bg.png'
 import likeicon from '../Images/like.svg'
 import commenticon from '../Images/comment.svg'
 import { pContext } from "../context/profilecontext";
-
+import './components.css'
 export default function Post(props) {
   const infoid = localStorage.getItem("infoid");
   const a = useContext(pContext);
   const { like} = a;
+  const [imageLoaded2, setImageLoaded2] = useState(false);
 
 const likefun=()=>{
   like(infoid,props.postid)
 }
-
+const handleImageError2 = () => {
+  setImageLoaded2(false);
+};
   return (
     <div className='mt-3 '>
       <div className=' bg-[#040d10] w-[100vw] '>
@@ -23,7 +26,8 @@ const likefun=()=>{
 
 
         <div className='flex'>
-            <img className='w-[3rem] rounded-[100%] ml-3 mr-3 mt-2' src={props.profile}  alt="img" ></img>
+          <div className='w-[3rem] h-[3rem] ml-3 mr-3 mt-2 rounded-[100%] pro3'>            <img className='w-[3rem] rounded-[100%] ' src={props.profile}  style={{ display: imageLoaded2 ? 'block' : 'none' }}  onError={handleImageError2}  alt="img" ></img>
+</div>
             <div className='flex flex-col justify-center '>
                 <div className='text-[#ffffff] font-mochiy-pop text-[0.9rem] font-thin mt-3'>{props.name}</div>
                 <div className='font-medium text-[0.8rem] h-[30%] flex items-center font-teachers  text-[#656565]'>{props.realname}</div>

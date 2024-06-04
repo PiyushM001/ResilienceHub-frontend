@@ -8,6 +8,9 @@ backdrop-filter: blur(2px);
 -webkit-backdrop-filter: blur(2px);
 border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
+html, body {
+  height: 100%;
+}
 .headerbg{
     /* From https://css.glass */
     background: rgba(1, 15, 17, 0.908);
@@ -52,6 +55,12 @@ border-top: 1px solid rgba(255, 255, 255, 0.3);
     background-image: url('../Images/profile2.png');
     background-position: center;
     background-size: 6.9rem;
+
+  }
+  .pro3{
+    background-image: url('../Images/profile2.png');
+    background-position: center;
+    background-size: 100%;
 
   }
   .pro2{

@@ -36,7 +36,7 @@ function App() {
 
  
   return (
-    <div className='flex justify-center' >
+    <div className='flex justify-center h-[100%] w-full bg-[#020202] overflow-hidden ' >
        <div className=' min-[600px]:hidden max-[600px]:w-[100%] '>
      <Router >
      <Signcontext>
@@ -45,9 +45,9 @@ function App() {
     
         <Route path="/" element={ <Home/> } />
         <Route path="/tournaments" element={ <Tournamentpage/> } />
-        <Route path="/profile/:_id" element={ <Profilepagegames/> } />
-        <Route path="/profile/posts/:_id" element={ <Profilepageposts/> } />
-        <Route path="/profile/about/:_id" element={ <Profilepage/> } />
+        <Route exact path="/profile/:_id" element={ <Profilepagegames/> } />
+        <Route exact path="/profile/posts/:_id" element={ <Profilepageposts/> } />
+        <Route exact path="/profile/about/:_id" element={ <Profilepage/> } />
         <Route path="/profile/about" element={ <Ownprofilepage2/> } />
         <Route path="/profile/posts" element={ <Ownprofilepage3/> } />
         <Route path="/profile" element={ <Ownprofilepage/> } />

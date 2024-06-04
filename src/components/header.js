@@ -9,6 +9,8 @@ import { pContext } from "../context/profilecontext";
 import bell from '../Images/notification-icon.svg';
 import searchicon from '../Images/Searchicon.png';
 import _ from 'lodash';
+import { ToastContainer, toast } from "react-toastify";
+
 import { useLocation } from 'react-router-dom';
 
 export default function Header() {
@@ -47,9 +49,12 @@ export default function Header() {
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
   };
-
+const toasterr=()=>{
+  toast.warning("Chat Feature Will be Available Soon");
+}
   return (
     <div className='flex w-full h-[10vh] absolute top-0 bg-[#000000] justify-evenly items-center headerbg z-[10] min-[500px]:w-[500px]'>
+      <ToastContainer/>
       {loginState && (
         <Link className='w-[3.5rem]' to="/profile">
           <img className='w-[80%] rounded-[100%]' src={profile} alt="Profile" />
@@ -68,7 +73,7 @@ export default function Header() {
         <div className='flex items-center bg-[#a7b9b75d] rounded-[5px]  border-2 border-[#2c2c2c] w-[55%]'>
           <input
             placeholder="Search players..."
-            className="bg-[#373737] rounded-[5px] text-[#ffffff] pl-3 ml-1"
+            className="bg-[#373737] w-[80%] rounded-[5px] text-[#ffffff] pl-3 m-1"
             value={query}
             onChange={handleSearchChange}
             style={{ color: 'white', paddingLeft: '10px' }}
@@ -90,7 +95,7 @@ export default function Header() {
         </div>
       </Link>
 
-      <img className='w-[7vw]' src={chat} alt="Chat" />
+      <img onClick={toasterr} className='w-[7vw]' src={chat} alt="Chat" />
     </div>
   );
 }

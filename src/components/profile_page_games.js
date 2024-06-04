@@ -21,7 +21,7 @@ import Profile_page_common from './profile_page_common';
 
 
 export default function Profilepagegames() {
-  const { _id } = useParams();
+  const {_id} = useParams();
   const a = useContext(pContext);
   const [loading, setLoading] = useState(false);
 
