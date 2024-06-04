@@ -375,7 +375,7 @@ import Profilepagecommon from "./profile_page_common";
 export default function Othersaboutprofile() {
 
     const {_id} = useParams();
-      const [loading, setLoading] = useState(true);
+ 
 
       const a = useContext(pContext);
       const [loading2,setLoading2] = useState(false);
@@ -402,13 +402,13 @@ export default function Othersaboutprofile() {
       } = a;
     
       const fetchData = async () => {
-        setLoading(true);
+       
         try {
           await getplayerinfo(_id);
         } catch (error) {
           // Handle error if necessary
         } finally {
-          setLoading(false);
+          
         }
       };
     
@@ -464,12 +464,15 @@ export default function Othersaboutprofile() {
       const game = playerinfo.game;
       const followersCount = playerinfo.followersCount;
       const followingCount = playerinfo.followingCount;
-      const device = playerinfo.device;
-      const about = playerinfo.about;
+    
       const profilePictureUrl = playerinfo.profilePictureUrl;
      const profilebg = playerinfo.bgPictureUrl;
-    
-      const playerid = playerinfo.playerid;
+    const text=playerinfo.text;
+const contact1=playerinfo.contact1;
+const contact2=playerinfo.contact2;
+const education=playerinfo.education;
+const location=playerinfo.location;
+     
     
       const [openFollowers, setOpenFollowers] = useState(false);
       const [openAllies, setOpenAllies] = useState(false);
@@ -489,14 +492,8 @@ export default function Othersaboutprofile() {
 
   return (
     <div className="w-full h-[100svh] bg-[#000000]  ">
-     about page this is
-      {loading && (
-        <div className="absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]">
-          <div className="h-[30vh] bg-[#000000]"></div>
-          <img className="w-[100vw]" src={loadinggif} alt="Loading" />
-          <div className="h-[30vh] bg-[#000000]"></div>
-        </div>
-      )}
+    
+     
       <div className=" bg-[#000000] w-full h-[100vh] overflow-y-scroll ">
         <Profilepagecommon
           loading2={loading2}
@@ -517,7 +514,7 @@ export default function Othersaboutprofile() {
         <div className=" bg-gradient-to-r from-[#0a0a0a] to-[#0fafb813] h-[3rem] flex  items-center justify-center">
           <div className="bg-[#09090900] w-[90%] h-[2.8rem] flex justify-evenly">
             <Link
-              className="border-r-[2px]  border-[#222222] border-b-[2px] border-b-[#B4FF16] shadow-b-inner shadow-[#B4FF16] w-full flex justify-center items-center"
+              className="border-r-[2px]  border-[#222222] shadow-b-inner shadow-[#B4FF16] w-full flex justify-center items-center"
               to={`/other/${_id}`}
             >
               {" "}
@@ -527,7 +524,7 @@ export default function Othersaboutprofile() {
             </Link>
 
             <Link
-              className="border-r-[2px]  border-r-[#222222] w-full flex justify-center items-center"
+              className="border-r-[2px] border-b-[2px] border-b-[#B4FF16]   border-r-[#222222] w-full flex justify-center items-center"
               to={`/other/about/${_id}`}
             >
               {" "}
@@ -547,53 +544,43 @@ export default function Othersaboutprofile() {
 
         <div className="w-full flex flex-col justify-center items-center bg-[#0a0a0a]   ">
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]    ">
-            <div className="text-[#4aeed5] text-[1.1rem] font-teachers ml-7 mt-2">
+            <div className="text-[#37c5b0] text-[1.1rem] font-teachers ml-7 mt-2">
               About
             </div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4 mr-3 font-thin text-[4vw] from-inherit ">
-              {about}
+              {text}
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]     ">
             <div className="text-[#37c5b0]  text-[1.1rem] font-teachers ml-7 mt-2">
-              Player-ID
+              Email
             </div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3 font-light text-[3.5vw] from-inherit ">
-              {playerid}
+              {contact1}
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1   border-[1px]  border-[#262626]     ">
-            <div className="text-[#37c5b0]  ml-7 mt-2">Device</div>
+            <div className="text-[#37c5b0]  ml-7 mt-2">Phone Number</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
-              {device}
+              {contact2}
+            </div>
+          </div>
+          <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1   border-[1px]  border-[#262626]     ">
+            <div className="text-[#37c5b0]  ml-7 mt-2">Education</div>
+            <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
+              {education}
+            </div>
+          </div>
+          <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1 mb-[10vh]  border-[1px]  border-[#262626]     ">
+            <div className="text-[#37c5b0]  ml-7 mt-2">Address</div>
+            <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
+              {location}
             </div>
           </div>
 
-          <div className="w-[100%] mt-1   bg-gradient-to-r from-[rgb(0,0,0)] to-[#0fafb813]  border-[1px]  border-[#262626]  pb-5   ">
-            <div className="w-full flex mt-3 ">
-              <div className="text-[#37c5b0]  text-[1rem] ml-7   flex items-center">
-                Speciality
-              </div>
-            </div>
-            {skillsarray.map((val) => (
-              <div className="text-[#c4c4c4] font-teachers w-[80%] m-3 ml-7  h-[2rem] flex items-center font-light text-[14px] from-inherit border-b-[1px] border-[#2222228e] ">
-                {val.skill}
-              </div>
-            ))}
-          </div>
+        
 
-          <div className="w-[100%] mt-1 mb-[11vh]  bg-gradient-to-r from-[rgb(0,0,0)] to-[#0fafb813]  border-[1px]  border-[#262626] pb-5    ">
-            <div className="w-full flex mt-3 ">
-              <div className="text-[#37c5b0]  text-[1rem] ml-7   flex items-center">
-                Achievements
-              </div>
-            </div>
-            {tournamentarray.map((val) => (
-              <div className="text-[#c4c4c4] font-teachers  w-[80%] m-3 ml-7 h-[2rem] flex items-center font-light text-[14px] from-inherit border-b-[1px] border-[#2222228e] ">
-                {val.tournament}
-              </div>
-            ))}
-          </div>
+
 
           {openFollowers && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[1000]">
