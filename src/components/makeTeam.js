@@ -68,7 +68,7 @@ export default function Maketeam() {
   };
 
   return (
-    <div className=" h-[100vh] bg-[#000000] w-full  ">
+    <div className=" h-[100svh] bg-[#000000] w-full  ">
       <ToastContainer />
       {loading && (
         <div className="absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1]">

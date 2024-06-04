@@ -36,7 +36,7 @@ function App() {
 
  
   return (
-    <div className='flex justify-center h-[100%] w-full bg-[#020202] overflow-hidden ' >
+    <div className='flex justify-center h-[100svh] w-full bg-[#020202] overflow-hidden ' >
        <div className=' min-[600px]:hidden max-[600px]:w-[100%] '>
      <Router >
      <Signcontext>

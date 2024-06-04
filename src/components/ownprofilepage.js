@@ -208,7 +208,7 @@ export default function Ownprofilepage() {
             </div>
           )}
       {infostate.map((value) => (
-        <div className="bg-gradient-to-r from-[#000000] to-[#000000] w-full h-[100vh] overflow-y-scroll">
+        <div className="bg-gradient-to-r from-[#000000] to-[#000000] w-full h-[100svh] overflow-y-scroll">
           <ToastContainer />
           <Transition
             show={isOpen}

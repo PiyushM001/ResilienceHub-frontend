@@ -92,7 +92,7 @@ useEffect(()=>{    chatRef.current?.scrollIntoView()
   };
 
   return (
-    <div className='bg-[#000000] h-[100vh] w-full'>
+    <div className='bg-[#000000] h-[100svh] w-full'>
       {loading && (
         <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]'>
           <div className='h-[30vh] bg-[#000000]'></div>

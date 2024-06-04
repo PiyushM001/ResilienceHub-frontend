@@ -86,7 +86,7 @@ export default function Tournamentpage() {
 },
   ]
   return (
-    <div className='flex flex-col h-[100vh] w-full'>
+    <div className='flex flex-col h-[100svh] w-full'>
       <Header/>
      
       <div className='flex w-full h-[100vh] flex-col items-center bg-[#000000] overflow-y-scroll '>
