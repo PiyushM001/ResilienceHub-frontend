@@ -52,7 +52,7 @@ function App() {
         <Route path="/profile/about" element={ <Ownprofilepage2/> } />
         <Route path="/profile/posts" element={ <Ownprofilepage3/> } />
         <Route path="/profile" element={ <Ownprofilepage/> } />
-        <Route path="/other/:_id" element={ <Othersprofile/> } />
+        <Route path="/other/:_id" element={ <Profilepagegames/> } />
         <Route path="/loginas" element={ <Loginas/> } />
         {/* <Route path="/profile/posts" element={ <Profilepageposts/> } />
         <Route path="/profile/about" element={ <Profilepage/> } /> */}

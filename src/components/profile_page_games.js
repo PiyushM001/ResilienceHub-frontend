@@ -48,14 +48,9 @@ export default function Profilepagegames() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const RealName = playerinfo.RealName;
-  // console.log("infostate",infostate)
-  // console.log("playerinfo",playerinfo)
+ 
   const IngameName = playerinfo.IngameName;
-  // const followerRealName = infostate[0].RealName;
-  // const followerIngameName = infostate[0].IngameName;
   const _userid=playerinfo.user;
-
-
   const [loading2, setLoading2] = useState(false);
   const [loading3, setLoading3] = useState(false);
   const handlec =async () => {
@@ -67,9 +62,6 @@ export default function Profilepagegames() {
     } finally {
       setLoading2(false);
     }
-
-
-   
   };
   const handleinvite = async() => {
     setLoading3(true);
