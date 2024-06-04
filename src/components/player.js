@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 export default function Player(props) {
   return (
     <>
-    <Link to={"/profile2"} className='w-[10.5rem] mt-4 '>
+    <Link to={`/profile2/${props.id}`} className='w-[10.5rem] mt-4 '>
       <div className='w-[100%] h-[12.4rem]  bg-gradient-to-b from-[#000000] to-[#0fb0b81b] rounded-[10px] border-[1px] border-[#2c2c2c] glass3 '>
         <div className='relative h-[5rem]'>
         <img className='rounded-t-[10px] w-[100%] h-[3.8rem]'  src={profilebg}  alt="img" ></img>

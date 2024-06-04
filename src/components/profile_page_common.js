@@ -4,7 +4,7 @@ import './components.css'
 import loadinggif from '../Images/loading.gif';
 
 // import { styled } from '@material-ui/core';
-export default function Profile_page_common(props) {
+export default function Profilepagecommon(props) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleImageLoad = () => {

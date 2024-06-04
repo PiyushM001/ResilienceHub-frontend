@@ -11,7 +11,7 @@ import profilep from "../Images/profilep.png";
 import { pContext } from "../context/profilecontext";
 import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import Profile_page_common from './profile_page_common';
+import Profilepagecommon from './profile_page_common';
 
 
 
@@ -132,7 +132,7 @@ const handleClose = () => {
           )}
       <div 
       className=" bg-[#000000] w-full h-[100vh] overflow-y-scroll ">
-      <Profile_page_common loading2={loading2} loading3={loading3} profilebg={profilebg} profilePictureUrl={profilePictureUrl} handlec={handlec} checkfollowstate={checkfollowstate} handleinvite={handleinvite} handleClickToOpenFollowers={handleClickToOpenFollowers} handleClickToOpenAllies={handleClickToOpenAllies}  IngameName={IngameName} RealName={RealName} followersCount={followersCount} followingCount={followingCount} />
+      <Profilepagecommon loading2={loading2} loading3={loading3} profilebg={profilebg} profilePictureUrl={profilePictureUrl} handlec={handlec} checkfollowstate={checkfollowstate} handleinvite={handleinvite} handleClickToOpenFollowers={handleClickToOpenFollowers} handleClickToOpenAllies={handleClickToOpenAllies}  IngameName={IngameName} RealName={RealName} followersCount={followersCount} followingCount={followingCount} />
 
 
 
