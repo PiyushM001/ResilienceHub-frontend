@@ -1,14 +1,10 @@
 
 import React, { useEffect, useState } from "react";
 import Followcomp from "./followcomp";
-import altimg from "../Images/profile2.png";
 import "./components.css";
-
 import loadinggif from "../Images/loading.gif";
-
 import Footer from "./footer";
-import profilebg from "../Images/profile_bg.png";
-import profilep from "../Images/profilep.png";
+
 import { pContext } from "../context/profilecontext";
 import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
