@@ -85,7 +85,6 @@ const [checkteam,setcheckteam]= useState(" ");
     setownid(data[0]._id);
     // setownid(data[0]._id)
     localStorage.setItem("infoid", data[0]._id);
-    localStorage.setItem("MyRealName", data[0].RealName);
     localStorage.setItem("MyGameName", data[0].IngameName);
 
     setfollowerRealName(data[0].RealName);
@@ -107,8 +106,6 @@ const [checkteam,setcheckteam]= useState(" ");
       toast(err);
     });
     const data = await response.json();
-  
-    await getChats(data[0].teamname);
      setteamnamein(data[0].teamname);
     setteamarray(data[0].team);
   };
@@ -254,9 +251,7 @@ const [checkteam,setcheckteam]= useState(" ");
     });
     const data = await response.json();
     // console.log("lun",data[0].chat)
-
   setchatarray(data[0].chat);
-  
   };
 
 

@@ -108,7 +108,7 @@ const handleClose = () => {
   return (
     <>
       <div 
-      className=" bg-[#000000] w-full h-[100vh] overflow-y-scroll ">
+      className=" bg-[#000000] w-full h-[100svh] overflow-y-scroll ">
       
       <Profilepagecommon loading2={loading2} loading3={loading3} profilebg={profilebg} profilePictureUrl={profilePictureUrl} handlec={handlec} checkfollowstate={checkfollowstate} handleinvite={handleinvite} handleClickToOpenFollowers={handleClickToOpenFollowers} handleClickToOpenAllies={handleClickToOpenAllies}  IngameName={IngameName} RealName={RealName} followersCount={followersCount} followingCount={followingCount} />
 

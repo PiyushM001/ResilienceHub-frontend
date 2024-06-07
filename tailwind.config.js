@@ -10,6 +10,7 @@ module.exports = {
 "./src/components/post.js",
 "./src/components/postpost.js",
 "./src/components/othersaboutprofile.js",
+"./src/components/signup.js",
 
 "./src/components/profile_page_common.js",
 "./src/components/profile_post_page.js",

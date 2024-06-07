@@ -60,6 +60,32 @@ export default function Signcontext(props) {
 
   
   };
+  const otpfun = async (email) => {
+   
+    const response = await fetch(`${port}/signin/send-otp `, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then(async (response) => {
+        const st = await response.text();
+        if (response.ok) {
+          toast.success(st);
+    
+        } else {
+          toast.error(st);
+        }
+        // toast(res.json())
+      })
+      .catch((err) => {
+        toast(err);
+        console.log(err);
+      });
+
+  
+  };
 
 
   const login = async (email, password) => {
@@ -72,9 +98,16 @@ export default function Signcontext(props) {
       body: JSON.stringify({ email, password }),
     }).then( async (response) => {
         const st = await response.text();
+        const parsedResponse = JSON.parse(st);
+        const tokenWithQuotes = `"${parsedResponse.token}"`
+        const nameWithQuotes = `"${parsedResponse.realname}"`
+
+        console.log(tokenWithQuotes,"st console")
         if (response.ok) {
           toast.success("Login Successful");
-          localStorage.setItem("token", st);
+          localStorage.setItem("token", tokenWithQuotes);
+          localStorage.setItem("realname", nameWithQuotes);
+
           navigate("/")
         } else {
           toast.error(st);
@@ -92,7 +125,7 @@ export default function Signcontext(props) {
 
 
   return (
-    <sContext.Provider value={{  signin,login }}>
+    <sContext.Provider value={{ signin,login,otpfun }}>
       {props.children}
     </sContext.Provider>
   );

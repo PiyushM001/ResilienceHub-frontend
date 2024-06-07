@@ -6,7 +6,7 @@ import Chatcomp from './chatcomp';
 import io from 'socket.io-client';
 import { IoIosSend } from "react-icons/io";
 import Footer from './footer';
-const MyRealName = localStorage.getItem("MyRealName");
+const MyRealName = localStorage.getItem("realname");
 const infoid = localStorage.getItem("infoid");
 const time = new Date().toLocaleTimeString(); // Update to get current time
 // const port = "https://thrive-backend-o6k3.onrender.com"
@@ -53,7 +53,7 @@ const chatRef = useRef(null);
   useEffect(() => {
     setLoading(true);
      fetchData();
-   
+     chatRef.current?.scrollIntoView() 
      setchatarray2(chatarray)
 
     socket.emit("joinRoom", teamnamein); // Join the room for the team
@@ -67,9 +67,10 @@ const chatRef = useRef(null);
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-useEffect(()=>{    chatRef.current?.scrollIntoView() 
+useEffect(()=>{    
+  chatRef.current?.scrollIntoView() 
 
-  console.log("chal to rha h ye messAGE SE")
+
  },[chatarray2])
 
 
@@ -102,12 +103,12 @@ useEffect(()=>{    chatRef.current?.scrollIntoView()
       )}
 
       {!loading && (
-        <div className='flex flex-col items-center w-[100vw] h-[100vh] bg-[#000000]'>
+        <div className='flex flex-col items-center w-[100vw] h-[100svh] bg-[#000000]'>
           <div className='bg-[#323232] h-[10vh] w-full flex justify-center items-center glass3 mb-1 headerbg'>
             <div className='w-[3.5rem]'>
               <img className='w-[80%] border-[2px] border-[#717171] rounded-[100%]' src={pp} alt='Profile' />
             </div>
-            <div className='w-[70%] flex justify-center'>
+            <div className='w-[70%] flex-col justify-center'>
               <div className='text-[#ffffff] font-mochiy-pop text-[4vw] w-[80%]'>{teamnamein}</div>
               <div className='flex text-[#9c9c9c] text-[3.2vw] font-teachers'>
                 {teamarray.map((value) => (
