@@ -6,8 +6,7 @@ import Chatcomp from './chatcomp';
 import io from 'socket.io-client';
 import { IoIosSend } from "react-icons/io";
 import Footer from './footer';
-const MyRealName = localStorage.getItem("realname");
-const infoid = localStorage.getItem("infoid");
+
 
 const time = new Date().toLocaleTimeString(); // Update to get current time
 // const port = "https://thrive-backend-o6k3.onrender.com"
@@ -15,8 +14,13 @@ const time = new Date().toLocaleTimeString(); // Update to get current time
 
 const socket = io('https://thrive-backend-o6k3.onrender.com'); 
 // const socket = io(process.env.REACT_APP_port);
-
+// console.log(infoid,"4545")
+// console.log(MyRealName,"4545")
 export default function Chatpage() {
+
+  const MyRealName = localStorage.getItem("realname");
+const infoid = localStorage.getItem("infoid");
+
   const a = useContext(pContext);
   const {
     getteaminfo,
@@ -30,7 +34,7 @@ export default function Chatpage() {
     setChatArray,
   } = a;
 
-  const teamname = "team7";
+//  console.log(teamnamein)
   const [msg, setmsg] = useState("");
   const [loading, setLoading] = useState(true);
 const [chatarray2,setchatarray2]=useState(chatarray)
@@ -41,7 +45,7 @@ const chatRef = useRef(null);
   const fetchData = async () => {
     try {
       await  getteaminfo();
-      
+      await getChats(teamnamein)
       setLoading(false);
     } catch (error) {
       console.error('Error fetching chats:', error);
