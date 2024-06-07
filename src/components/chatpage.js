@@ -37,30 +37,32 @@ const infoid = localStorage.getItem("infoid");
 //  console.log(teamnamein)
   const [msg, setmsg] = useState("");
   const [loading, setLoading] = useState(true);
-const [chatarray2,setchatarray2]=useState(chatarray)
+const [chatarray2,setchatarray2]=useState([])
 const [showFooter, setShowFooter] = useState(true);
 const chatRef = useRef(null);
 
 
   const fetchData = async () => {
     try {
-      await  getteaminfo();
-      await getChats(teamnamein)
-      setLoading(false);
+      setLoading(true);
+      getChats();
+    
     } catch (error) {
       console.error('Error fetching chats:', error);
     } finally {
-    
+      
+      
+      setchatarray2(chatarray)
+      setLoading(false);
       chatRef.current?.scrollIntoView()
     }
   };
 
   useEffect(() => {
-    setLoading(true);
+   
      fetchData();
-     chatRef.current?.scrollIntoView() 
      setchatarray2(chatarray)
-
+        chatRef.current?.scrollIntoView() 
     socket.emit("joinRoom", teamnamein); // Join the room for the team
 
     socket.on("newMessage", (message) => {

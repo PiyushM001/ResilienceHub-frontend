@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 // const host = process.env.port
 export const pContext = createContext();
 // const port = process.env.REACT_APP_PORT;
-// const port ="http://localhost:5000"
-const port = "https://thrive-backend-o6k3.onrender.com"
+const port ="http://localhost:5000"
+// const port = "https://thrive-backend-o6k3.onrender.com"
 
 export default function Profilecontext(props) {
   // const localtoken2 = localStorage.getItem("token");
@@ -106,6 +106,8 @@ const [checkteam,setcheckteam]= useState(" ");
     });
     const data = await response.json();
      setteamnamein(data[0].teamname);
+     console.log("g",data[0].teamname);
+
     setteamarray(data[0].team);
   };
 
@@ -238,23 +240,43 @@ const [checkteam,setcheckteam]= useState(" ");
   //     toast(err);
   //   });}
 
-  const getChats = async (teamname) => {
+  // const getChats = async (teamname) => {
+  //   const response = await fetch(`${port}/getChats`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ teamname}),
+  //   }).catch((err) => {
+  //     toast(err);
+  //   });
+  //   const data = await response.json();
+  //   // console.log("lun",data[0].chat)
+  // setchatarray(data[0].chat);
+  // };
+
+
+
+  const getChats = async () => {
     const response = await fetch(`${port}/getChats`, {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
+        token: localtoken,
       },
-      body: JSON.stringify({ teamname}),
     }).catch((err) => {
       toast(err);
     });
     const data = await response.json();
-    // console.log("lun",data[0].chat)
-  setchatarray(data[0].chat);
+    console.log("data",data.chatinfo[0].chat)
+    console.log("dataw222",data.information.team)
+
+    //  setteamnamein(data[0].teamname);
+     setchatarray(data.chatinfo[0].chat);
+     setteamnamein(data.information.teamname);
+    setteamarray(data.information.team);
+
   };
-
-
-
 
 
 
@@ -276,11 +298,14 @@ const [checkteam,setcheckteam]= useState(" ");
     })
       .then(async (response) => {
         const x = await response.json();
-
+       
         // const st = await response.text();
         if (response.ok) {
           toast.success("submission Successful");
+          
           localStorage.setItem("infoid", x._id);
+          localStorage.setItem("realname", x.RealName);
+
           navigate("/");
         } else {
           toast.error("sdgds");
