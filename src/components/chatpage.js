@@ -119,7 +119,7 @@ useEffect(()=>{
             </div>
           </div>
 
-          <div className="bg-[#d35151] w-[95%]">
+          <div className="bg-[#000000] w-[95%]">
             <div    className='h-[70svh] w-full overflow-y-scroll text-[#c7c7c7]'>
               {   chatarray2.map((val) => (
                 <Chatcomp key={val.id} name={val.userRealName} msg={val.message} time={val.time} />
@@ -127,7 +127,7 @@ useEffect(()=>{
               <div ref={chatRef} className=' '></div>
             </div>
 
-            <div className='h-[10svh]  bg-[#b3a7a7] flex justify-center items-center'>
+            <div className='h-[10svh]  bg-[#000000] flex justify-center items-center'>
               <div className='w-[95%] bg-[#000000] h-full flex items-center'>
                 <input
                   placeholder='Start chatting'
