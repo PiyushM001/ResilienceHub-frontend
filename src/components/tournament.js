@@ -1,6 +1,9 @@
 import React from 'react'
 import './components.css'
-
+import { LuMapPin } from "react-icons/lu";
+import { IoPerson } from "react-icons/io5";
+import { MdOutlineGames } from "react-icons/md";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 import profile from '../Images/profile.svg';
 import './components.css'
 export default function Tournament(props) {
@@ -14,7 +17,7 @@ export default function Tournament(props) {
       <div className= '  bg-gradient-to-l from-[#000000] to-[#0fb0b80a]  h-[4rem] rounded-t-[10px] flex  '>
 
 
-        <div className='w-[22%] h-[4rem] flex justify-center items-center '><img className='w-[70%] h-[70%] border-[1px] border-[#222222] rounded-[8px] ' src={props.orgimg}></img></div>
+        <div className='w-[22%] h-[4rem] flex justify-center items-center '><img className='w-[3rem] h-[3rem] border-[1px] border-[#222222] rounded-[8px] ' src={props.orgimg}></img></div>
         <div className='w-[50%] flex flex-col justify-center border-b-[2px] border-[#222222] '>
           <div className='text-[#ffffff] font-mochiy-pop text-[3.3vw] font-thin h-[30%]'>{props.org}</div>
           <div className=' font-medium text-[60%] h-[30%] flex items-center text-[#656565]'>{props.description}</div>
@@ -41,10 +44,10 @@ export default function Tournament(props) {
       </div>
       
 <div className='w-full h-[2.5rem] flex items-center bg-[#0fb0b815]'>
-  <div className='w-[25%] flex justify-center items-center font-medium text-[#B4FF16] text-[3.5vw] '>{props.game}</div>
-  <div className='w-[25%] flex justify-center items-center font-medium text-[#a7a7a7] text-[3.5vw] '>{props.solo}</div>
-  <div className='w-[25%] flex justify-center items-center font-medium text-[#a7a7a7] text-[3.5vw] '>{props.map}</div>
-  <div className='w-[25%] flex justify-center items-center font-medium text-[#a7a7a7] text-[3.5vw] '>{props.info}</div>
+  <div className='w-[25%] flex justify-center items-center font-medium text-[#B4FF16] text-[3.5vw] '><MdOutlineGames style={{margin:"3px"}} />{props.game}</div>
+  <div className='w-[25%] flex justify-center items-center font-medium text-[#a7a7a7] text-[3.5vw] '><IoPerson style={{margin:"3px"}}  />{props.solo}</div>
+  <div className='w-[25%] flex justify-center items-center font-medium text-[#a7a7a7] text-[3.5vw] '><LuMapPin style={{margin:"3px"}}  />{props.map}</div>
+  <div className='w-[25%] flex justify-center items-center font-medium text-[#a7a7a7] text-[3.5vw] '><IoMdInformationCircleOutline style={{margin:"3px"}}  />{props.info}</div>
 
 </div>
     

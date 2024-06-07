@@ -6,11 +6,12 @@ import likeicon from '../Images/like.svg'
 import commenticon from '../Images/comment.svg'
 import { pContext } from "../context/profilecontext";
 import './components.css'
+import { Link } from 'react-router-dom';
 export default function Post(props) {
   const infoid = localStorage.getItem("infoid");
   const a = useContext(pContext);
   const { like} = a;
-  const [imageLoaded2, setImageLoaded2] = useState(false);
+  const [imageLoaded2, setImageLoaded2] = useState(true);
 
 const likefun=()=>{
   like(infoid,props.postid)
@@ -18,6 +19,10 @@ const likefun=()=>{
 const handleImageError2 = () => {
   setImageLoaded2(false);
 };
+const handleImageLoad2 = () => {
+  setImageLoaded2(true);
+};
+
   return (
     <div className='mt-3 '>
       <div className=' bg-[#040d10] w-[100vw] '>
@@ -26,12 +31,12 @@ const handleImageError2 = () => {
 
 
         <div className='flex'>
-          <div className='w-[3rem] h-[3rem] ml-3 mr-3 mt-2 rounded-[100%] pro3'>            <img className='w-[3rem] rounded-[100%] ' src={props.profile}  style={{ display: imageLoaded2 ? 'block' : 'none' }}  onError={handleImageError2}  alt="img" ></img>
+          <div className='w-[3rem] h-[3rem] ml-3 mr-3 mt-2 rounded-[100%] pro3'>            <img className='w-[3rem] rounded-[100%] ' src={props.profile}  style={{ display: imageLoaded2 ? 'block' : 'hidden' }} onLoad={handleImageLoad2}  onError={handleImageError2}  alt="img" ></img>
 </div>
-            <div className='flex flex-col justify-center '>
+            <Link to={`/other/${props.id}`}  className='flex flex-col w-[65%] justify-center '>
                 <div className='text-[#ffffff] font-mochiy-pop text-[0.9rem] font-thin mt-3'>{props.name}</div>
                 <div className='font-medium text-[0.8rem] h-[30%] flex items-center font-teachers  text-[#656565]'>{props.realname}</div>
-            </div>
+            </Link>
             </div>
 
 

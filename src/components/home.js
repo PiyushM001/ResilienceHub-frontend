@@ -99,7 +99,7 @@ useEffect(() => {
           <div className='posts-container overflow-y-scroll'>
             <div className='w-full h-[10vh]'></div>
             {postsarray.map((post, index) => (
-              <Post key={index} likes={post.likesCount} postid={post._id} postimg={post.PostUrl} profile={post.profilephoto}  description={post.description} name={post.IngameName} realname={post.RealName} data={post} />
+              <Post key={index} id={post._userid}  likes={post.likesCount} postid={post._id} postimg={post.PostUrl}  profile={post.profilephoto}  description={post.description} name={post.IngameName} realname={post.RealName} data={post} />
             ))}
                         
                         <div className="flex justify-center mt-4 w-[100%]">
