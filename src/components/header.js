@@ -53,7 +53,7 @@ const toasterr=()=>{
   toast.warning("Chat Feature Will be Available Soon");
 }
   return (
-    <div className='flex w-full h-[10vh] absolute top-0 bg-[#000000] justify-evenly items-center headerbg z-[10] min-[500px]:w-[500px]'>
+    <div className='flex w-full h-[10svh] absolute top-0 bg-[#000000] justify-evenly items-center headerbg z-[10] min-[500px]:w-[500px]'>
       <ToastContainer/>
       {loginState && (
         <Link className='w-[3.5rem]' to="/profile">

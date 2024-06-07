@@ -86,7 +86,6 @@ const [checkteam,setcheckteam]= useState(" ");
     // setownid(data[0]._id)
     localStorage.setItem("infoid", data[0]._id);
     localStorage.setItem("MyGameName", data[0].IngameName);
-
     setfollowerRealName(data[0].RealName);
     setfollowerIngameName(data[0].IngameName);
   };

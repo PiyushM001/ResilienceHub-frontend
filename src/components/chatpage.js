@@ -8,6 +8,7 @@ import { IoIosSend } from "react-icons/io";
 import Footer from './footer';
 const MyRealName = localStorage.getItem("realname");
 const infoid = localStorage.getItem("infoid");
+
 const time = new Date().toLocaleTimeString(); // Update to get current time
 // const port = "https://thrive-backend-o6k3.onrender.com"
 // const socket = io('http://localhost:5000'); 
@@ -104,7 +105,7 @@ useEffect(()=>{
 
       {!loading && (
         <div className='flex flex-col items-center w-[100vw] h-[100svh] bg-[#000000]'>
-          <div className='bg-[#323232] h-[10vh] w-full flex justify-center items-center glass3 mb-1 headerbg'>
+          <div className='bg-[#323232] h-[10svh] w-full flex justify-center items-center glass3 mb-1 headerbg'>
             <div className='w-[3.5rem]'>
               <img className='w-[80%] border-[2px] border-[#717171] rounded-[100%]' src={pp} alt='Profile' />
             </div>
@@ -118,25 +119,25 @@ useEffect(()=>{
             </div>
           </div>
 
-          <div className="bg-[#000000] w-[95%]">
-            <div    className='h-[70vh] w-full overflow-y-scroll text-[#c7c7c7]'>
+          <div className="bg-[#d35151] w-[95%]">
+            <div    className='h-[70svh] w-full overflow-y-scroll text-[#c7c7c7]'>
               {   chatarray2.map((val) => (
                 <Chatcomp key={val.id} name={val.userRealName} msg={val.message} time={val.time} />
               ))}
               <div ref={chatRef} className=' '></div>
             </div>
 
-            <div className='h-[4rem]  bg-[#000000] flex justify-center items-center'>
-              <div className='w-[95%] bg-[#000000] h-full flex items-center pl-[1rem]'>
+            <div className='h-[10svh]  bg-[#b3a7a7] flex justify-center items-center'>
+              <div className='w-[95%] bg-[#000000] h-full flex items-center'>
                 <input
                   placeholder='Start chatting'
                   value={msg}
                   onFocus={handleInputFocus} // Hide footer when input is focused
                   onBlur={() => setShowFooter(true)}
                   onChange={(e) => setmsg(e.target.value)}
-                  className='bg-[#111112] pl-2 w-[90%] rounded-[10px] h-[3rem] text-[#dadada] border-[#7a7a7a] rounded-r-[0px] border-[1px]'
+                  className='bg-[#111112] pl-2 w-[90%] rounded-[10px] h-[75%] text-[#dadada] border-[#7a7a7a] rounded-r-[0px] border-[1px]'
                 />
-                <button className='p-2 pl-3 pr-3 rounded-[5px] h-[3rem] border-[#dfdfdf] rounded-l-[0px] border-r-[1px] border-t-[1px] border-b-[1px] text-[#a8a8a8] font-mochiy-pop' onClick={handleChat}><IoIosSend /></button>
+                <button className='p-2 pl-3 pr-3 rounded-[5px] h-[75%] border-[#dfdfdf] rounded-l-[0px] border-r-[1px] border-t-[1px] border-b-[1px] text-[#a8a8a8] font-mochiy-pop' onClick={handleChat}><IoIosSend /></button>
               </div>
             </div>
           </div>

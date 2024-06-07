@@ -100,13 +100,12 @@ export default function Signcontext(props) {
         const st = await response.text();
         const parsedResponse = JSON.parse(st);
         const tokenWithQuotes = `"${parsedResponse.token}"`
-        const nameWithQuotes = `"${parsedResponse.realname}"`
 
         console.log(tokenWithQuotes,"st console")
         if (response.ok) {
           toast.success("Login Successful");
           localStorage.setItem("token", tokenWithQuotes);
-          localStorage.setItem("realname", nameWithQuotes);
+          localStorage.setItem("realname", parsedResponse.realname);
 
           navigate("/")
         } else {
