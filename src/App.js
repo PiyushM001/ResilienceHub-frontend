@@ -35,6 +35,7 @@ import Postpost from './components/postpost';
 import Othersprofile from './components/othersprofile';
 import Otherspostprofile from './components/Otherspostprofile';
 import Othersaboutprofile from './components/othersaboutprofile';
+import Tournamentdetails from './components/tournament-details';
 function App() {
 
  
@@ -57,7 +58,7 @@ function App() {
         <Route path="/other/:_id" element={ <Othersprofile/> } />
         <Route path="/other/posts/:_id" element={ <Otherspostprofile/> } />
         <Route path="/other/about/:_id" element={ <Othersaboutprofile/> } /> 
-
+<Route path="tournament/details/:_id" element={<Tournamentdetails/>}/>
         <Route path="/loginas" element={ <Loginas/> } />
         {/* <Route path="/profile/posts" element={ <Profilepageposts/> } />
         <Route path="/profile/about" element={ <Profilepage/> } /> */}

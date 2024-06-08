@@ -65,6 +65,8 @@ const [checkteam,setcheckteam]= useState(" ");
   const [postsarray, setpostsarray] = useState([]);
   const [mypostsarray, setmypostsarray] = useState([]);
   const [otherpostsarray, setotherpostsarray] = useState([]);
+  const [tourarray, settourarray] = useState([]);
+  const [tourdatailarray, settourdetailarray] = useState([]);
 
   let navigate = useNavigate();
 
@@ -910,13 +912,54 @@ const [checkteam,setcheckteam]= useState(" ");
 
 
 
+  const gettour = async () => {
+    const response = await fetch(`${port}/gettournaments`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+              },
+    }).catch((err) => {
+      toast(err);
+    });
+    const data = await response.json();
+    settourarray(data);
+  
+  };
+  const gettourdetail = async (_id) => {
+    const response = await fetch(`${port}/gettournaments/detail`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ _id })
+    }).catch((err) => {
+      toast(err);
+    });
+    const data = await response.json();
+    settourdetailarray(data);
+  
+  };
+  const  registertournament= async (_id) => {
+    const response = await fetch(`${port}/gettournaments/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: localtoken,
+      },
+      body: JSON.stringify({ _id })
+    }).catch((err) => {
+      toast(err);
+    });
+    const data = await response.text();
+    if (response.ok) {
+      toast.success(data)
+    }else{
+    toast.warning(data);}
 
+  };
 
-
-
-
-
-
+  
+  
 
 
   // const followerRealName = infostate[0].RealName;
@@ -926,6 +969,11 @@ const [checkteam,setcheckteam]= useState(" ");
     <pContext.Provider
       value={{
         chatfun,
+        gettourdetail,
+        registertournament,
+        tourdatailarray,
+        tourarray,
+        gettour,
         mypostsarray,
         otherpostsarray,
         like,

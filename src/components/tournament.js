@@ -6,9 +6,10 @@ import { MdOutlineGames } from "react-icons/md";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import profile from '../Images/profile.svg';
 import './components.css'
+import { Link } from 'react-router-dom';
 export default function Tournament(props) {
   return (
-    <div className='w-[90%] bg-gradient-to-b from-[#000000] to-[#0fb0b80a]  m-2 rounded-[10px] border-[1px] border-[#383838] glass2 '>
+    <Link to={`/tournament/details/${props.id}`} className='w-[90%] bg-gradient-to-b from-[#000000] to-[#0fb0b80a]  m-2 rounded-[10px] border-[1px] border-[#383838] glass2 '>
 
 
 
@@ -36,9 +37,9 @@ export default function Tournament(props) {
 
 
       <div className='bg-gradient-to-l from-[#000000] to-[#0fb0b80c]  h-[3rem] flex'>
-        <div className='w-[33%] flex justify-center items-center text-[#656565] font-medium text-[3.3vw]  '><div className='border-r-[2px]  border-[#222222] w-full flex justify-center'>Prizepool-{props.prizepool}</div></div>
-        <div className='w-[33%] flex justify-center items-center text-[#656565] font-medium text-[3.3vw]  '><div className='border-r-[2px]  border-[#222222] w-full flex justify-center'>{props.registrations} Registered</div></div>
-        <div className='w-[33%] flex justify-center items-center text-[#656565] font-medium text-[3.3vw] '>{props.timeleft}</div>
+        <div className='w-[41%] flex-col justify-center items-center text-[#656565] font-medium text-[3.3vw]  '><div className='border-r-[2px]  border-[#222222] w-full flex justify-center'>Prize</div><div className='border-r-[2px]  border-[#222222] w-full flex justify-center'>{props.prizepool}</div></div>
+        <div className='w-[33%] flex justify-center items-center text-[#656565] font-medium text-[3.3vw]  '><div className='border-r-[2px]  border-[#222222] w-full flex justify-center'>{props.registrations} Registrations</div></div>
+        <div className='w-[25%] flex justify-center items-center text-[#656565] font-medium text-[3.3vw] '>{props.timeleft}</div>
 
 
       </div>
@@ -51,6 +52,6 @@ export default function Tournament(props) {
 
 </div>
     
-    </div>
+    </Link>
   )
 }

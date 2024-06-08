@@ -11,6 +11,7 @@ module.exports = {
 "./src/components/postpost.js",
 "./src/components/othersaboutprofile.js",
 "./src/components/signup.js",
+"./src/components/tournament-details.js",
 
 "./src/components/profile_page_common.js",
 "./src/components/profile_post_page.js",
