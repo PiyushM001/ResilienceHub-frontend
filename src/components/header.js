@@ -15,11 +15,13 @@ import bell from '../Images/notification-icon.svg';
 import searchicon from '../Images/Searchicon.png';
 import _ from 'lodash';
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 import { useLocation } from 'react-router-dom';
 
 export default function Header() {
   let location = useLocation();
+  let navigate = useNavigate();
   let path = location.pathname;
   const [isOpen, setIsOpen] = useState(false);
   const a = useContext(pContext);
@@ -39,7 +41,7 @@ export default function Header() {
   }, []);
 
   const logoutfun = () => {
-   
+    navigate("/");
     localStorage.setItem("token", "");
   };
 
