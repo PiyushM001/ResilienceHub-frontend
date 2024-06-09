@@ -1,6 +1,11 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import './components.css';
 import { Link } from 'react-router-dom';
+import { Transition } from "@headlessui/react";
+import settings from "../Images/Settings.svg";
+import cross from "../Images/cross.svg";
+import { MdCall } from "react-icons/md";
+import { IoLogOutOutline } from "react-icons/io5";
 // import { IconButton, InputBase } from '@material-ui/core';
 import profile from '../Images/profile2.png';
 import chat from '../Images/chat-icon.svg';
@@ -16,7 +21,7 @@ import { useLocation } from 'react-router-dom';
 export default function Header() {
   let location = useLocation();
   let path = location.pathname;
-  
+  const [isOpen, setIsOpen] = useState(false);
   const a = useContext(pContext);
   const { getplayers, getnotification,NotificationCount  } = a;
   const [query, setQuery] = useState('');
@@ -32,6 +37,12 @@ export default function Header() {
       setLoginState(false);
     }
   }, []);
+
+  const logoutfun = () => {
+   
+    localStorage.setItem("token", "");
+  };
+
 
   const debouncedSearch = useCallback(
     _.debounce((searchQuery) => {
@@ -55,6 +66,53 @@ const toasterr=()=>{
   return (
     <div className='flex w-full h-[10svh] absolute top-0 bg-[#000000] justify-evenly items-center headerbg z-[10] min-[500px]:w-[500px]'>
       <ToastContainer/>
+      
+      <Transition
+            show={isOpen}
+            enter="transition-opacity duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black headerbg opacity-50"></div>
+          </Transition>
+
+          <Transition
+            show={isOpen}
+            enter="transform transition duration-300"
+            enterFrom="translate-x-full"
+            enterTo="translate-x-0"
+            leave="transform transition duration-300"
+            leaveFrom="translate-x-0"
+            leaveTo="translate-x-full"
+          >
+            <div className="fixed inset-y-0 right-0 flex flex-col w-64 shadow-xl headerbg bg-[#0c0c0c]  z-[2]">
+              {/* Your menu content here */}
+              <div className="w-[100%] flex justify-end ">
+                <img
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="w-[1.7rem] m-3"
+                  src={cross}
+                  alt="img"
+                ></img>
+              </div>
+              <div className="w-[100%] mt-1 headerbg bg-[#0c0c0c] border-b-[1px] border-[#222222] ">
+                <div className="h-[30svh] w-[100%] flex-col justify-center  items-center">
+                  <button
+                    onClick={logoutfun}
+                    className="  text-[#ffffff] flex items-center text-[5vw] font-teachers pl-10 mb-5"
+                  >
+                   <IoLogOutOutline />  <span className='mx-2'> Logout</span>
+                  </button>
+                  <div className=' text-[#ffffff] text-[5vw] font-teachers pl-10 flex-col items-center '>  Contact us  <div className='flex items-center text-[4vw]'><MdCall /> 9352403045</div> <div className='flex items-center text-[4vw]'><MdCall /> 6280070751</div></div>
+                </div>
+              </div>
+            </div>
+          </Transition>
+
+
       {loginState && (
         <Link className='w-[3.5rem]' to="/profile">
           <img className='w-[80%] rounded-[100%]' src={profile} alt="Profile" />
@@ -83,7 +141,7 @@ const toasterr=()=>{
           </button>
         </div>
       ) : (
-        <div className='text-[#ffffff] w-[55%] font-mochiy-pop'>MyAllies</div>
+        <div className='text-[#ffffff] w-[55%] font-mochiy-pop'>TeamUp</div>
       )}
 
       <Link to="/notification">
@@ -95,7 +153,13 @@ const toasterr=()=>{
         </div>
       </Link>
 
-      <img onClick={toasterr} className='w-[7vw]' src={chat} alt="Chat" />
+      {/* <img onClick={toasterr} className='w-[7vw]' src={chat} alt="Chat" /> */}
+      <img
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="w-[1.2rem]"
+                    src={settings}
+                    alt="img"
+                  ></img>
     </div>
   );
 }
