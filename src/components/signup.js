@@ -53,7 +53,7 @@ otpfun(email);
 //   }
   return (
     <section class="bg-[#061515] h-[100vh] flex items-center"><ToastContainer/>
-       {loading && <div className='absolute w-full inset-0 opacity-90 fill-neutral-950'><div className='h-[30vh] bg-[#000000]'></div><img className='' src={loadinggif}></img><div className='h-[30vh] bg-[#000000]'></div></div>}
+       {loading && <div className='absolute w-full inset-0 opacity-90 fill-neutral-950'><div className='h-[30vh] bg-[#000000]'></div><img className='w-[100%]' src={loadinggif}></img><div className='h-[30vh] bg-[#000000]'></div></div>}
 
   <div class="flex flex-col items-center justify-center px-2 py-4 mx-auto md:h-screen lg:py-0 w-[85%]">
       

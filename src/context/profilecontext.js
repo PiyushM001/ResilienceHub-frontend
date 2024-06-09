@@ -310,7 +310,7 @@ const [checkteam,setcheckteam]= useState(" ");
 
           navigate("/");
         } else {
-          toast.error("sdgds");
+          toast.error(x);
         }
         // toast(res.json())
       })
