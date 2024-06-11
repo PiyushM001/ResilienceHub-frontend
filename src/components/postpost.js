@@ -55,10 +55,10 @@ console.log("cha")
   return (
 <>
     {loading && (
-      <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]'>
-        <div className='h-[30vh] bg-[#000000]'></div>
+      <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000] font-teachers text-[#ffffff]'>
+        <div className='h-[30svh] bg-[#000000]'></div>Posting
         <img className='w-[100vw]' src={loadinggif} alt='Loading' />
-        <div className='h-[30vh] bg-[#000000]'></div>
+        <div className='h-[30svh] bg-[#000000]'></div>
       </div>
     )}
     <div className='bg-[#0c0c0c] h-[100vh] w-full flex flex-col justify-center items-center overflow-y-scroll '>

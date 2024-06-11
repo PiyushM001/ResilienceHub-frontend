@@ -59,7 +59,7 @@ const BgPictureUpload = ({ userId }) => {
     <>
       {loading && (
         <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]'>
-          <div className='h-[30vh] bg-[#000000]'></div>
+          <div className='h-[30vh] bg-[#000000]'></div> UPLOADING
           <img className='w-[100vw]' src={loadinggif} alt='Loading' />
           <div className='h-[30vh] bg-[#000000]'></div>
         </div>

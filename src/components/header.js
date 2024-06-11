@@ -41,7 +41,7 @@ export default function Header() {
   }, []);
 
   const logoutfun = () => {
-    navigate("/");
+    navigate("/login");
     localStorage.setItem("token", "");
   };
 
@@ -124,7 +124,7 @@ const toasterr=()=>{
       {!loginState && (
         <Link to="/loginas">
           <div className='border-[2px] border-[#B4FF16] rounded-[10px] pl-2 pr-2 pt-1 pb-1 text-[#ffffff] text-[3vw]'>
-            Sign up
+            Register
           </div>
         </Link>
       )}
