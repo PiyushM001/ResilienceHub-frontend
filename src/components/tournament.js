@@ -9,7 +9,9 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 import profile from '../Images/profile.svg';
 import './components.css'
 import { Link } from 'react-router-dom';
+import CountdownTimer from './CountdownTimer';
 export default function Tournament(props) {
+  const eventDate = '2024-06-13T13:00:00';
   return (
     <Link to={`/tournament/details/${props.id}`} className='w-[90%] bg-[#2b2c28]  m-2 rounded-[5px] border-[1px] border-[#383838] glass2 '>
 
@@ -41,7 +43,7 @@ export default function Tournament(props) {
       <div className='bg-[#2b2c28]  h-[3rem] flex'>
         <div className='w-[33%] flex justify-center items-center text-[#339989] font-medium text-[3.3vw] ml-3 '><div className='  border-[#818181] w-full flex justify-center items-center'><FaTrophy /><span className='mx-1'>Prize</span></div><div className='border-r-[2px]  border-[#222222] w-full flex justify-center '>{props.prizepool}</div></div>
         <div className='w-[33%] flex justify-center items-center text-[#339989] font-medium text-[3.3vw]  '><div className='border-r-[2px] border-l-[2px]  border-[#7e7e7e] w-full flex justify-center'>{props.registrations}<span className='mx-1'>Registrations</span> </div></div>
-        <div className='w-[33%] flex justify-center items-center text-[#339989] font-medium text-[3.3vw] '><IoMdTime /><span className='mx-1'>{props.timeleft}</span></div>
+        <div className='w-[33%] flex justify-center items-center text-[#339989] font-medium text-[3.3vw] '><IoMdTime /><span className='mx-1'><CountdownTimer eventTime={eventDate} /></span></div>
 
 
       </div>

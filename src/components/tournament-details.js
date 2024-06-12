@@ -12,7 +12,10 @@ import { MdDateRange } from "react-icons/md";
 import { FcRules } from "react-icons/fc";
 import { CgEditBlackPoint } from "react-icons/cg";
 import { VscDebugBreakpointFunctionUnverified } from "react-icons/vsc";
+import CountdownTimer from './CountdownTimer';
 export default function Tournamentdetails() {
+  const eventDate = '2024-06-13T13:00:00';
+
     const {_id} = useParams();
     const a = useContext(pContext);
     const {gettourdetail, registertournament,tourdatailarray}=a;
@@ -75,7 +78,8 @@ export default function Tournamentdetails() {
 
     {/* <h1 className='flex justify-center'>{tourdatailarray.registrations}</h1> */}
     <h1 className='flex  items-center text-[#b5fb45] mt-[1rem]'><BsGift /><span className='text-[#b5fb45] mx-2'>Price:</span> {tourdatailarray.prizepool}</h1>
-    <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>Date:</span>{tourdatailarray.time}</h1>
+    <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>Time :</span>{tourdatailarray.time}</h1>
+    <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>Starts In:</span><CountdownTimer eventTime={eventDate} /></h1>
 
 
 <h1 className='flex items-center mt-[1rem] text-[#b5fb45]'><FcRules /><span className='mx-1'>Instructions :</span></h1>
