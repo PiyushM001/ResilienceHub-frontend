@@ -29,25 +29,38 @@ export default function Tournamentdetails() {
           setLoading(false);
         }
       };
+      const fetchData2 = async () => {
+        setLoading(true);
+        try {
+            await  registertournament(_id)
+         
     
+        } catch (error) {
+          // Handle error if necessary
+        } finally {
+          setLoading(false);
+        }
+      };
+
+
       useEffect(() => {
         // console.log("chal rha")
         fetchData();
        
       }, []);
       const handleregistration=()=>{
-        console.log("chalr ha")
-        registertournament(_id)
+        fetchData2();
+
       }
   return (
     <div className='text-[#dddddd] font-teachers bg-[#061415] w-full h-[100svh] flex-col justify-center items-center ' >  <ToastContainer />
       {loading && (
-        <div className="absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1000]">
-          <div className="h-[50vh] bg-[#00000000]"></div>
-          <img className="w-[100vw]" src={loadinggif} alt="Loading" />
-          <div className="h-[20vh] bg-[#000000]"></div>
-        </div>
-      )}
+            <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[1] text-[#eeeeee]'>
+              <div className='h-[30vh] bg-[#000000]'></div>
+              <img className='w-[100vw]' src={loadinggif} alt="Loading" />
+              <div className='h-[30vh] bg-[#000000]'></div>
+            </div>
+          )}
 <Header/>
 
 <div className='w-[90%] h-[10svh]'></div>
@@ -62,30 +75,30 @@ export default function Tournamentdetails() {
 
     {/* <h1 className='flex justify-center'>{tourdatailarray.registrations}</h1> */}
     <h1 className='flex  items-center text-[#b5fb45] mt-[1rem]'><BsGift /><span className='text-[#b5fb45] mx-2'>Price:</span> {tourdatailarray.prizepool}</h1>
-    <h1 className='flex  items-center text-[#50f1fd]' ><MdDateRange /><span className='  mx-2'>Date:</span>{tourdatailarray.time}</h1>
+    <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>Date:</span>{tourdatailarray.time}</h1>
 
 
-<h1 className='flex items-center mt-[1rem] text-[#ff4545]'><FcRules /><span className='mx-1'>Instructions :</span></h1>
-    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"red"}} />{tourdatailarray.instruction1
+<h1 className='flex items-center mt-[1rem] text-[#b5fb45]'><FcRules /><span className='mx-1'>Instructions :</span></h1>
+    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"#b5fb45"}} />{tourdatailarray.instruction1
     }</h1>
-    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"red"}} />{tourdatailarray.
+    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"#b5fb45"}} />{tourdatailarray.
 instruction2}</h1>
-    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"red"}} />{tourdatailarray.
+    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"#b5fb45"}} />{tourdatailarray.
 instruction3}</h1>
 
 
-<h1 className='flex items-center mt-[1rem] text-[red]'><FcRules /> <span className='mx-1'>Rules :</span></h1>
+<h1 className='flex items-center mt-[1rem] text-[#b5fb45]'><FcRules /> <span className='mx-1'>Rules :</span></h1>
 
 
-    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"red"}} />{tourdatailarray.rule1
+    <h1 className='flex  items-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"#b5fb45"}} />{tourdatailarray.rule1
     }</h1>
-    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"red"}} />{tourdatailarray.rule2
+    <h1 className='flex  items-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"#b5fb45"}} />{tourdatailarray.rule2
     }</h1>
-    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"red"}} />{tourdatailarray.rule3
+    <h1 className='flex items-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"#b5fb45"}} />{tourdatailarray.rule3
     }</h1>
-    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"red"}} />{tourdatailarray.rule4
+    <h1 className='flex items-center my-1'>{tourdatailarray.rule4
     }</h1>
-    <h1 className='flex justify-center my-1'><VscDebugBreakpointFunctionUnverified style={{color:"red"}} />{tourdatailarray.rule5
+    <h1 className='flex items-center my-1'>{tourdatailarray.rule5
     }</h1>
 
     
