@@ -3,12 +3,13 @@ import { createContext } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+
 // require('dotenv').config();
 // const host = process.env.port
 export const pContext = createContext();
 // const port = process.env.REACT_APP_PORT;
-// const port ="http://localhost:5000"
-const port = "https://thrive-backend-o6k3.onrender.com"
+const port ="http://localhost:5000"
+// const port = "https://thrive-backend-o6k3.onrender.com"
 
 export default function Profilecontext(props) {
   // const localtoken2 = localStorage.getItem("token");
@@ -67,6 +68,7 @@ const [checkteam,setcheckteam]= useState(" ");
   const [otherpostsarray, setotherpostsarray] = useState([]);
   const [tourarray, settourarray] = useState([]);
   const [tourdatailarray, settourdetailarray] = useState([]);
+  const [idpass,setidpass]=useState(true);
 
   let navigate = useNavigate();
 
@@ -957,7 +959,24 @@ const [checkteam,setcheckteam]= useState(" ");
     toast.warning(data);}
 
   };
+  const   checkregistration= async (_id) => {
+    const response = await fetch(`${port}/gettournaments/checkregistration`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: localtoken,
+      },
+      body: JSON.stringify({ _id })
+    }).catch((err) => {
+      toast(err);
+    });
+    const data = await response.text();
+    if (response.ok) {
+      setidpass(true)
+      // toast.success(data)
+    }
 
+  };
   
   
 
@@ -969,7 +988,9 @@ const [checkteam,setcheckteam]= useState(" ");
     <pContext.Provider
       value={{
         chatfun,
+        checkregistration,
         gettourdetail,
+        idpass,
         registertournament,
         tourdatailarray,
         tourarray,

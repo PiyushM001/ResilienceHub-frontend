@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { pContext } from "../context/profilecontext";
 import { useContext,useState,useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import accept from "../Images/tick.svg"
 
 import loadinggif from "../Images/loading.gif";
 import Footer from './footer';
@@ -18,13 +19,13 @@ export default function Tournamentdetails() {
 
     const {_id} = useParams();
     const a = useContext(pContext);
-    const {gettourdetail, registertournament,tourdatailarray}=a;
+    const {gettourdetail, registertournament,tourdatailarray,checkregistration,idpass}=a;
     const [loading, setLoading] = useState(true);
     const fetchData = async () => {
         setLoading(true);
         try {
             await  gettourdetail(_id)
-         
+         await checkregistration(_id)
     
         } catch (error) {
           // Handle error if necessary
@@ -70,7 +71,6 @@ export default function Tournamentdetails() {
 <div className='w-[100%] h-[80svh]  flex justify-center items-center  '>
     <div className='w-[90%] h-[80svh] overflow-y-scroll'>
 
-
     <h1 className='flex justify-center font-mochiy-pop mt-[1rem]'> {tourdatailarray.org}</h1> 
     <h1 className='flex justify-center text-[#bbff45]'>({tourdatailarray.game})</h1>
 
@@ -80,6 +80,9 @@ export default function Tournamentdetails() {
     <h1 className='flex  items-center text-[#b5fb45] mt-[1rem]'><BsGift /><span className='text-[#b5fb45] mx-2'>Price:</span> {tourdatailarray.prizepool}</h1>
     <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>Time :</span>{tourdatailarray.time}</h1>
     <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>Starts In:</span><CountdownTimer eventTime={eventDate} /></h1>
+
+    <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>ID:</span>{tourdatailarray.tournamentid}</h1>
+    <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>PASSWORD:</span>{tourdatailarray.tournamentpass}</h1>
 
 
 <h1 className='flex items-center mt-[1rem] text-[#b5fb45]'><FcRules /><span className='mx-1'>Instructions :</span></h1>
@@ -107,13 +110,16 @@ instruction3}</h1>
 
     
  
-<div  className='w-[100%] h-[4rem] mb-5 flex justify-center items-center'>   <button
+<div  className='w-[100%] h-[4rem] mb-5 flex justify-center items-center'> {!idpass &&  <button
                    
                    onClick={handleregistration}
                    class="border-[#a4f632] flex justify-center items-center border-[1px] rounded-[10px] w-[90%] h-[3rem] text-[#b1ff43] font-mochiy-pop "
                  >
                    Register
-                 </button></div>
+                 </button>}
+                {idpass && <div className='w-full font-teachers justify-center  flex items-center mt-5'>You are Registered<img className="w-[1.5rem] m-1" src={accept}></img></div>}
+
+                 </div>
 
     </div>
 
