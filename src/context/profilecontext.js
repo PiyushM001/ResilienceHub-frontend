@@ -956,7 +956,9 @@ const [checkteam,setcheckteam]= useState(" ");
     if (response.ok) {
       toast.success(data)
     }else{
-    toast.warning(data);}
+    toast.warning(data);
+    // await  gettourdetail(_id)
+  }
 
   };
   const   checkregistration= async (_id) => {
@@ -974,6 +976,8 @@ const [checkteam,setcheckteam]= useState(" ");
     if (response.ok) {
       setidpass(true)
       // toast.success(data)
+    }else{
+      setidpass(false)
     }
 
   };

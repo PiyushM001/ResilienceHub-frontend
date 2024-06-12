@@ -21,6 +21,9 @@ export default function Tournamentdetails() {
     const a = useContext(pContext);
     const {gettourdetail, registertournament,tourdatailarray,checkregistration,idpass}=a;
     const [loading, setLoading] = useState(true);
+
+
+
     const fetchData = async () => {
         setLoading(true);
         try {
@@ -33,16 +36,20 @@ export default function Tournamentdetails() {
           setLoading(false);
         }
       };
+
+
+
       const fetchData2 = async () => {
         setLoading(true);
         try {
             await  registertournament(_id)
-         
+           
     
         } catch (error) {
           // Handle error if necessary
         } finally {
           setLoading(false);
+         fetchData();
         }
       };
 
@@ -81,8 +88,8 @@ export default function Tournamentdetails() {
     <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>Time :</span>{tourdatailarray.time}</h1>
     <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>Starts In:</span><CountdownTimer eventTime={eventDate} /></h1>
 
-    <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>ID:</span>{tourdatailarray.tournamentid}</h1>
-    <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>PASSWORD:</span>{tourdatailarray.tournamentpass}</h1>
+   {idpass && <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>ID:</span>{tourdatailarray.tournamentid}</h1>}
+   {idpass && <h1 className='flex  items-center text-[#cdcdcd]' ><MdDateRange /><span className=' text-[#b5fb45] mx-2'>PASSWORD:</span>{tourdatailarray.tournamentpass}</h1>}
 
 
 <h1 className='flex items-center mt-[1rem] text-[#b5fb45]'><FcRules /><span className='mx-1'>Instructions :</span></h1>
