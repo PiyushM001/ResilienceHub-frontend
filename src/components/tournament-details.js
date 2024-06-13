@@ -100,8 +100,8 @@ export default function Tournamentdetails() {
     <table className="random-table">
       <thead>
         <tr>
-          <th>Column 1</th>
-          <th>Column 2</th>
+          <th>Position</th>
+          <th>Prize</th>
         </tr>
       </thead>
       <tbody>
