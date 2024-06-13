@@ -27,6 +27,17 @@ export default function Tournamentpage() {
   };
 
   useEffect(() => {
+    const fiveMinutes = 5*60 * 1000; // Convert to milliseconds
+
+    const intervalId = setInterval(() => {
+      gettour();
+    }, fiveMinutes);
+
+    // Cleanup function to clear the interval when the component unmounts
+  
+  }, []);
+
+  useEffect(() => {
     // console.log("chal rha")
     fetchData();
    
