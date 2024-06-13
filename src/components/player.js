@@ -47,10 +47,10 @@ export default function Player(props) {
 <div className='flex text-[10px] w-full pl-2 text-[#828282]'>
 <div className='w-[1rem]'><FaUserFriends style={{color:"#4efff6"}}/></div> 
 
-  <div className='w-[50%] flex pl-1'>Followers : {props.followingCount}</div>
+  <div className='w-[50%] flex pl-1'>Followers :{props.followersCount}</div>
   <div className='w-[1rem]'><FaUserFriends style={{color:"#4efff6"}}/></div> 
 
-  <div className='w-[50%]'>Allies : {props.followersCount}</div>
+  <div className='w-[50%]'>Allies : {props.followingCount} </div>
   </div>
 </div>
 

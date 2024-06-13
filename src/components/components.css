@@ -97,3 +97,17 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.random-table {
+  width: 60%;
+  border-collapse: collapse;
+}
+
+.random-table, .random-table th, .random-table td {
+  border: 1px solid #7de2d1;
+}
+
+.random-table th, .random-table td {
+  padding: 8px;
+  text-align: left;
+}
