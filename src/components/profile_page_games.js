@@ -184,7 +184,7 @@ export default function Profilepagegames() {
 
         <div className="w-full flex flex-col justify-center items-center bg-[#0a0a0a]   ">
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]    ">
-            <div className="text-[#4aeed5] text-[1.1rem] font-teachers ml-7 mt-2">
+            <div className="text-[#db3030] text-[1.1rem] font-teachers ml-7 mt-2">
               About
             </div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4 mr-3 font-thin text-[4vw] from-inherit ">
@@ -192,15 +192,15 @@ export default function Profilepagegames() {
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]     ">
-            <div className="text-[#37c5b0]  text-[1.1rem] font-teachers ml-7 mt-2">
-              Player-ID
+            <div className="text-[#dfdfdf]  text-[1.1rem] font-teachers ml-7 mt-2">
+              Helpline-Number
             </div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3 font-light text-[3.5vw] from-inherit ">
               {playerid}
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1   border-[1px]  border-[#262626]     ">
-            <div className="text-[#37c5b0]  ml-7 mt-2">Device</div>
+            <div className="text-[#dfdfdf]  ml-7 mt-2">Website Link</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
               {device}
             </div>
@@ -208,8 +208,8 @@ export default function Profilepagegames() {
 
           <div className="w-[100%] mt-1   bg-gradient-to-r from-[rgb(0,0,0)] to-[#0fafb813]  border-[1px]  border-[#262626]  pb-5   ">
             <div className="w-full flex mt-3 ">
-              <div className="text-[#37c5b0]  text-[1rem] ml-7   flex items-center">
-                Speciality
+              <div className="text-[#dfdfdf]  text-[1rem] ml-7   flex items-center">
+                NGO Members
               </div>
             </div>
             {skillsarray.map((val) => (
@@ -221,8 +221,8 @@ export default function Profilepagegames() {
 
           <div className="w-[100%] mt-1 mb-[11vh]  bg-gradient-to-r from-[rgb(0,0,0)] to-[#0fafb813]  border-[1px]  border-[#262626] pb-5    ">
             <div className="w-full flex mt-3 ">
-              <div className="text-[#37c5b0]  text-[1rem] ml-7   flex items-center">
-                Achievements
+              <div className="text-[#dfdfdf]  text-[1rem] ml-7   flex items-center">
+                dg
               </div>
             </div>
             {tournamentarray.map((val) => (

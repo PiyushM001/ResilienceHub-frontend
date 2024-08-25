@@ -1,6 +1,6 @@
 .footerbg{
   /* From https://css.glass */
-background: rgba(1, 15, 17, 0.908);
+background: rgba(15, 15, 15, 0.908);
 border-top-left-radius: 16px;
 border-top-right-radius: 16px;
 
@@ -13,7 +13,7 @@ html, body {
 }
 .headerbg{
     /* From https://css.glass */
-    background: rgba(1, 15, 17, 0.908);
+    background: rgba(16, 17, 17, 0.908);
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
   
@@ -110,4 +110,60 @@ html, body {
 .random-table th, .random-table td {
   padding: 8px;
   text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+.main-container {
+  text-align: center;
+  color: white;
+  background-color: #174873; /* Matches the blue background in your image */
+  /* padding: 20px; */
+  width:100% ;
+ 
+ 
+  
+  
+ 
+}
+
+.people-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px 0; 
+}
+
+.person-icon {
+  width: 40px;
+  height: 80px;
+  /* margin: 5px; */
+  fill: #292929; /* Default color of the person */
+  transition: fill 0.5s;
+}
+
+.person-icon.highlighted {
+  fill: rgb(253, 4, 4); /* Color when highlighted */
+}
+
+.statistic-text {
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.description-text {
+  padding: 10px;
+
+  font-size: 16px;
+  margin-top: 10px;
 }

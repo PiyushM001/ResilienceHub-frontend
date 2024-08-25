@@ -25,7 +25,7 @@ const handleImageLoad2 = () => {
 
   return (
     <div className='mt-3 '>
-      <div className=' bg-[#040d10] w-[100vw] '>
+      <div className=' bg-[#131212] w-[100vw] '>
 
 
 

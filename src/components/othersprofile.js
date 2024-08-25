@@ -165,7 +165,7 @@ export default function Othersprofile() {
             >
               {" "}
               <div className=" w-full flex justify-center text-[#B4FF16] text-[3.5vw]">
-                {game}
+              About
               </div>
             </Link>
 
@@ -174,7 +174,7 @@ export default function Othersprofile() {
               to={`/other/about/${_id}`}
             >
               {" "}
-              <div className=" text-[#656565] text-[3.5vw] ">About</div>
+              <div className=" text-[#656565] text-[3.5vw] "> {game}</div>
             </Link>
             <Link
               className=" w-full flex justify-center items-center "
@@ -182,7 +182,7 @@ export default function Othersprofile() {
             >
               {" "}
               <div className="border-[#222222] w-full flex justify-center text-[#656565]  text-[3.5vw]">
-                Posts
+                Blogs
               </div>
             </Link>
           </div>
@@ -190,7 +190,7 @@ export default function Othersprofile() {
 
         <div className="w-full flex flex-col justify-center items-center bg-[#0a0a0a]   ">
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]    ">
-            <div className="text-[#4aeed5] text-[1.1rem] font-teachers ml-7 mt-2">
+            <div className="text-[#e0e0e0] text-[1.1rem] font-teachers ml-7 mt-2">
               About
             </div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4 mr-3 font-thin text-[4vw] from-inherit ">
@@ -198,15 +198,15 @@ export default function Othersprofile() {
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]     ">
-            <div className="text-[#37c5b0]  text-[1.1rem] font-teachers ml-7 mt-2">
-              Player-ID
+            <div className="text-[#e0e0e0]  text-[1.1rem] font-teachers ml-7 mt-2">
+              Helpline-Number
             </div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3 font-light text-[3.5vw] from-inherit ">
               {playerid}
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1   border-[1px]  border-[#262626]     ">
-            <div className="text-[#37c5b0]  ml-7 mt-2">Device</div>
+            <div className="text-[#e0e0e0]  ml-7 mt-2">Official Website</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
               {device}
             </div>
@@ -214,8 +214,8 @@ export default function Othersprofile() {
 
           <div className="w-[100%] mt-1   bg-gradient-to-r from-[rgb(0,0,0)] to-[#0fafb813]  border-[1px]  border-[#262626]  pb-5   ">
             <div className="w-full flex mt-3 ">
-              <div className="text-[#37c5b0]  text-[1rem] ml-7   flex items-center">
-                Speciality
+              <div className="text-[#e0e0e0]  text-[1rem] ml-7   flex items-center">
+                Team Members
               </div>
             </div>
             {skillsarray.map((val) => (
@@ -227,8 +227,8 @@ export default function Othersprofile() {
 
           <div className="w-[100%] mt-1 mb-[11vh]  bg-gradient-to-r from-[rgb(0,0,0)] to-[#0fafb813]  border-[1px]  border-[#262626] pb-5    ">
             <div className="w-full flex mt-3 ">
-              <div className="text-[#37c5b0]  text-[1rem] ml-7   flex items-center">
-                Achievements
+              <div className="text-[#e0e0e0]  text-[1rem] ml-7   flex items-center">
+                Social Impact
               </div>
             </div>
             {tournamentarray.map((val) => (

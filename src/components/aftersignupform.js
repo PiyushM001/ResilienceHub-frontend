@@ -49,15 +49,15 @@ const localtoken = localStorage.getItem("token");
               </h1>
               <form class="space-y-4 md:space-y-6" action="#">
                   <div>
-                      <label for="IngameName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Ingame Name</label>
+                      <label for="IngameName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NGO's Registered Name</label>
                       <input type="IngameName" name="IngameName" id="IngameName" value={IngameName} onChange={e => setIngameName(e.target.value)}  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required=""/>
                   </div>
                   <div>
-                      <label for="RealName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Full Name</label>
+                      <label for="RealName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">FIEND / Initiative </label>
                       <input type="RealName" name="RealName" id="RealName" value={RealName} onChange={e => setRealName(e.target.value)} placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
                   </div>
                   <div>
-                      <label for="game" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name of the Game you play</label>
+                      <label for="game" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Executive Director's Name</label>
                       <input type="game" name="game" id="game" value={game} onChange={e => setgame(e.target.value)} placeholder="" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
                   </div>
                   <div class="flex items-center justify-between">

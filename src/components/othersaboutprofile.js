@@ -164,13 +164,13 @@
 
           
 //         <div  className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]    ">
-//             <div className="text-[#37c5b0] text-[1.1rem] font-teachers ml-7 mt-2">General</div>
+//             <div className="text-[#e0e0e0] text-[1.1rem] font-teachers ml-7 mt-2">General</div>
 //             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4 mr-3 font-thin text-[4vw] from-inherit ">
 //             {text}
 //             </div>
 //           </div>
 //           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]     ">
-//             <div className="text-[#37c5b0] text-[1.1rem] font-teachers ml-7 mt-2">Email</div>
+//             <div className="text-[#e0e0e0] text-[1.1rem] font-teachers ml-7 mt-2">Email</div>
 //             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3 font-light text-[3.5vw] from-inherit ">
 //               {contact1}
 //             </div>
@@ -178,21 +178,21 @@
 
 
 //           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1   border-[1px]  border-[#262626]     ">
-//             <div className="text-[#37c5b0] ml-7 mt-2">Phone Number</div>
+//             <div className="text-[#e0e0e0] ml-7 mt-2">Phone Number</div>
 //             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
 //               {contact2}
 //             </div>
 //           </div>
 
 //           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1   border-[1px]  border-[#262626]     ">
-//             <div className="text-[#37c5b0] ml-7 mt-2">Education</div>
+//             <div className="text-[#e0e0e0] ml-7 mt-2">Education</div>
 //             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
 //               {education}
 //             </div>
 //           </div>
 
 //           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1 mb-1  border-[1px]  border-[#262626]     ">
-//             <div className="text-[#37c5b0] ml-7 mt-2">Location</div>
+//             <div className="text-[#e0e0e0] ml-7 mt-2">Location</div>
 //             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
 //               {location}
 //             </div>
@@ -519,7 +519,7 @@ const location=playerinfo.location;
             >
               {" "}
               <div className=" w-full flex justify-center text-[#656565]  text-[3.5vw]">
-                {game}
+                About
               </div>
             </Link>
 
@@ -528,7 +528,7 @@ const location=playerinfo.location;
               to={`/other/about/${_id}`}
             >
               {" "}
-              <div className="  text-[#B4FF16] text-[3.5vw] ">About</div>
+              <div className="  text-[#B4FF16] text-[3.5vw] ">{game}</div>
             </Link>
             <Link
               className=" w-full flex justify-center items-center "
@@ -536,7 +536,7 @@ const location=playerinfo.location;
             >
               {" "}
               <div className="border-[#222222] w-full flex justify-center text-[#656565]  text-[3.5vw]">
-                Posts
+                Blogs
               </div>
             </Link>
           </div>
@@ -544,7 +544,7 @@ const location=playerinfo.location;
 
         <div className="w-full flex flex-col justify-center items-center bg-[#0a0a0a]   ">
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]    ">
-            <div className="text-[#37c5b0] text-[1.1rem] font-teachers ml-7 mt-2">
+            <div className="text-[#e0e0e0] text-[1.1rem] font-teachers ml-7 mt-2">
               About
             </div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4 mr-3 font-thin text-[4vw] from-inherit ">
@@ -552,7 +552,7 @@ const location=playerinfo.location;
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]     ">
-            <div className="text-[#37c5b0]  text-[1.1rem] font-teachers ml-7 mt-2">
+            <div className="text-[#e0e0e0]  text-[1.1rem] font-teachers ml-7 mt-2">
               Email
             </div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3 font-light text-[3.5vw] from-inherit ">
@@ -560,23 +560,23 @@ const location=playerinfo.location;
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1   border-[1px]  border-[#262626]     ">
-            <div className="text-[#37c5b0]  ml-7 mt-2">Phone Number</div>
+            <div className="text-[#e0e0e0]  ml-7 mt-2">Phone Number</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
               {contact2}
             </div>
           </div>
           <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1   border-[1px]  border-[#262626]     ">
-            <div className="text-[#37c5b0]  ml-7 mt-2">Education</div>
+            <div className="text-[#e0e0e0]  ml-7 mt-2">How To Reach</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
               {education}
             </div>
           </div>
-          <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]     ">
-            <div className="text-[#37c5b0]  ml-7 mt-2">Address</div>
+          {/* <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626]     ">
+            <div className="text-[#e0e0e0]  ml-7 mt-2">Address</div>
             <div className="text-[#959595] font-teachers  mt-2 ml-7 mb-4  mr-3   font-light text-[3.5vw] from-inherit ">
               {location}
             </div>
-          </div>
+          </div> */}
 
         <div className="w-full h-[12vh]"></div>
 

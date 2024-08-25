@@ -1,120 +1,85 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
-import Footer from './footer';
-import { ToastContainer, toast } from 'react-toastify';
-import { pContext } from "../context/profilecontext";
+import React, { useState, useEffect } from 'react';
+// import './components.css';
+import { ReactComponent as PersonIcon } from './person.svg'; 
 import Header from './header';
-import Loginas from './loginas';
-import Post from './post';
-import loadinggif from '../Images/loading.gif';
-import { FaCaretLeft } from "react-icons/fa";
-import { FaCaretRight } from "react-icons/fa";
+import Footer from './footer';
+import { BsGraphUp, BsLink45Deg } from 'react-icons/bs';
+import { FiExternalLink } from 'react-icons/fi';
 
-export default function Home() {
-  const { getinfo, getnotification, getteaminfo, getpost, postsarray } = useContext(pContext);
-  const [loginstate, setloginstate] = useState(false);
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
+const MainPage = () => {
+    const totalPeople = 41;
+    const [highlightedPeople, setHighlightedPeople] = useState(0);
 
-const getpostfun= async ()=>{
-  setLoading(true);
-    try {
-      await getpost(page);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setHighlightedPeople(prev => Math.min(prev + 1, totalPeople));
+        }, 3000);
 
-    } catch (error) {
-      // Handle error if necessary
-    } finally {
-      setLoading(false);
-    }
+        return () => clearInterval(interval);
+    }, []);
 
-}
-useEffect(() => {
-  getpostfun();
-}, [page]); 
+    return (
+        <div className="main-container bg-[red]">
+          
+            <Header />
+            <div className='h-[100svh] w-full overflow-y-scroll bg-[#202020] mt-[-20px]'>
+            <div className="text-center p-4">
+                <h1 className="text-4xl mt-[12svh] font-bold text-[#8c97a3] mb-6">Women Assault in India</h1>
+                <div className="people-container mb-6 flex justify-center">
+                    {Array.from({ length: totalPeople }, (_, index) => (
+                        <PersonIcon
+                            key={index}
+                            className={`person-icon w-6 h-6 mx-1 ${index < highlightedPeople ? 'highlighted' : ''}`}
+                        />
+                    ))}
+                </div>
+                <p className="statistic-text text-lg font-semibold text-[#f8f8f8] mb-4">
+                    Every 50 Seconds, an Indian Woman is Assaulted.
+                </p>
+                <p className="description-text text-[#acacac] mb-10">
+                    In India, 445,000 women face violence every year. This means every 50 seconds, a woman in India is assaulted. Gender-based violence is a severe issue that needs to be addressed urgently.
+                </p>
 
+                {/* New Content */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    {/* Stats Card */}
+                    <div className="bg-white shadow-lg rounded-lg p-6">
+                        <BsGraphUp className="text-blue-500 text-3xl mb-4" />
+                        <h2 className="text-xl font-bold text-gray-800 mb-2">National Statistics</h2>
+                        <p className="text-gray-600">
+                            According to the National Crime Records Bureau, cases of domestic violence, dowry deaths, and sexual harassment are alarmingly high in India.
+                        </p>
+                        <a href="https://ncrb.gov.in" className="text-blue-500 mt-4 inline-block">
+                            Learn more <FiExternalLink className="inline" />
+                        </a>
+                    </div>
 
-  const fetchInitialData = async () => {
-    await getinfo();
-    await getteaminfo();
-    await getnotification();
-   
-  };
+                    {/* Government Link Card */}
+                    <div className="bg-white shadow-lg rounded-lg p-6">
+                        <BsLink45Deg className="text-green-500 text-3xl mb-4" />
+                        <h2 className="text-xl font-bold text-gray-800 mb-2">Government Initiatives</h2>
+                        <p className="text-gray-600">
+                            The Ministry of Women and Child Development has various initiatives to support and protect women from violence.
+                        </p>
+                        <a href="https://wcd.nic.in" className="text-blue-500 mt-4 inline-block">
+                            Visit WCD <FiExternalLink className="inline" />
+                        </a>
+                    </div>
 
-  useEffect(() => {
-   
-    fetchInitialData();
-
-    const localtoken = localStorage.getItem("token");
-    if (localtoken) {
-      setloginstate(true);
-      // fetchPosts(page); // Fetch initial posts
-    } else {
-      setloginstate(false);
-    }
-
-    // const handleScroll = () => {
-    //   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 && !loading) {
-    //     setPage(prevPage => prevPage + 1);
-    //   }
-    // };
-
-    // window.addEventListener('scroll', handleScroll);
-    // return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // const fetchPosts = useCallback(async (page) => {
-  //   setLoading(true);
-  //   await getpost(page); // Assuming getpost will update postsarray in the context
-  //   setLoading(false);
-  // }, [getpost]);
-
-
-
-  // useEffect(() => {
-  //   if (page > 1) {
-  //     fetchPosts(page);
-  //   }
-  // }, [page, fetchPosts]);
-  const handleNextPage = () => {
-    setPage(page + 1);
-  };
-
-  const handlePrevPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
-  };
-  return (
-    <div className='bg-[#000000] h-[100svh] '>
-      {loading && (
-            <div className='absolute w-full inset-0 opacity-90 fill-neutral-950 z-[10]'>
-              <div className='h-[30vh] bg-[#000000]'></div>
-              <img className='w-[100vw]' src={loadinggif} alt="Loading" />
-              <div className='h-[30vh] bg-[#000000]'></div>
+                    {/* Graph Card */}
+                    <div className="bg-white shadow-lg rounded-lg p-6">
+                        <div className="text-gray-800 text-lg mb-4 font-bold">Violence Against Women Over Time</div>
+                        <img src="https://www.indiablooms.com/news_pic/2022/37069bbb5b33ad370c760017cd6b78692.jpg" alt="Graph" className="w-full h-auto" />
+                        <p className="text-gray-600 mt-4">
+                            This graph shows the increasing cases of violence against women in India over the past decade.
+                        </p>
+                    </div>
+                </div>
             </div>
-          )}
-      {loginstate && (
-        <div className='flex flex-col h-[100vh]  w-full'>
-          <ToastContainer />
-          <Header />
-          <div className='posts-container overflow-y-scroll'>
-            <div className='w-full h-[10vh]'></div>
-            {postsarray.map((post, index) => (
-              <Post key={index} id={post._userid}  likes={post.likesCount} postid={post._id} postimg={post.PostUrl}  profile={post.profilephoto}  description={post.description} name={post.IngameName} realname={post.RealName} data={post} />
-            ))}
-                        
-                        <div className="flex justify-center mt-4 w-[100%]">
-            <button onClick={handlePrevPage} disabled={page === 1 } className="px-4 py-2 flex items-center text-[#828282] rounded-md"><FaCaretLeft style={{color:"#4cff6d"}} />Previous</button>
-            <button onClick={handleNextPage} disabled={postsarray.length<10} className=" px-4 py-2 flex items-center text-[#828282] rounded-md">Next <FaCaretRight style={{color:"#4cff6d"}} /></button>
-          </div>
-          <div className='w-[100%] h-[12vh]'></div>
-
-
-          </div>
-       
-          <Footer />
+            </div>
+            <Footer />
         </div>
-      )}
-      {!loginstate && <Loginas />}
-    </div>
-  );
-}
+    );
+};
+
+export default MainPage;

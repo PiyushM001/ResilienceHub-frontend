@@ -354,9 +354,9 @@ export default function Ownprofilepage() {
 
                 <div
                  onClick={handleClickToOpenFollowers}
-                  className=" border-[1px] font-teachers border-[#00fbff23] bg-[#00fbff09]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3"
+                  className=" font-teachers bg-[#272727]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] "
                 >
-                  <div>Followers</div>
+                  <div>Endorsing</div>
                   <div>{value.followersCount}</div>
                 </div>
 
@@ -365,14 +365,14 @@ export default function Ownprofilepage() {
                 <div
                  onClick={handleClickToOpenAllies}
 
-                  className=" border-[1px] font-teachers border-[#00fbff23] bg-[#00fbff09]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3"
+                  className=" font-teachers bg-[#272727]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] "
                 >
-                  <div>Allies</div>
+                  <div>Appreciations</div>
                   <div>{value.followingCount}</div>
                 </div>
 
-                <div className=" border-[1px] font-teachers border-[#00fbff20] bg-[#00fbff09]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3">
-                  <div>Tournaments</div>
+                <div className=" font-teachers bg-[#272727]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] ">
+                  <div>People Helped</div>
                   <div>0</div>
                 </div>
               </div>
@@ -456,7 +456,7 @@ export default function Ownprofilepage() {
               >
                 {" "}
                 <div className=" w-full flex justify-center font-mochiy-pop text-[#B4FF16] text-[3.5vw]">
-                  {value.game}
+                  About 
                 </div>
               </Link>
 
@@ -465,7 +465,7 @@ export default function Ownprofilepage() {
                 to="/profile/about"
               >
                 {" "}
-                <div className=" text-[#656565] text-[3.5vw] ">About</div>
+                <div className=" text-[#656565] text-[3.5vw] ">{value.game}</div>
               </Link>
               <Link
                 className=" w-full flex justify-center items-center "
@@ -473,7 +473,7 @@ export default function Ownprofilepage() {
               >
                 {" "}
                 <div className="border-[#222222] w-full flex  justify-center text-[#656565]  text-[3.5vw]">
-                  Posts
+                  Blogs
                 </div>
               </Link>
             </div>
@@ -506,7 +506,7 @@ export default function Ownprofilepage() {
             >
 
               <div className="flex h-[4rem]">
-                <div className="text-[#37c5b0]   font-teachers  text-[1.1rem] ml-7 mt-2 w-[20%] flex items-center">
+                <div className="text-[#dadada]   font-teachers  text-[1.1rem] ml-7 mt-2 w-[20%] flex items-center">
                   About
                 </div>
 
@@ -577,8 +577,8 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
-                <div className="w-[20%]  font-teachers text-[#37c5b0]   text-[1.1rem] ml-7 mt-2 flex  items-center">
-                  Device
+                <div className="w-[90%]  font-teachers text-[#dadada]   text-[1.1rem] ml-7 mt-2 flex  items-center">
+                  NGO's Registered Website
                 </div>
                 <div className="w-[80%] flex justify-end mr-4">
                   <div className=" flex items-center">
@@ -595,7 +595,7 @@ export default function Ownprofilepage() {
                 <div className="flex justify-end">
                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
                 </div>
-                <div className="text-[#FFFFFF] text-[4vw]">Add Your Device</div>
+                <div className="text-[#FFFFFF] text-[4vw]">Add Website's url</div>
                 <textarea
                   className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
                   value={device}
@@ -638,8 +638,8 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
-                <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
-                  Player-Id
+                <div className="w-[40%] font-teachers text-[#dadada]   text-[1rem] ml-7 mt-2 flex items-center">
+                  Helpline-Number
                 </div>
                 <div className="w-[60%] flex justify-end mr-4">
                   <div className=" flex items-center">
@@ -656,7 +656,7 @@ export default function Ownprofilepage() {
                 <div className="flex justify-end">
                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
                 </div>
-                <div className="text-[#FFFFFF] text-[4vw]">Add Your PlayerId</div>
+                <div className="text-[#FFFFFF] text-[4vw]">Add Helpline Number</div>
                 <textarea
                   className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
                   value={playerid}
@@ -679,7 +679,13 @@ export default function Ownprofilepage() {
               <div className="text-[#959595] font-teachers m-3 ml-7 font-light text-[3.5vw] from-inherit ">
                 {value.playerid}
               </div>
-            </div>
+            </div> 
+
+
+
+
+
+
 
         
 
@@ -708,8 +714,8 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="w-full flex  h-[4rem]">
-                <div className="text-[#37c5b0]   font-teachers text-[1rem] ml-7  w-[80%] flex items-center">
-                Speciality
+                <div className="text-[#dadada]   font-teachers text-[1rem] ml-7  w-[80%] flex items-center">
+                NGO Members
                 </div>
 
                 <div className=" flex items-center mr-4">
@@ -759,7 +765,7 @@ export default function Ownprofilepage() {
                 <div className="flex justify-end">
                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
                 </div>
-                <div className="text-[#FFFFFF] text-[4vw]">What is your Speciality</div>
+                <div className="text-[#FFFFFF] text-[4vw]">Add Name of NGO Member</div>
                 <textarea
                   className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
                   value={addedskill}
@@ -815,8 +821,8 @@ export default function Ownprofilepage() {
 
             <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1 mb-[11vh] border-[1px]  border-[#262626] ">
               <div className="w-full flex h-[4rem]">
-                <div className="text-[#37c5b0]   text-[1rem] ml-7  w-[80%] flex items-center">
-                  Achievements
+                <div className="text-[#dadada]   text-[1rem] ml-7  w-[80%] flex items-center">
+                 Social Impact
                 </div>
 
                 <div className=" flex items-center mr-4">
@@ -865,7 +871,7 @@ export default function Ownprofilepage() {
                 <div className="flex justify-end">
                   <button onClick={handleClose} className="text-[#4ddcf5]">Close</button>
                 </div>
-                <div className="text-[#FFFFFF] text-[4vw]">Add your Achievements</div>
+                <div className="text-[#FFFFFF] text-[4vw]">Add </div>
                 <textarea
                   className="bg-[#1a1a1a] text-[#FFFFFF] p-[0.5rem] mt-[0.5rem] rounded-[5px] w-full"
                   value={addedtournament}

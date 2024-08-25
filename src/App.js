@@ -10,7 +10,7 @@ import Tournamentpage from './components/tournament-page';
 import Profilepage from './components/othersaboutprofile';
 import Profilepageposts from './components/profile_page_posts';
 import Profilepagegames from './components/profile_page_games';
-import Players from './components/players_page';
+import Ngos from './components/ngos_page';
 import Postpage from './components/profile_post_page';
 import Profilecontext from './context/profilecontext';
 import Login_page from './components/login';
@@ -36,19 +36,27 @@ import Othersprofile from './components/othersprofile';
 import Otherspostprofile from './components/Otherspostprofile';
 import Othersaboutprofile from './components/othersaboutprofile';
 import Tournamentdetails from './components/tournament-details';
+import Speakup from './components/speak';
+import Speakups from './components/speakups';
+import Ai from './components/AI';
+import Blogs from './components/blogs';
+import ConsultantPage from './components/consultpage';
 function App() {
 
  
   return (
-    <div className='flex justify-center h-[100svh] w-full bg-[#020202] overflow-hidden ' >
+    <div className='flex  justify-center h-[100svh] w-full bg-[#020202] overflow-hidden ' >
        <div className=' min-[600px]:hidden max-[600px]:w-[100%] '>
+
      <Router >
      <Signcontext>
     <Profilecontext>
      <Routes>
     
         <Route path="/" element={ <Home/> } />
-        <Route path="/tournaments" element={ <Tournamentpage/> } />
+        <Route path="/blogs" element={ <Blogs/> } />
+
+        <Route path="/consult" element={ <ConsultantPage/> } />
         <Route  path="/profile2" element={ <Profilepagegames/> } />
         <Route  path="/profile2/posts/:_id" element={ <Profilepageposts/> } />
         <Route path="/profile2/about/:_id" element={ <Profilepage/> } />
@@ -62,11 +70,13 @@ function App() {
         <Route path="/loginas" element={ <Loginas/> } />
         {/* <Route path="/profile/posts" element={ <Profilepageposts/> } />
         <Route path="/profile/about" element={ <Profilepage/> } /> */}
-        <Route path="/players" element={ <Players/> } />
+        <Route path="/ngos" element={ <Ngos/> } />
         <Route path="/post/Profile" element={ <ProfilePictureUpload/> } />
         <Route path="/post/bg" element={ <BgPictureUpload/> } />
         <Route path="/post" element={ <Postpost/> } />
-
+        <Route path="/Speakup" element={ <Speakup/> } />
+        <Route path="/Speakups" element={ <Speakups/> } />
+        <Route path="/ai" element={ <Ai/> } />
         <Route path="/login" element={ <Login/> } />
 
         <Route path="/signup" element={ <Signup/> } />

@@ -43,6 +43,10 @@ module.exports = {
     "./src/components/post_page.js",
     "./src/components/teamnameform.js",
     "./src/components/teamcomp.js",
+    "./src/components/speakupcomp.js",
+    "./src/components/AI.js",
+    "./src/components/consultcard.js",
+    "./src/components/consultpage.js",
 
 
 

@@ -1,61 +1,64 @@
-import React from 'react'
-import './components.css'
-import { MdGamepad } from "react-icons/md";
-import { LuSwords } from "react-icons/lu";
-import { FaUserFriends } from "react-icons/fa";
-import profilebg from '../Images/profile_bg.png'
-import profilep from '../Images/profilep.png'
-import trophyp from '../Images/trophyp.svg'
+import React from 'react';
+import { MdPersonOutline } from 'react-icons/md';
+import { FaHandsHelping, FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import profilebg from '../Images/profile_bg.png';
+import './components.css';
 
-export default function Player(props) {
+export default function Ngo(props) {
   return (
-    <>
-    <Link to={`/other/${props.id}`} className='w-[10.5rem] mt-4 '>
-      <div className='w-[100%] h-[12.4rem]  bg-gradient-to-b from-[#000000] to-[#0fb0b81b] rounded-[10px] border-[1px] border-[#2c2c2c] glass3 '>
-        <div className='relative h-[5rem]'>
-        <img className='rounded-t-[10px] w-[100%] h-[3.8rem]'  src={profilebg}  alt="img" ></img>
-        <div className='absolute w-[100%] h-[0rem] flex justify-center items-center pl-2 bg-[red]'><div className=' h-[5rem] border-[#787878] border-[1px] w-[5rem] pro rounded-[100%] flex justify-center items-center mb-[1rem] '><img className=' rounded-[100%]  ' src={props.porfileimg}></img></div>
-</div>
-</div>
+    <Link to={`/other/${props.id}`} className="block w-[11.4rem] mt-4">
+      <div className="relative w-full h-[16rem] rounded-lg border bg-[#1b1b1b] border-[#2c2c2c] shadow-lg hover:shadow-2xl transition-shadow duration-300">
+        <div className="relative">
+          <img
+            className="rounded-t-lg w-full h-[4.5rem] object-cover"
+            src={profilebg}
+            alt="Background"
+          />
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-[4rem] h-[4rem] border-2 border-[#787878] rounded-full bg-white overflow-hidden">
+            <img
+              className="w-full h-full rounded-full object-cover"
+              src={props.porfileimg}
+              alt="Profile"
+            />
+          </div>
+        </div>
 
-<div className='w-[100%] flex flex-col justify-end items-center mt-[1rem]'>
-    <div className='text-[#ffffff] font-mochiy-pop text-[3vw] font-thin text-[#4cf8fb]' >{props.player}</div>
-    <div className=' font-medium text-[60%] h-[30%] flex items-center font-teachers text-[#b3b3b3] '>{props.realname}</div>
-  </div>
-       
+        <div className="mt-10 text-center px-2">
+          <div className="text-white font-semibold text-[1rem]">
+            {props.player}
+          </div>
+          <div className="text-[#b3b3b3] text-[0.8rem]">
+            {props.realname}
+          </div>
+        </div>
 
-  <div className=' h-[1.2rem] flex items-center pl-2 text-[10px] font-teachers text-[#828282]'>
- <div className='w-[1rem]'><MdGamepad style={{color:"#da4bfd"}} /></div>
-    Game:
-        <div className='w-[66%] flex  items-center text-[#656565] text-[10px] font-medium   '><div className=' w-full flex pl-2'>{props.game}</div></div>
-
-
+        <div className="mt-1 px-2 text-[#828282] text-[0.8rem]">
+          <div className="flex items-center justify-center">
+            <MdPersonOutline className="text-[#656565] mr-1" />
+            Director:
+            <span className="ml-1 text-[#b3b3b3] font-medium">
+              {props.director}
+            </span>
+          </div>
+          <div className="mt-1">
+            <div className="flex items-center justify-center mb-1">
+              <FaHandsHelping className="text-[#656565] mr-1" />
+              Followers:
+              <span className="ml-1 text-[#b3b3b3] font-medium">
+                {props.followersCount}
+              </span>
+            </div>
+            <div className="flex items-center justify-center">
+              <FaRegHeart className="text-[#656565] mr-1" />
+              Appreciations:
+              <span className="ml-1 text-[#b3b3b3] font-medium">
+                {props.followingCount}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-
-
-      <div className=' h-[1.2rem] font-teachers flex items-center pl-2 text-[10px] font-tea text-[#828282]'>
-     <div className='w-[1rem]'><LuSwords style={{color:"#4cff6d"}}/></div> 
-    Speciality:
-       {props.skill.slice(0,1).map((v)=>(<div className='text-[#656565] font-teachers text-[10px] pl-2'>{v.skill}</div>))} 
-
-
-      </div>
-
-<div className='w-full h-[1.2rem] flex justify-center items-center font-teachers'>
-{/* <div className='flex justify-center items-center text-[#656565] border-[#B4FF16] border-[0.6px] w-[50%] h-[1.5rem] font-medium rounded-[10px] text-[3vw] p-[3px]'>Follow</div> */}
-<div className='flex text-[10px] w-full pl-2 text-[#828282]'>
-<div className='w-[1rem]'><FaUserFriends style={{color:"#4efff6"}}/></div> 
-
-  <div className='w-[50%] flex pl-1'>Followers :{props.followersCount}</div>
-  <div className='w-[1rem]'><FaUserFriends style={{color:"#4efff6"}}/></div> 
-
-  <div className='w-[50%]'>Allies : {props.followingCount} </div>
-  </div>
-</div>
-
-
-      </div>
-    </Link></>
-  )
+    </Link>
+  );
 }

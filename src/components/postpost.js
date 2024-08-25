@@ -11,8 +11,8 @@ export default function Postpost ({ userId }){
   const [loading, setLoading] = useState(false);
 const [description,setdescription]=useState("");
   const [preview, setPreview] = useState('');
-  // const port = "http://localhost:5000";
-  const port = "https://thrive-backend-o6k3.onrender.com"
+  const port = "http://localhost:5000";
+  // const port = "https://thrive-backend-o6k3.onrender.com"
 
   const infoid = localStorage.getItem("infoid");
 

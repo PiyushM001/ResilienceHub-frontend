@@ -7,7 +7,7 @@ export default function Loginas() {
 
     }
     const signuporgfun=()=>{
-        toast("Can't sign up as organisation now")
+        toast("Can't sign up as Counsellor now")
        
     }
   return (
@@ -19,10 +19,10 @@ export default function Loginas() {
               
               <form class="space-y-4 md:space-y-6 " action="#">
                   <Link to="/signup" className='mt-[5rem]'>
-                  <button type="submit"  class="w-full bg-[#339989] text-[#0c0c0c] bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mary-600 bg-primary-700 ring-primary-800 border-[2px] ">Register as Player</button>
+                  <button type="submit"  class="w-full bg-[#339989] text-[#0c0c0c] bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mary-600 bg-primary-700 ring-primary-800 border-[2px] ">Register as NGO</button>
                   </Link>
                   <div>
-                  <button type="submit" onClick={signuporgfun} class="w-full bg-[#339989] text-[#0c0c0c]  hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mary-600 bg-primary-700 ring-primary-800 border-[2px] ">Register as Organisation</button>
+                  <button type="submit" onClick={signuporgfun} class="w-full bg-[#339989] text-[#0c0c0c]  hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mary-600 bg-primary-700 ring-primary-800 border-[2px] ">Register as Counsellor</button>
                   </div>
                   <div class="flex items-center justify-between">
                      

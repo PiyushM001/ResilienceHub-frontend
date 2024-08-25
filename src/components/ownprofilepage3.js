@@ -308,16 +308,15 @@ export default function Ownprofilepage() {
 
 
 
-
             <div className="flex  h-[5rem] justify-evenly items-center ">
               <div className="flex w-[94%] h-[4rem] justify-evenly items-center">
 
 
                 <div
                  onClick={handleClickToOpenFollowers}
-                  className=" border-[1px] font-teachers border-[#00fbff23] bg-[#00fbff09]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3"
+                  className=" font-teachers bg-[#272727]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] "
                 >
-                  <div>Followers</div>
+                  <div>Endorsing</div>
                   <div>{value.followersCount}</div>
                 </div>
 
@@ -326,19 +325,20 @@ export default function Ownprofilepage() {
                 <div
                  onClick={handleClickToOpenAllies}
 
-                  className=" border-[1px] font-teachers border-[#00fbff23] bg-[#00fbff09]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3"
+                  className=" font-teachers bg-[#272727]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] "
                 >
-                  <div>Allies</div>
+                  <div>Appreciations</div>
                   <div>{value.followingCount}</div>
                 </div>
 
-                <div className=" border-[1px] font-teachers border-[#00fbff20] bg-[#00fbff09]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3">
-                  <div>Tournaments</div>
+                <div className=" font-teachers bg-[#272727]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] ">
+                  <div>People Helped</div>
                   <div>0</div>
                 </div>
               </div>
             </div>
           </div>
+
 
 
 
@@ -370,7 +370,7 @@ export default function Ownprofilepage() {
               >
                 {" "}
                 <div className=" w-full flex justify-center text-[#656565] text-[3.5vw]">
-                  {value.game}
+                About  
                 </div>
               </Link>
 
@@ -381,7 +381,7 @@ export default function Ownprofilepage() {
                 to="/profile/about"
               >
                 {" "}
-                <div className="  text-[3.5vw] text-[#656565] ">About</div>
+                <div className="  text-[3.5vw] text-[#656565] ">{value.game}</div>
               </Link>
 
 
@@ -393,7 +393,7 @@ export default function Ownprofilepage() {
               >
                 {" "}
                 <div className="border-[#222222] w-full flex  justify-center text-[#B4FF16] font-mochiy-pop  text-[3.5vw]">
-                  Posts
+                  Blogs
                 </div>
               </Link>
             </div>
@@ -408,14 +408,14 @@ export default function Ownprofilepage() {
 
           <div className="w-full flex flex-col justify-center items-center bg-[#0a0a0a00]   ">
 
-          <Link to="/post" className="w-[100%] m-2 h-[7vh] flex justify-center items-center font-mochiy-pop text-[#dadada]  bg-[#0b24284a]"> + Add post </Link>
+          <Link to="/post" className="w-[100%] m-2 h-[7vh] flex justify-center items-center font-mochiy-pop text-[#dadada]  bg-[#0b24284a]"> + Add Blogs </Link>
 
 
           {mypostsarray.length === 0 ? (
                    <div className="h-[10rem] flex justify-center items-center">
                    <div className=" flex-col items-center h-[5rem]">
                    <img className="w-[4rem]" src={nopost}  alt="img" ></img>
-                   <div className="text-[1rem] text-[#7a7a7a]">No posts</div>
+                   <div className="text-[1rem] text-[#7a7a7a]">No Blogs</div>
                    </div>
                    </div>
                 ) : (

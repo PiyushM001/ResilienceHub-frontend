@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Footer from './footer';
 import Header from './header';
-import Player from './player';
+import Ngo from './player';
 import loadinggif from '../Images/loading.gif';
 import { pContext } from "../context/profilecontext";
 import { FaCaretLeft } from "react-icons/fa";
 import { FaCaretRight } from "react-icons/fa";
 
-export default function Players() {
+export default function Ngos() {
   const a = useContext(pContext);
   const { getplayers, users } = a;
 
@@ -54,7 +54,7 @@ export default function Players() {
           )}
           <div className='w-[98vw] mt-[10vh] mb-[12vh] flex flex-wrap justify-evenly'>
             {users.map((value) => (
-              <Player
+              <Ngo
                 key={value._id}
                 id={value._id}
                 player={value.IngameName}

@@ -294,31 +294,34 @@ export default function Ownprofilepage() {
 
             <div className="flex  h-[5rem] justify-evenly items-center ">
               <div className="flex w-[94%] h-[4rem] justify-evenly items-center">
+
+
                 <div
-                onClick={handleClickToOpenFollowers}
-                  to={`/followers/${_id}`}
-                  className=" border-[1px] font-teachers border-[#00fbff20] bg-[#00fbff09]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3 "
+                 onClick={handleClickToOpenFollowers}
+                  className=" font-teachers bg-[#272727]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] "
                 >
-                  <div>Followers</div>
+                  <div>Endorsing</div>
                   <div>{value.followersCount}</div>
                 </div>
 
+
+
                 <div
-                onClick={handleClickToOpenAllies}
-                  className=" border-[1px] font-teachers border-[#00fbff20] bg-[#00fbff09] w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3 "
+                 onClick={handleClickToOpenAllies}
+
+                  className=" font-teachers bg-[#272727]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] "
                 >
-                  <div>Allies</div>
+                  <div>Appreciations</div>
                   <div>{value.followingCount}</div>
                 </div>
 
-                <div className=" border-[1px] font-teachers border-[#00fbff20] bg-[#00fbff09]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] glass3 ">
-                  <div>Tournaments</div>
+                <div className=" font-teachers bg-[#272727]  w-[30%] h-[3rem] flex flex-col justify-center items-center text-[#a7a7a7] rounded-[10px] text-[3.5vw] ">
+                  <div>People Helped</div>
                   <div>0</div>
                 </div>
               </div>
             </div>
           </div>
-
 
 
 
@@ -352,7 +355,7 @@ export default function Ownprofilepage() {
               >
                 {" "}
                 <div className=" w-full flex justify-center text-[#656565] text-[3.5vw]">
-                  {value.game}
+                  About
                 </div>
               </Link>
 
@@ -363,7 +366,7 @@ export default function Ownprofilepage() {
                 to="/profile/about"
               >
                 {" "}
-                <div className="  text-[#B4FF16] text-[3.5vw] font-mochiy-pop ">About</div>
+                <div className="  text-[#B4FF16] text-[3.5vw] font-mochiy-pop ">{value.game}</div>
               </Link>
 
 
@@ -375,7 +378,7 @@ export default function Ownprofilepage() {
               >
                 {" "}
                 <div className="border-[#222222] w-full flex  justify-center text-[#656565]  text-[3.5vw]">
-                  Posts
+                  Blogs
                 </div>
               </Link>
             </div>
@@ -827,7 +830,7 @@ export default function Ownprofilepage() {
               </div>
             </div> */}
 
-
+{/* 
 <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
                 <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
@@ -871,7 +874,7 @@ export default function Ownprofilepage() {
               <div className="text-[#959595] font-teachers m-3 ml-7 font-light text-[3.5vw] from-inherit ">
                 {value.education}
               </div>
-            </div>
+            </div> */}
 
 
 
@@ -948,7 +951,7 @@ export default function Ownprofilepage() {
 <div className="w-[100%]  bg-gradient-to-r from-[#000000] to-[#0fafb813] mt-1 mb-[11vh]  border-[1px]  border-[#262626] ">
               <div className="flex h-[4rem]">
                 <div className="w-[40%] font-teachers text-[#37c5b0]   text-[1rem] ml-7 mt-2 flex items-center">
-                 Residence
+                 How to Reach
                 </div>
                 <div className="w-[60%] flex justify-end mr-4">
                   <div className=" flex items-center">

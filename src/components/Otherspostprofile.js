@@ -409,7 +409,7 @@ export default function Othersprofile() {
             >
               {" "}
               <div className=" w-full flex justify-center  text-[#656565] text-[3.5vw]">
-                {game}
+              About 
               </div>
             </Link>
 
@@ -418,7 +418,7 @@ export default function Othersprofile() {
               to={`/other/about/${_id}`}
             >
               {" "}
-              <div className=" text-[#656565] text-[3.5vw] ">About</div>
+              <div className=" text-[#656565] text-[3.5vw] ">{game}</div>
             </Link>
             <Link
               className=" w-full flex justify-center border-b-[2px] border-b-[#B4FF16] items-center "
@@ -426,7 +426,7 @@ export default function Othersprofile() {
             >
               {" "}
               <div className="border-[#222222] w-full flex justify-center text-[#B4FF16]  text-[3.5vw]">
-                Posts
+                Blogs
               </div>
             </Link>
           </div>

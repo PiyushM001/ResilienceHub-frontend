@@ -56,6 +56,7 @@ export default function Header() {
   useEffect(() => {
     if (path === '/players') {
       debouncedSearch(query);
+      setLoginState(true);
     }
   }, [query, debouncedSearch, path]);
 
@@ -100,7 +101,7 @@ const toasterr=()=>{
                   alt="img"
                 ></img>
               </div>
-              <div className="w-[100%] mt-1 headerbg bg-[#0c0c0c] border-b-[1px] border-[#222222] ">
+              <div className="w-[100%] mt-1  bg-[#0c0c0c] border-b-[1px] border-[#222222] ">
                 <div className="h-[30svh] w-[100%] flex-col justify-center  items-center">
                   <button
                     onClick={logoutfun}
@@ -108,7 +109,7 @@ const toasterr=()=>{
                   >
                    <IoLogOutOutline />  <span className='mx-2'> Logout</span>
                   </button>
-                  <div className=' text-[#ffffff] text-[5vw] font-teachers pl-10 flex-col items-center '>  Contact us  <div className='flex items-center text-[4vw]'><MdCall /> 9352403045</div> <div className='flex items-center text-[4vw]'><MdCall /> 6280070751</div></div>
+                  <div className=' text-[#ffffff] text-[5vw] font-teachers pl-10 flex-col items-center '>  Contact us  <div className='flex items-center text-[4vw]'><MdCall /> 9352403045</div> <div className='flex items-center text-[4vw]'></div></div>
                 </div>
               </div>
             </div>
@@ -122,17 +123,18 @@ const toasterr=()=>{
       )}
 
       {!loginState && (
+        <div>
         <Link to="/loginas">
-          <div className='border-[2px] border-[#B4FF16] rounded-[10px] pl-2 pr-2 pt-1 pb-1 text-[#ffffff] text-[3vw]'>
-            Register
-          </div>
+           <div className=' w-[100%] text-[#afafaf] font-mochiy-pop'>Login</div>
         </Link>
+        
+      </div>
       )}
 
       {path === "/players" ? (
         <div className='flex items-center bg-[#a7b9b75d] rounded-[5px]  border-2 border-[#2c2c2c] w-[55%]'>
           <input
-            placeholder="Search players..."
+            placeholder="Search NGO's..."
             className="bg-[#373737] w-[80%] rounded-[5px] text-[#ffffff] pl-3 m-1"
             value={query}
             onChange={handleSearchChange}
@@ -143,17 +145,29 @@ const toasterr=()=>{
           </button>
         </div>
       ) : (
-        <div className='text-[#ffffff] w-[55%] font-mochiy-pop'>TeamUp</div>
+       
+        <div className='text-[#ffffff] w-[60%] text-[10px] font-mochiy-pop'></div>
+       
+      
+        
+      )}
+       {!loginState  && (
+        <div>
+      
+         <Link to="/speakup">
+         <div className=' w-[100%] border-[1px] bg-[red] p-1 rounded-[10px] text-[#ffffff] font-mochiy-pop'>Raise-Voice</div>
+      </Link>
+      </div>
       )}
 
-      <Link to="/notification">
+      {/* <Link to="/notification">
         <div style={{ position: 'relative' }}>
           <img className='w-[5vw]' src={bell} alt="Notifications" />
           {NotificationCount > 0 && (
             <span className='notification-badge w-[12px] h-[12px] bg-[red] rounded-[100%] text-[#fbfbfb] text-[10px] absolute top-[-2px] right-[-2px] flex justify-center items-center '>{NotificationCount}</span>
           )}
         </div>
-      </Link>
+      </Link> */}
 
       {/* <img onClick={toasterr} className='w-[7vw]' src={chat} alt="Chat" /> */}
       <img

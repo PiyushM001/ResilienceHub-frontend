@@ -13,8 +13,8 @@ const ProfilePictureUpload = ({ userId }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
-  // const port = "http://localhost:5000";
-  const port = "https://thrive-backend-o6k3.onrender.com"
+  const port = "http://localhost:5000";
+  // const port = "https://thrive-backend-o6k3.onrender.com"
 
   const infoid = localStorage.getItem("infoid");
 

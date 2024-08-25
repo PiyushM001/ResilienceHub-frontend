@@ -139,7 +139,7 @@ const handleClose = () => {
             >
               {" "}
               <div className="border-[#222222] text-[#B4FF16] w-full flex justify-center text-[#656565]  text-[3.5vw]">
-                Posts
+                Blogssss
               </div>
             </Link>
           </div>

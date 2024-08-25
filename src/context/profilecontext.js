@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 // const host = process.env.port
 export const pContext = createContext();
 // const port = process.env.REACT_APP_PORT;
-// const port ="http://localhost:5000"
-const port = "https://thrive-backend-o6k3.onrender.com"
+const port ="http://localhost:5000"
+// const port = "https://thrive-backend-o6k3.onrender.com"
 
 export default function Profilecontext(props) {
   // const localtoken2 = localStorage.getItem("token");
@@ -68,6 +68,7 @@ const [checkteam,setcheckteam]= useState(" ");
   const [otherpostsarray, setotherpostsarray] = useState([]);
   const [tourarray, settourarray] = useState([]);
   const [tourdatailarray, settourdetailarray] = useState([]);
+  const [speakuparray, setspeakuparray] = useState([]);
   const [idpass,setidpass]=useState(true);
 
   let navigate = useNavigate();
@@ -92,6 +93,22 @@ const [checkteam,setcheckteam]= useState(" ");
     localStorage.setItem("MyGameName", data[0].IngameName);
     setfollowerRealName(data[0].RealName);
     setfollowerIngameName(data[0].IngameName);
+  };
+
+
+  const getspeakups = async () => {
+    const response = await fetch(`${port}/speakup`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      
+      },
+    }).catch((err) => {
+      toast(err);
+    });
+    const data = await response.json();
+    setspeakuparray(data);
+   
   };
 
 
@@ -991,7 +1008,7 @@ const [checkteam,setcheckteam]= useState(" ");
   return (
     <pContext.Provider
       value={{
-        chatfun,
+        chatfun,speakuparray,getspeakups,
         checkregistration,
         gettourdetail,
         idpass,
